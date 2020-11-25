@@ -1,0 +1,38 @@
+﻿@page
+@model Yggdrasil.Pages.Requests.RequestIndexModel
+@{
+    ViewData["Title"] = "RequestIndex";
+}
+<h3>Bestillinger</h3>
+
+<p>Antal bestillinger: @Model.Orders.Count</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+                <td>@item.Value.Id</td>
+                <td>@item.Value.Address </td>
+                <td>@item.Value.TimeWindow </td>
+                <td>@item.Value.TotalPrice </td>
+                <td>@item.Value.Comment </td>
+                <td><a asp-page="AcceptRequest" asp-route-id="@item.Key">Accepter bestilling</a></td>
+                <td>
+                    <ul style="list-style-type: none;">
+                        <li><a asp-page="EditOrder" asp-route-id="@item.Key">Rediger </a></li>
+                        <li><a asp-page="DeleteOrder" asp-route-id="@item.Key">Slet </a></li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
