@@ -1,0 +1,51 @@
+﻿@page
+@model Yggdrasil.Pages.User.IndexModel
+@{
+}
+
+<h1>Brugere</h1>
+<h1>Liste over brugere</h1>
+<p>
+    <a asp-page="CreateUser">Lav ny bruger</a>
+</p>
+<div>
+    <ul>
+        <li> Der er @Model.UserRepo.GetAllUsers().Count brugere</li>
+    </ul>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Fornavn
+            </th>
+            <th>
+                Efternavn
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Users)
+    {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                @item.ForeName
+            </td>
+            <td>
+                @item.SurName
+            </td>
+            <td>
+                <a asp-page="ViewUser" asp-route-Code="@item.Id">Se bruger</a> |
+                <a asp-page="DeleteUser" asp-route-Code="@item.Id">Slet</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
