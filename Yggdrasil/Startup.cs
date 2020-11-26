@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Repositories;
 
+
 namespace Yggdrasil
 {
     public class Startup
@@ -26,6 +27,8 @@ namespace Yggdrasil
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IUserRepository, FakeUserRepository>();
+
             services.AddTransient<IOrderRepository, OrderRepository>();
         }
 
