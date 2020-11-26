@@ -27,6 +27,8 @@ namespace Yggdrasil
         {
             services.AddRazorPages();
             services.AddSingleton<IUserRepository, FakeUserRepository>();
+
+            services.AddTransient<IOrderRepository, OrderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

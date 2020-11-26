@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 
-namespace Yggdrasil.Repositories
+namespace Yggdrasil.Services
 {
     public class OrderRepository : IOrderRepository
     {
