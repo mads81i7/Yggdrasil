@@ -3,25 +3,30 @@
 @{
 }
 <h1>Vareoversigt</h1>
-<h6>Antal varer i kurv : @Model.CartList.Count</h6>
 <table class="table">
     <thead>
-    <tr>
-        <th>Navn</th>
-        <th>Beskrivelse</th>
-        <th>Pris</th>
-    </tr>
+        <tr>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th>Type</th>
+            <th>Økologisk</th>
+            <th>Vegansk</th>
+            <th>Pris</th>
+        </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Wares)
         {
             <tr>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td>@item.Price kr.</td>
+                <td>@item.name</td>
+                <td>@item.description</td>
+                <td>@item.Type</td>
+                <td>@item.IsOrganic</td>
+                <td>@item.IsVegan</td>
+                <td>@item.price kr.</td>
                 <td>
                     <form method="post">
-                        <button asp-page-handler="Add" asp-route-Id="@item.Id" class="btn btn-success btn-group-lg pull-right">
+                        <button asp-page-handler="Add" asp-route-Id="@item.id" class="btn btn-success btn-group-lg pull-right">
                             tilføj til kurv
                         </button>
                     </form>

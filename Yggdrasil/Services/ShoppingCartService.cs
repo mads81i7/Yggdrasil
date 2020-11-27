@@ -23,7 +23,7 @@ namespace Yggdrasil.Services
         {
             foreach (Ware w in _waresInCart)
             {
-                if (w.Id == id)
+                if (w.id == id)
                 {
                     _waresInCart.Remove(w);
                     break;
@@ -36,7 +36,7 @@ namespace Yggdrasil.Services
             double totalPrice = 0;
             foreach (Ware w in _waresInCart)
             {
-                totalPrice = totalPrice + w.Price;
+                totalPrice = totalPrice + w.price;
             }
 
             return totalPrice;

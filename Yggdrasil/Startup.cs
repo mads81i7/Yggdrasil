@@ -26,7 +26,7 @@ namespace Yggdrasil
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ShoppingCartService>();
-            services.AddSingleton<>();
+            //services.AddSingleton<>();
             services.AddRazorPages();
             services.AddSingleton<IUserRepository, FakeUserRepository>();
 

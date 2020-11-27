@@ -8,6 +8,7 @@ namespace Yggdrasil.Interfaces
 {
     public interface IWares
     {
+
         List<Ware> GetAllWares();
         void AddWare(Ware ware);
         Ware GetWare(int Id);
