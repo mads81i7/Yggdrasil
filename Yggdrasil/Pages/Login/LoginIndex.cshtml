@@ -1,12 +1,13 @@
 ﻿@page
 @model Yggdrasil.Pages.Login.LoginIndexModel
 @{
+    ViewData["Title"] = "LoginIndex";
 }
 <h3>Log-in</h3>
 
-<h5>Log-in med eksisterende bruger:</h5>
+<h4>Log-in med eksisterende bruger:</h4>
 <form>
-    <label for="name">Brugernavn: </label><br>
+    <label for="name">Email: </label><br>
     <input type="text" id="name" name="name"><br>
     <label for="kode">Password:  </label><br>
     <input type="password" id="kode" name="kode"><br>
