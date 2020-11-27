@@ -1,0 +1,72 @@
+﻿@page
+@model Yggdrasil.Pages.User.CreateCourierModel
+@{
+}
+
+<h5>Antallet af bud er @Model.Couriers.Count</h5>
+
+<h6>Tilføj et nyt bud</h6>
+<form class="form-horizontal" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group" style="width:25%">
+        <label class="col-sm-2 control-label">Fornavn</label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Courier.FirstName" type="text" class="form-control">
+            <span asp-validation-for="@Model.Courier.FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div style="width:25%" class="form-group">
+        <label class="col-sm-2 control-label">Efternavn</label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Courier.LastName" type="text" class="form-control">
+            <span asp-validation-for="@Model.Courier.LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div style="width:25%" class="form-group">
+        <label class="col-sm-2 control-label">Adresse</label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Courier.AddressLine1" type="text" class="form-control">
+            <span asp-validation-for="@Model.Courier.AddressLine1" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div style="width:25%" class="form-group">
+        <label class="col-sm-2 control-label">Postnummer</label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Courier.PostalCode" type="number" class="form-control">
+            <span asp-validation-for="@Model.Courier.PostalCode" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div style="width:25%" class="form-group">
+        <label class="col-sm-2 control-label">By</label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Courier.City" type="text" class="form-control">
+            <span asp-validation-for="@Model.Courier.City" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div style="width:25%" class="form-group">
+        <label class="col-sm-2 control-label">Telefonnummer</label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Courier.PhoneNo" type="text" class="form-control">
+            <span asp-validation-for="@Model.Courier.PhoneNo" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div style="width:25%" class="form-group">
+        <label class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Courier.EMail" type="email" class="form-control">
+            <span asp-validation-for="@Model.Courier.EMail" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="border-light">
+                Tilføj bud
+            </button>
+        </div>
+    </div>
+</form>

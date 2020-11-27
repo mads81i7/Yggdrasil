@@ -1,16 +1,16 @@
 ﻿@page
-@model Yggdrasil.Pages.User.IndexModel
+@model Yggdrasil.Pages.User.CustomerIndexModel
 @{
 }
 
-<h1>Brugere</h1>
-<h1>Liste over brugere</h1>
+<h1>Kunder</h1>
+<h1>Liste over kunder</h1>
 <p>
-    <a asp-page="CreateUser">Lav ny bruger</a>
+    <a asp-page="CreateCustomer">Opret ny kunde</a>
 </p>
 <div>
     <ul>
-        <li> Der er @Model.UserRepo.GetAllUsers().Count brugere</li>
+        <li> Der er @Model.CustomerRepo.GetAllCustomers().Count kunder</li>
     </ul>
 </div>
 
@@ -26,24 +26,26 @@
             <th>
                 Efternavn
             </th>
+            <th>
+                Email
+            </th>
         </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Users)
+    @foreach (var item in Model.Customers)
     {
         <tr>
             <td>
-                @item.Id
+                @item.ID
             </td>
             <td>
-                @item.ForeName
+                @item.FirstName
             </td>
             <td>
-                @item.SurName
+                @item.LastName
             </td>
             <td>
-                <a asp-page="ViewUser" asp-route-Code="@item.Id">Se bruger</a> |
-                <a asp-page="DeleteUser" asp-route-Code="@item.Id">Slet</a>
+                @item.EMail
             </td>
         </tr>
     }
