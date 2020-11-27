@@ -28,6 +28,9 @@ namespace Yggdrasil
             services.AddSingleton<ShoppingCartService>();
             services.AddSingleton<IWares, TO_BE_DELETED_WareCatalog>();
             services.AddRazorPages();
+            services.AddSingleton<IUserRepository, FakeUserRepository>();
+
+            services.AddTransient<IOrderRepository, OrderRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
