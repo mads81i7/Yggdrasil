@@ -6,9 +6,10 @@ using Yggdrasil.Models;
 
 namespace Yggdrasil.Interfaces
 {
-    public interface IUserRepository
+    public interface ICourierRepository
     {
-        public string GetUserForeName(int id);
-        List<User> GetAllUsers();
+        List<Courier> GetAllCouriers();
+        void AddCourier(Courier courier);
+        public Courier GetCourier(int id);
     }
 }

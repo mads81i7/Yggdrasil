@@ -26,8 +26,8 @@ namespace Yggdrasil
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddSingleton<IUserRepository, FakeUserRepository>();
-
+            services.AddTransient<ICourierRepository, JsonCourierRepository>();
+            services.AddTransient<ICustomerRepository, JsonCustomerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
         }
 

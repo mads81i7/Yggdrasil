@@ -9,20 +9,20 @@ using Yggdrasil.Models;
 
 namespace Yggdrasil.Pages.User
 {
-    public class IndexModel : PageModel
+    public class CustomerIndexModel : PageModel
     {
-        public IUserRepository UserRepo { get; }
+        public ICustomerRepository CustomerRepo { get; }
 
-        public IndexModel(IUserRepository repository)
+        public CustomerIndexModel(ICustomerRepository repository)
         {
-            UserRepo = repository;
+            CustomerRepo = repository;
         }
 
-        public List<Models.User> Users { get; private set; }
+        public List<Models.Customer> Customers { get; private set; }
 
         public IActionResult OnGet()
         {
-            Users = UserRepo.GetAllUsers();
+            Customers = CustomerRepo.GetAllCustomers();
             return Page();
         }
     }
