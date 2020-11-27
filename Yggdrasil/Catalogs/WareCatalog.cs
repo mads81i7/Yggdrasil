@@ -13,7 +13,7 @@ namespace Yggdrasil.Catalogs
         public WareCatalog()
         {
             wares = new List<Ware>();
-
         }
+
     }
 }
