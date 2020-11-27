@@ -19,9 +19,16 @@ namespace Yggdrasil.Services
         {
             _waresInCart.Add(ware);
         }
-        public void DeleteWare(Ware ware)
+        public void DeleteWare(int id)
         {
-            _waresInCart.Remove(ware);
+            foreach (Ware w in _waresInCart)
+            {
+                if (w.Id == id)
+                {
+                    _waresInCart.Remove(w);
+                    break;
+                }
+            }
         }
 
         public double CalculateTotalPrice()
@@ -33,6 +40,11 @@ namespace Yggdrasil.Services
             }
 
             return totalPrice;
+        }
+
+        public List<Ware> GetOrderedWares()
+        {
+            return _waresInCart;
         }
     }
 }

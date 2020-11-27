@@ -2,14 +2,14 @@
 @model Yggdrasil.Pages.Orders.AllWaresModel
 @{
 }
-
-<h1>All Wares</h1>
+<h1>Vareoversigt</h1>
+<h6>Antal varer i kurv : @Model.CartList.Count</h6>
 <table class="table">
     <thead>
     <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
+        <th>Navn</th>
+        <th>Beskrivelse</th>
+        <th>Pris</th>
     </tr>
     </thead>
     <tbody>
@@ -20,10 +20,11 @@
                 <td>@item.Description</td>
                 <td>@item.Price kr.</td>
                 <td>
-                    <a asp-page="/Orders/shoppingCart" asp-route-isbn="@item.Name"
-                       class="btn btn-success btn-group-lg pull-right">
-                        Add To Cart
-                    </a>
+                    <form method="post">
+                        <button asp-page-handler="Add" asp-route-Id="@item.Id" class="btn btn-success btn-group-lg pull-right">
+                            tilføj til kurv
+                        </button>
+                    </form>
                 </td>
             </tr>
         }

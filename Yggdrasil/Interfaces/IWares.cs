@@ -10,6 +10,6 @@ namespace Yggdrasil.Interfaces
     {
         List<Ware> GetAllWares();
         void AddWare(Ware ware);
-        Ware GetWare(string name);
+        Ware GetWare(int Id);
     }
 }
