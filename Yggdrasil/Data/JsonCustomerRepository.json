@@ -9,5 +9,16 @@
     "PostalCode": 8405,
     "PhoneNo": "39458985",
     "EMail": "joasjfd@ksjdfk.dkfj"
+  },
+  {
+    "ID": 2,
+    "FirstName": "Jonathan",
+    "LastName": "Thomassen",
+    "AddressLine1": "Sønderby Bro 40",
+    "AddressLine2": null,
+    "City": "Skibby",
+    "PostalCode": 4050,
+    "PhoneNo": "+4541681494",
+    "EMail": "jonatho@gmail.com"
   }
 ]
