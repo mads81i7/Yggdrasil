@@ -13,14 +13,14 @@ namespace Yggdrasil.Pages.Orders
     public class shoppingCartModel : PageModel
     {
         public ShoppingCartService itemsInCart;
-        private IWares repo;
+        private IWareCatalog repo;
         [BindProperty]
         public Ware ware { get; set; }
 
         public List<Ware> Wares { get; set; }
 
 
-        public shoppingCartModel(ShoppingCartService shoppingService, IWares wareRepo)
+        public shoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo)
         {
             itemsInCart = shoppingService;
             repo = wareRepo;

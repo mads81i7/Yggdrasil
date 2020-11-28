@@ -2,3 +2,55 @@
 @model Yggdrasil.Pages.Wares.GetAllWaresModel
 @{
 }
+
+<h1>Get All Wares</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+            Organic
+        </th>
+        <th>
+            Vegan
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Wares)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+            <td>@item.Type</td>
+            <td>@item.IsOrganic</td>
+            <td>@item.IsVegan</td>
+            <td><img src="~/Images/@item.ImageName" width="60" height="70"></td>
+            <td>
+                <form method="post">
+                    <button asp-page-handler="Add" asp-route-Id="@item.Id" class="btn btn-success btn-group-lg pull-right">
+                        tilføj til kurv
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

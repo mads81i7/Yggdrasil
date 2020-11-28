@@ -8,8 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Yggdrasil.Catalogs;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Services;
+
 
 namespace Yggdrasil
 {
@@ -26,10 +28,10 @@ namespace Yggdrasil
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ShoppingCartService>();
-            //services.AddSingleton<>();
+            services.AddSingleton<IWareCatalog, WareCatalog>();
             services.AddRazorPages();
-            services.AddSingleton<IUserRepository, FakeUserRepository>();
-
+            services.AddTransient<ICourierRepository, JsonCourierRepository>();
+            services.AddTransient<ICustomerRepository, JsonCustomerRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
         }
 

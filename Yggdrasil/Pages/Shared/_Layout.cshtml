@@ -8,61 +8,62 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Yggdrasil</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Hjem</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Requests/RequestIndex">Bestillinger</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/User/Index">Brugere</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Orders/AllWares">Vareoversigt</a>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Orders/shoppingCart">Kurv</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" asp-area="" asp-page="/Order">
-                                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
-                                </svg>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
-                                <p>Items in order will be displayed here</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <div class="container-fluid">
+        <a asp-page="/Login/LoginIndex" class="float-right" style="font-size: larger">Log-in</a><a asp-page="/Login/SignUp" class="float-right" style="font-size: larger">Opret</a>
+        <a asp-page="/Index"><img src="/Images/titleSmall.png" class="yggtitle mx-auto d-block" style="width: auto" height="170" /></a>
+
     </div>
 
-    <footer class="border-top footer text-muted">
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
-            &copy; 2020 - Yggdrasil - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <a class="navbar-brand" asp-area="" asp-page="/Index">Yggdrasil</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Hjem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Requests/RequestIndex">Bestillinger</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/User/CustomerIndex">Kunder</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/User/CourierIndex">Bud</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Wares/GetAllWares">Varer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/Orders/shoppingCart">Kurv</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </footer>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2020 - Yggdrasil - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </div>
+</footer>
 
-    @RenderSection("Scripts", required: false)
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@RenderSection("Scripts", required: false)
 </body>
 </html>

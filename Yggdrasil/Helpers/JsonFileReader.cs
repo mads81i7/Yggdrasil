@@ -1,18 +1,27 @@
-﻿using System;
+﻿using Yggdrasil.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Yggdrasil.Models;
 
-namespace Yggdrasil.Helpers
+namespace Yggdrasil
 {
     public class JsonFileReader
     {
-        //public static List<Ware> ReadJson(string filePath)
-        //{
-        //    string jsonString = File.ReadAllText(filePath);
-        //    return JsonConvert.
-        //}
+        public static List<Customer> ReadJsonCustomer(string jsonFileName)
+        {
+            string jsonString = File.ReadAllText(jsonFileName);
+
+            return JsonSerializer.Deserialize<List<Customer>>(jsonString);
+        }
+
+        public static List<Courier> ReadJsonCourier(string JsonFileName)
+        {
+            string jsonString = File.ReadAllText(JsonFileName);
+
+            return JsonSerializer.Deserialize<List<Courier>>(jsonString);
+        }
     }
 }

@@ -6,11 +6,10 @@ using Yggdrasil.Models;
 
 namespace Yggdrasil.Interfaces
 {
-    public interface IWares
+    public interface IWareCatalog
     {
-
-        List<Ware> GetAllWares();
-        void AddWare(Ware ware);
-        Ware GetWare(int Id);
+        public List<Ware> AllWares();
+        public void AddWare(Ware ware);
+        public Ware GetWare(int id);
     }
 }

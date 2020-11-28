@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Yggdrasil.Pages.User
+namespace Yggdrasil.Pages.Login
 {
-    public class CreateUserModel : PageModel
+    public class SignUpModel : PageModel
     {
         public void OnGet()
         {
