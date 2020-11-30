@@ -1,0 +1,50 @@
+[
+  {
+    "ID": 1,
+    "UserType": 0,
+    "FirstName": "Jonathan",
+    "MiddleName": "Yannick",
+    "LastName": "Thomassen",
+    "EmailAddress": "blah@blah.blah",
+    "BirthDate": "1990-03-12T00:00:00",
+    "Password": "asdfgh",
+    "PasswordCheck": "asdfgh",
+    "AddressLine1": "Blahblah 2",
+    "AddressLine2": null,
+    "PostalCode": 5000,
+    "City": "Blahblahblah",
+    "PhoneNo": "23344556"
+  },
+  {
+    "ID": 2,
+    "UserType": 0,
+    "FirstName": "Anders",
+    "MiddleName": null,
+    "LastName": "And",
+    "EmailAddress": "anders.and@andeby.dk",
+    "BirthDate": "2020-11-06T00:00:00",
+    "Password": "andemanden",
+    "PasswordCheck": "andemanden",
+    "AddressLine1": "Andegade 313",
+    "AddressLine2": null,
+    "PostalCode": 7200,
+    "City": "Andeby",
+    "PhoneNo": "00112233"
+  },
+  {
+    "ID": 3,
+    "UserType": 1,
+    "FirstName": "adsf",
+    "MiddleName": "adsf",
+    "LastName": "sfd",
+    "EmailAddress": "jonatho@gmail.com",
+    "BirthDate": "0901-03-12T00:00:00",
+    "Password": "asdfjklæ",
+    "PasswordCheck": "asdfjklæ",
+    "AddressLine1": "Sønderby Bro 40",
+    "AddressLine2": null,
+    "PostalCode": 4050,
+    "City": "Skibby",
+    "PhoneNo": "41681494"
+  }
+]
