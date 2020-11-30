@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Yggdrasil.Catalogs;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Services;
 
@@ -26,6 +27,8 @@ namespace Yggdrasil
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ShoppingCartService>();
+            services.AddSingleton<IWareCatalog, WareCatalog>();
             services.AddRazorPages();
             services.AddTransient<ICourierRepository, JsonCourierRepository>();
             services.AddTransient<ICustomerRepository, JsonCustomerRepository>();
