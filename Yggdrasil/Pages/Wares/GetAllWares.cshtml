@@ -5,8 +5,6 @@
 
 <h1>Get All Wares</h1>
 
-<p>
-
 <table class="table">
     <thead>
     <tr>
@@ -37,29 +35,20 @@
     @foreach (var item in Model.Wares)
     {
         <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+            <td>@item.Type</td>
+            <td>@item.IsOrganic</td>
+            <td>@item.IsVegan</td>
+            <td><img src="~/Images/@item.ImageName" width="60" height="70"></td>
             <td>
-                @item.Id
-            </td>
-            <td>
-                @item.Name
-            </td>
-            <td>
-                @item.Description
-            </td>
-            <td>
-                @item.Price
-            </td>
-            <td>
-                @item.Type
-            </td>
-            <td>
-                @item.IsOrganic
-            </td>
-            <td>
-                @item.IsVegan
-            </td>
-            <td>
-                <img src="~/Images/@item.ImageName" width="60" height="70">
+                <form method="post">
+                    <button asp-page-handler="Add" asp-route-Id="@item.Id" class="btn btn-success btn-group-lg pull-right">
+                        tilføj til kurv
+                    </button>
+                </form>
             </td>
         </tr>
     }

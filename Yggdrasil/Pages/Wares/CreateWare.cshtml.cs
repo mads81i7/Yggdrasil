@@ -5,19 +5,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Catalogs;
+using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 
 namespace Yggdrasil.Pages.Wares
 {
     public class CreateWareModel : PageModel
     {
-        private WareCatalog catalog;
+        private IWareCatalog catalog;
         [BindProperty]
         public Ware Ware { get; set; }
 
-        public CreateWareModel()
+        public CreateWareModel(IWareCatalog cata)
         {
-            catalog = WareCatalog.Instance;
+            catalog = cata;
         }
         public IActionResult OnGet()
         {
