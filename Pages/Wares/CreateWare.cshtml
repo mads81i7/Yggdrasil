@@ -1,0 +1,56 @@
+﻿@page
+@model Yggdrasil.Pages.Wares.CreateWareModel
+@{ ViewData["Titale"] = "Create Ware";
+}
+
+<h1>Create Ware</h1>
+
+<form method="post">
+    
+    <div class="form-group">
+        <label asp-for="@Model.Ware.Id" class="control-label"> Id </label>
+        <input asp-for="@Model.Ware.Id" class="form-control" />
+        <span asp-validation-for="@Model.Ware.Id"  class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Ware.Name" class="control-label">Name </label>
+        <input asp-for="@Model.Ware.Name" class="form-control" />
+        <span asp-validation-for="@Model.Ware.Name"  class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Ware.Description" class="control-label">Description</label>
+        <input asp-for="@Model.Ware.Description" class="form-control" />
+        <span asp-validation-for="@Model.Ware.Description"   class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Ware.Price" class="control-label">Price</label>
+        <input asp-for="@Model.Ware.Price" class="form-control" />
+        <span asp-validation-for="@Model.Ware.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Ware.Type" class="control-label">Type</label>
+        <input asp-for="@Model.Ware.Type" class="form-control" />
+        <span asp-validation-for="@Model.Ware.Type"  class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Ware.IsOrganic" class="control-label">IsOrganic</label>
+        <input asp-for="@Model.Ware.IsOrganic" class="form-control" />
+        <span asp-validation-for="@Model.Ware.IsOrganic"   class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Ware.IsVegan" class="control-label">IsVegan</label>
+        <input asp-for="@Model.Ware.IsVegan" class="form-control" />
+        <span asp-validation-for="@Model.Ware.IsVegan" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Ware.ImageName" class="control-label"> ImageName </label>
+        <input asp-for="@Model.Ware.ImageName" class="form-control" />
+        <span asp-validation-for="@Model.Ware.ImageName"  class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
