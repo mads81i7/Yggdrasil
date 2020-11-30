@@ -65,7 +65,8 @@ namespace Yggdrasil.Services
                     if (o.Id == order.Id)
                     {
                         o.Address = order.Address;
-                        o.TimeWindow = order.TimeWindow;
+                        o.DateTimeFrom = order.DateTimeFrom;
+                        o.DateTimeTo = order.DateTimeTo;
                         o.TotalPrice = order.TotalPrice;
                         o.Comment = order.Comment;
                     }

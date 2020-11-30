@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 0,
+    "Name": "Vand",
+    "Price": 6.0,
+    "Description": "Det her er vand",
+    "Type": 4,
+    "IsVegan": true,
+    "IsOrganic": true,
+    "ImageName": "Vand.jpg"
+  },
+  {
+    "Id": 1,
+    "Name": "Pizza",
+    "Price": 35.0,
+    "Description": "Det her er en Pizza",
+    "Type": 2,
+    "IsVegan": false,
+    "IsOrganic": false,
+    "ImageName": "Pizza.jpg"
+  },
+  {
+    "Id": 2,
+    "Name": "Mango",
+    "Price": 20.0,
+    "Description": "Dette er en Mango",
+    "Type": 2,
+    "IsVegan": true,
+    "IsOrganic": true,
+    "ImageName": "Mango.jpg"
+  }
+]

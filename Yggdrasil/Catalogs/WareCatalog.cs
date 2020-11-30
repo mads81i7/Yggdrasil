@@ -27,7 +27,6 @@ namespace Yggdrasil.Catalogs
         private int WareId = 2;
         public void AddWare(Ware ware)
         {
-
             wares.Add(ware);
             ware.Id = WareId;
             WareId++;
