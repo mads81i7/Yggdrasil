@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yggdrasil", "Yggdrasil.csproj", "{5320126C-2E92-480B-9A16-29AFB53F596B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yggdrasil", "Yggdrasil\Yggdrasil.csproj", "{A920ABE6-25F2-404A-9429-F173E08EA35A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5320126C-2E92-480B-9A16-29AFB53F596B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5320126C-2E92-480B-9A16-29AFB53F596B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5320126C-2E92-480B-9A16-29AFB53F596B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5320126C-2E92-480B-9A16-29AFB53F596B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A920ABE6-25F2-404A-9429-F173E08EA35A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A920ABE6-25F2-404A-9429-F173E08EA35A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A920ABE6-25F2-404A-9429-F173E08EA35A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A920ABE6-25F2-404A-9429-F173E08EA35A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AE8C0225-8904-45A0-8E8F-1245B745B50F}
+		SolutionGuid = {9077A92B-54A2-41D0-909E-1DF0B6506B10}
 	EndGlobalSection
 EndGlobal
