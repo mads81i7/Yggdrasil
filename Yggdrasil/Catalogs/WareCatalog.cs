@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 using Yggdrasil.Pages.Wares;
 
 namespace Yggdrasil.Catalogs
 {
-    public class WareCatalog
+    public class WareCatalog: IWareCatalog
     {
         private  List<Ware> wares { get; }
-        private static WareCatalog _instance;
 
         public WareCatalog()
         {
@@ -19,20 +19,6 @@ namespace Yggdrasil.Catalogs
             wares.Add(new Ware() {Id = 1, Name = "Baked Beans", IsVegan = true, Price = 15, Type = WareType.Canned, Description = "A tin of beans", IsOrganic = false, ImageName = ""});
 
         }
-
-        public static WareCatalog Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new WareCatalog();
-                }
-
-                return _instance;
-            }
-        }
-
         public List<Ware> AllWares()
         {
             return wares;
@@ -45,6 +31,19 @@ namespace Yggdrasil.Catalogs
             wares.Add(ware);
             ware.Id = WareId;
             WareId++;
+        }
+
+        public Ware GetWare(int id)
+        {
+            foreach (Ware w in wares)
+            {
+                if (w.Id == id)
+                {
+                    return w;
+                }
+            }
+
+            return null;
         }
     }
 }
