@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Yggdrasil.Services
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,14 +12,16 @@
 
     <div class="container-fluid">
         <a asp-page="/Login/LoginIndex" class="float-right" style="font-size: larger">Log-in</a><p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p><a asp-page="/Login/SignUp" class="float-right" style="font-size: larger">Opret</a>
-        <a asp-page="/Index"><img src="/Images/titleSmall.png" class="yggtitle mx-auto d-block" style="width: auto" height="170" /></a>
-
+        
+        <div style="text-align: center">
+        <a asp-page="/Index"><img src="/Images/titleSmall.png" class="yggtitle mx-auto d-inline" style="width: auto" height="170" /></a>
+        </div>
     </div>
 
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-default navbar-expand-sm navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3" role="navigation">
         <div class="container">
-            <a class="navbar-brand" asp-area="" asp-page="/Index">Yggdrasil</a>
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,11 +43,22 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Wares/GetAllWares">Varer</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Orders/shoppingCart">Kurv</a>
-                    </li>
                 </ul>
-            </div>
+                </div>
+            <ul class="nav navbar-nav navbar-collapse collapse">
+                <li class="ml-auto mr-1 dropdown">
+                    <a class="nav-link text-light dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                        </svg> Kurv
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="text-center">Action</li>
+                        <li class="text-center">Another action</li>
+                        <li><a class="dropdown-item" asp-area="" asp-page="/Orders/shoppingCart">Gå ind i kurven</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </nav>
 </header>
