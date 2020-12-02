@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.Json;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace Yggdrasil
 {
@@ -22,6 +24,12 @@ namespace Yggdrasil
             string jsonString = File.ReadAllText(JsonFileName);
 
             return JsonSerializer.Deserialize<List<Courier>>(jsonString);
+        }
+
+        public static List<Ware> ReadJsonWare(string JsonFileName)
+        {
+            string jsonString = File.ReadAllText(JsonFileName);
+            return JsonSerializer.Deserialize<List<Ware>>(jsonString);
         }
     }
 }

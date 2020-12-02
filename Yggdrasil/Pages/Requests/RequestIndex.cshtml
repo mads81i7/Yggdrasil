@@ -10,10 +10,11 @@
     <thead>
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Image</th>
+            <th>Addresse</th>
+            <th>Fra</th>
+            <th>Til</th>
+            <th>Total Pris</th>
+            <th>Kommentar</th>
         </tr>
     </thead>
     <tbody>
@@ -22,7 +23,8 @@
             <tr>
                 <td>@item.Value.Id</td>
                 <td>@item.Value.Address </td>
-                <td>@item.Value.TimeWindow </td>
+                <td>@item.Value.DateTimeFrom </td>
+                <td>@item.Value.DateTimeTo</td>
                 <td>@item.Value.TotalPrice </td>
                 <td>@item.Value.Comment </td>
                 <td><a asp-page="AcceptRequest" asp-route-id="@item.Key">Accepter bestilling</a></td>

@@ -2,3 +2,42 @@
 @model Yggdrasil.Pages.Orders.CheckOutModel
 @{
 }
+<h1>Check ud</h1>
+<form class="form-horizontal" method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div class="form-group">
+        <label asp-for="@Model.Order.Address" class="control-label"></label>
+        <div>
+            <input asp-for="@Model.Order.Address" type="text" class="form-control">
+            <span asp-validation-for="@Model.Order.Address" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Order.Comment" class="control-label"></label>
+        <div>
+            <textarea asp-for="@Model.Order.Comment" rows="5" cols="50"></textarea>
+            <span asp-validation-for="@Model.Order.Comment" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Leverings tidsrum</label>
+        <div>
+            <p>
+                <input asp-for="@Model.Order.DateTimeFrom" />
+                <span asp-validation-for="@Model.Order.DateTimeFrom" class="text-danger"></span>
+                <input asp-for="@Model.Order.DateTimeTo" />
+                <span asp-validation-for="@Model.Order.DateTimeTo" class="text-danger"></span>
+            </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="border-light">
+                Bestil
+            </button>
+        </div>
+    </div>
+</form>

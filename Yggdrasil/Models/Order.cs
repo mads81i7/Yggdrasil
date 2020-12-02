@@ -8,7 +8,9 @@ namespace Yggdrasil.Models
     public class Order
     {
         public int Id { get; set; }
-        public DateTime TimeWindow { get; set; }
+        public List<Ware> OrderedWares { get; set; }
+        public DateTime DateTimeFrom { get; set; }
+        public DateTime DateTimeTo { get; set; }
         public string Address { get; set; }
         public double TotalPrice { get; set; }
         public string Comment { get; set; }
