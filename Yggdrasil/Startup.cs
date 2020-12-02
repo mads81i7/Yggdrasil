@@ -32,6 +32,7 @@ namespace Yggdrasil
             services.AddSingleton<ShoppingCartService>();
             services.AddSingleton<IWareCatalog, JsonWareRepository>();
             services.AddSingleton<IOrderRepository, OrderRepository>();
+            services.AddSingleton<LoginService>();
 
             services.AddTransient<IUserRepository, JsonUserRepository>();
         }
