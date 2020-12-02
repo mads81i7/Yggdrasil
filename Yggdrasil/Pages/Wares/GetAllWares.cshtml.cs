@@ -22,8 +22,10 @@ namespace Yggdrasil.Pages.Wares
         }
         public List<Ware> Wares { get; private set; }
         public List<Ware> CartList { get; private set; }
+
         [BindProperty]
         public Ware ware { get; set; }
+
         public IActionResult OnGet()
         {
             Wares = catalog.AllWares();

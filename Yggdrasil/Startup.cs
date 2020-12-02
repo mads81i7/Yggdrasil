@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Yggdrasil.Catalogs;
 using Yggdrasil.Interfaces;
+using Yggdrasil.Models;
 using Yggdrasil.Services;
 
 
