@@ -1,16 +1,31 @@
 ﻿@page
+@using Yggdrasil.Models
 @model Yggdrasil.Pages.Login.LoginIndexModel
+
 @{
     ViewData["Title"] = "LoginIndex";
 }
 <h3>Log-in</h3>
 
 <h4>Log-in med eksisterende bruger:</h4>
-<form>
-    <label for="name">Email: </label><br>
-    <input type="text" id="name" name="name"><br>
-    <label for="kode">Password:  </label><br>
-    <input type="password" id="kode" name="kode"><br>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="User.EmailAddress" class="control-label"></label>
+        <input asp-for="User.EmailAddress" class="form-control" />
+        <span asp-validation-for="User.EmailAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Password" class="control-label"></label>
+        <input asp-for="User.Password" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Log ind" class="btn btn-primary" />
+    </div>
 </form>
+
 <p></p>
 <p>Har du ingen bruger?<a class="nav-link text-dark" asp-area="" asp-page="/Login/SignUp"> Sign up her!</a></p>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
