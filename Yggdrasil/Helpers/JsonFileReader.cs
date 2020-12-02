@@ -12,20 +12,11 @@ namespace Yggdrasil
 {
     public class JsonFileReader
     {
-        public static List<Customer> ReadJsonCustomer(string jsonFileName)
+        public static List<User> ReadJsonUser(string jsonFileName)
         {
             string jsonString = File.ReadAllText(jsonFileName);
-
-            return JsonSerializer.Deserialize<List<Customer>>(jsonString);
+            return JsonSerializer.Deserialize<List<User>>(jsonString);
         }
-
-        public static List<Courier> ReadJsonCourier(string JsonFileName)
-        {
-            string jsonString = File.ReadAllText(JsonFileName);
-
-            return JsonSerializer.Deserialize<List<Courier>>(jsonString);
-        }
-
         public static List<Ware> ReadJsonWare(string JsonFileName)
         {
             string jsonString = File.ReadAllText(JsonFileName);
