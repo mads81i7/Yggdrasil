@@ -18,14 +18,17 @@ for details on configuring this project to bundle and minify static web assets. 
     border-radius: 2px;
 }
 
-.noti .badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    padding: 5px 10px;
-    border-radius: 50%;
-    background: blue;
-    color: white;
+    .noti .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        background: #2462e5;
+        color: white;
+    }
+.btn {
+    background: #2462e5;
 }
 
 
