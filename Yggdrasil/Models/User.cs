@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Yggdrasil.Models
 {
+    public enum UserTypes { Admin, Courier, Customer, }
+
     public class User
     {
         public int ID { get; set; }
