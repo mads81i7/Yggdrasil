@@ -10,7 +10,23 @@ for details on configuring this project to bundle and minify static web assets. 
     display: inline;
 }
 
+.noti {
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+}
 
+.noti .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: blue;
+    color: white;
+}
 
 
 
