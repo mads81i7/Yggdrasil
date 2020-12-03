@@ -1,17 +1,21 @@
 ﻿@page
-@model Yggdrasil.Pages.Users.DeleteModel
-
+@model Yggdrasil.Pages.Profile.IndexModel
 @{
-    ViewData["Title"] = "Slet bruger";
+    ViewData["Title"] = "Profil";
 }
 
-<h1>Slet bruger</h1>
+<h1>Profil</h1>
 
-<h3>Er du sikker på du vil slette denne bruger?</h3>
 <div>
-    <h4>Bruger</h4>
+    <h4>Detaljer</h4>
     <hr />
     <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.UserType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.UserType)
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.User.FullName)
         </dt>
@@ -29,12 +33,6 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.BirthDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Password)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.Password)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.User.AddressLine1)
@@ -67,10 +65,7 @@
             @Html.DisplayFor(model => model.User.PhoneNo)
         </dd>
     </dl>
-    
-    <form method="post">
-        <input type="hidden" asp-for="User.ID" />
-        <input type="submit" value="Slet" class="btn btn-danger" /> |
-        <a asp-page="./Index">Tilbage til oversigten</a>
-    </form>
+</div>
+<div>
+    <a asp-page="/Users/Edit" asp-route-id="@Model.User.ID">Redigér</a>
 </div>
