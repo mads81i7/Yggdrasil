@@ -1,9 +1,15 @@
 ﻿@page
+@using Newtonsoft.Json.Linq
+@using System.Diagnostics.Eventing.Reader
 @model Yggdrasil.Pages.Wares.GetAllWaresModel
 @{
 }
 
 <h1>Varer</h1>
+
+<p>
+    <a asp-page="CreateWare" class="btn btn-success btn-group-sm">Tilføj ny vare</a>
+</p>
 
 <table class="table">
     <thead>
@@ -12,22 +18,22 @@
             Id
         </th>
         <th>
-            Name
+            Navn
         </th>
         <th>
-            Description
+            Beskrivelse
         </th>
         <th>
-            Price
+            Pris
         </th>
         <th>
             Type
         </th>
         <th>
-            Organic
+            Økologisk
         </th>
         <th>
-            Vegan
+            Vegansk
         </th>
     </tr>
     </thead>
@@ -38,11 +44,29 @@
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Description</td>
-            <td>@item.Price</td>
+            <td>@item.Price kr.</td>
             <td>@item.Type</td>
-            <td>@item.IsOrganic</td>
-            <td>@item.IsVegan</td>
-            <td><img src="~/Images/@item.ImageName" width="60" height="70"></td>
+            <td>
+                @if (item.IsOrganic == true)
+                {
+                    <p>Ja</p>
+                }
+                else
+                {
+                    <p>Nej</p>
+                }
+            </td>
+            <td>
+                @if (item.IsVegan == true)
+                {
+                    <p>Ja</p>
+                }
+                else
+                {
+                    <p>Nej</p>
+                }
+            </td>
+            <td><img src="~/Images/@item.ImageName" width="90" height="70"></td>
             <td>
                 <form method="post">
                     <button asp-page-handler="Add" asp-route-Id="@item.Id" class="btn btn-success btn-group-lg pull-right">

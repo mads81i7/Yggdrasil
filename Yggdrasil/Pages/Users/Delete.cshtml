@@ -1,0 +1,88 @@
+﻿@page
+@model Yggdrasil.Pages.Users.DeleteModel
+
+@{
+    ViewData["Title"] = "Slet bruger";
+}
+
+<h1>Slet bruger</h1>
+
+<h3>Er du sikker på du vil slette denne bruger?</h3>
+<div>
+    <h4>Bruger</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.MiddleName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.MiddleName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.EmailAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.EmailAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.BirthDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.BirthDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.Password)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Password)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.AddressLine1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.AddressLine1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.AddressLine2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.AddressLine2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.PostalCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.PostalCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.PhoneNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.PhoneNo)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="User.ID" />
+        <input type="submit" value="Slet" class="btn btn-danger" /> |
+        <a asp-page="./Index">Tilbage til oversigten</a>
+    </form>
+</div>

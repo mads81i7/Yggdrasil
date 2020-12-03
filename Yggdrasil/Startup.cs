@@ -27,12 +27,14 @@ namespace Yggdrasil
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ShoppingCartService>();
-            services.AddSingleton<IWareCatalog, WareCatalog>();
             services.AddRazorPages();
-            services.AddTransient<ICourierRepository, JsonCourierRepository>();
-            services.AddTransient<ICustomerRepository, JsonCustomerRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
+
+            services.AddSingleton<ShoppingCartService>();
+            services.AddSingleton<IWareCatalog, JsonWareRepository>();
+            services.AddSingleton<IOrderRepository, OrderRepository>();
+            services.AddSingleton<LoginService>();
+
+            services.AddTransient<IUserRepository, JsonUserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

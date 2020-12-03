@@ -16,13 +16,15 @@ namespace Yggdrasil.Pages.Wares
         [BindProperty]
         public Ware Ware { get; set; }
 
+        public List<Ware> Wares { get; set; }   
+
         public CreateWareModel(IWareCatalog cata)
         {
             catalog = cata;
         }
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            return Page();
+            Wares = catalog.AllWares();
         }
 
         public IActionResult OnPost()
@@ -33,7 +35,7 @@ namespace Yggdrasil.Pages.Wares
             }
 
             catalog.AddWare(Ware);
-
+            Wares = catalog.AllWares();
             return RedirectToPage("GetAllWares");
         }
     }

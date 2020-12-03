@@ -1,0 +1,96 @@
+﻿@page
+@using Yggdrasil.Models
+@model Yggdrasil.Pages.Users.CreateModel
+
+@{
+    ViewData["Title"] = "Opret bruger";
+}
+
+<h1>Opret</h1>
+
+<h4>Bruger</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="User.UserType" class="control-label"></label><br />
+                <input type="radio" asp-for="User.UserType" value="@UserTypes.Customer" />Kunde
+                <input type="radio" asp-for="User.UserType" value="@UserTypes.Courier" />Bud
+                <span asp-validation-for="User.UserType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.FirstName" class="control-label"></label>
+                <input asp-for="User.FirstName" class="form-control" />
+                <span asp-validation-for="User.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.MiddleName" class="control-label"></label>
+                <input asp-for="User.MiddleName" class="form-control" />
+                <span asp-validation-for="User.MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.LastName" class="control-label"></label>
+                <input asp-for="User.LastName" class="form-control" />
+                <span asp-validation-for="User.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.EmailAddress" class="control-label"></label>
+                <input asp-for="User.EmailAddress" class="form-control" />
+                <span asp-validation-for="User.EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.BirthDate" class="control-label"></label>
+                <input asp-for="User.BirthDate" class="form-control" />
+                <span asp-validation-for="User.BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Password" class="control-label"></label>
+                <input asp-for="User.Password" class="form-control" />
+                <span asp-validation-for="User.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.PasswordCheck" class="control-label"></label>
+                <input asp-for="User.PasswordCheck" class="form-control" />
+                <span asp-validation-for="User.PasswordCheck" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.AddressLine1" class="control-label"></label>
+                <input asp-for="User.AddressLine1" class="form-control" />
+                <span asp-validation-for="User.AddressLine1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.AddressLine2" class="control-label"></label>
+                <input asp-for="User.AddressLine2" class="form-control" />
+                <span asp-validation-for="User.AddressLine2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.PostalCode" class="control-label"></label>
+                <input asp-for="User.PostalCode" class="form-control" />
+                <span asp-validation-for="User.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.City" class="control-label"></label>
+                <input asp-for="User.City" class="form-control" />
+                <span asp-validation-for="User.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.PhoneNo" class="control-label"></label>
+                <input asp-for="User.PhoneNo" class="form-control" />
+                <span asp-validation-for="User.PhoneNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Opret" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Tilbage til oversigt</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
