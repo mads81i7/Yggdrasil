@@ -42,7 +42,7 @@ namespace Yggdrasil.Pages.Login
                         return RedirectToPage("/Index");
                     }
 
-                    return RedirectToPage("SignUp");
+                    return Page();
                 }
             }
 
