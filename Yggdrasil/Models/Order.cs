@@ -15,6 +15,7 @@ namespace Yggdrasil.Models
         public double TotalPrice { get; set; }
         public string Comment { get; set; }
         public bool Done { get; set; }
+        public User User { get; set; }
 
         public Order()
         {

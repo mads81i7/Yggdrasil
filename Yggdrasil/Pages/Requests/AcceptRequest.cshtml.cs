@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
+using Yggdrasil.Services;
 
 namespace Yggdrasil.Pages.Requests
 {
@@ -13,14 +14,19 @@ namespace Yggdrasil.Pages.Requests
     {
         public Dictionary<int, Order> acceptedOrders { get; set; }
         private IOrderRepository repo;
+        //private LoginService loginService;
 
         [BindProperty(SupportsGet = true)]
         private Order Order { get; set; }
 
-        public AcceptRequestModel(IOrderRepository repository)
+        //public User User { get; set; }
+
+        public AcceptRequestModel(IOrderRepository repository, LoginService log)
         {
             repo = repository;
-            acceptedOrders = new Dictionary<int, Order>();
+            //loginService = log;
+            //User = loginService.GetLoggedInUser();
+            //acceptedOrders = User.UserOrders;
         }
         public void OnGet(int id)
         {
