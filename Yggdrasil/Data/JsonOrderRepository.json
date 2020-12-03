@@ -1,0 +1,84 @@
+[
+  {
+    "Id": 10,
+    "OrderedWares": [
+      {
+        "Id": 0,
+        "Name": "Vand",
+        "Price": 6.0,
+        "Description": "Det her er vand",
+        "Type": 4,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Vand.jpg"
+      },
+      {
+        "Id": 1,
+        "Name": "Pizza",
+        "Price": 35.0,
+        "Description": "Det her er en Pizza",
+        "Type": 2,
+        "IsVegan": false,
+        "IsOrganic": false,
+        "ImageName": "Pizza.jpg"
+      },
+      {
+        "Id": 2,
+        "Name": "Mango",
+        "Price": 20.0,
+        "Description": "Dette er en Mango",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Mango.jpg"
+      }
+    ],
+    "DateTimeFrom": "2020-12-19T13:26:00",
+    "DateTimeTo": "2021-01-10T13:26:00",
+    "Address": "q31231",
+    "TotalPrice": 61.0,
+    "Comment": "123456",
+    "Done": false
+  },
+  {
+    "Id": 11,
+    "OrderedWares": [
+      {
+        "Id": 0,
+        "Name": "Vand",
+        "Price": 6.0,
+        "Description": "Det her er vand",
+        "Type": 4,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Vand.jpg"
+      },
+      {
+        "Id": 1,
+        "Name": "Pizza",
+        "Price": 35.0,
+        "Description": "Det her er en Pizza",
+        "Type": 2,
+        "IsVegan": false,
+        "IsOrganic": false,
+        "ImageName": "Pizza.jpg"
+      },
+      {
+        "Id": 2,
+        "Name": "Mango",
+        "Price": 20.0,
+        "Description": "Dette er en Mango",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Mango.jpg"
+      }
+    ],
+    "DateTimeFrom": "2021-01-09T13:27:00",
+    "DateTimeTo": "2021-01-10T13:27:00",
+    "Address": "86745312",
+    "TotalPrice": 61.0,
+    "Comment": "79864531",
+    "Done": false
+  }
+]
