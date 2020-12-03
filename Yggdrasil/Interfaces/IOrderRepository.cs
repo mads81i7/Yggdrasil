@@ -8,8 +8,8 @@ namespace Yggdrasil.Interfaces
 {
     public interface IOrderRepository
     {
-        Dictionary<int, Order> AllOrders();
-        Dictionary<int, Order> FilterOrders();
+        List<Order> AllOrders();
+        List<Order> FilterOrders();
         void AddOrder(Order or);
         Order GetOrder(int id);
         void EditOrder(Order order);

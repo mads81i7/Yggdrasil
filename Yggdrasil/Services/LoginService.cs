@@ -10,10 +10,6 @@ namespace Yggdrasil.Services
     {
         private User _loggedInUser;
 
-        public LoginService()
-        {
-        }
-
         public void UserLogin(User user)
         {
             _loggedInUser = user;

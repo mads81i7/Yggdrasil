@@ -1,14 +1,13 @@
 ﻿@page
-@model Yggdrasil.Pages.Users.DetailsModel
-
+@model Yggdrasil.Pages.Profile.IndexModel
 @{
-    ViewData["Title"] = "Brugerdetaljer";
+    ViewData["Title"] = "Profil";
 }
 
-<h1>Brugerdetaljer</h1>
+<h1>Profil</h1>
 
 <div>
-    <h4>Bruger</h4>
+    <h4>Detaljer</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -34,12 +33,6 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.BirthDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Password)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.Password)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.User.AddressLine1)
@@ -74,6 +67,5 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.User.ID">Redigér</a> |
-    <a asp-page="./Index">Tilbage til oversigt</a>
+    <a asp-page="/Users/Edit" asp-route-id="@Model.User.ID">Redigér</a>
 </div>

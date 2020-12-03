@@ -40,5 +40,21 @@
     "PostalCode": 4050,
     "City": "Skibby",
     "PhoneNo": "41681494"
+  },
+  {
+    "ID": 4,
+    "UserType": 2,
+    "FirstName": "King",
+    "MiddleName": null,
+    "LastName": "Ganondorf",
+    "EmailAddress": "rulerofhyrule@hotmail.com",
+    "BirthDate": "2009-06-03T00:00:00",
+    "Password": "princesszeldaismine",
+    "PasswordCheck": "princesszeldaismine",
+    "AddressLine1": "Castle 1",
+    "AddressLine2": null,
+    "PostalCode": 4040,
+    "City": "Hyrule",
+    "PhoneNo": "2342ja23"
   }
 ]
