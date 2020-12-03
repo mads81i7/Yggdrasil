@@ -12,7 +12,7 @@ namespace Yggdrasil.Pages.Requests
     public class RequestIndexModel : PageModel
     {
         private IOrderRepository repo;
-        public List<Order> Orders { get; set; }
+        public Dictionary<int, Order> Orders { get; set; }
 
         public RequestIndexModel(IOrderRepository repository)
         {
