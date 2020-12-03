@@ -8,7 +8,7 @@
 <h1>Varer</h1>
 
 <p>
-    <a asp-page="CreateWare" class="btn btn-success btn-group-sm">Tilføj ny vare</a>
+    <a asp-page="CreateWare" class="btn btn-dark btn-group-sm">Tilføj ny vare</a>
 </p>
 
 <table class="table">
@@ -69,7 +69,7 @@
             <td><img src="~/Images/@item.ImageName" width="90" height="70"></td>
             <td>
                 <form method="post">
-                    <button asp-page-handler="Add" asp-route-Id="@item.Id" class="btn btn-success btn-group-lg pull-right">
+                    <button asp-page-handler="Add" asp-route-Id="@item.Id" class="btn btn-dark btn-group-lg pull-right">
                         tilføj til kurv
                     </button>
                 </form>
