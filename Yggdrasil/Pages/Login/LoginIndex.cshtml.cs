@@ -38,11 +38,11 @@ namespace Yggdrasil.Pages.Login
                 {
                     if (user.Password == User.Password)
                     {
-                        _loginService.UserLogin(User);
+                        _loginService.UserLogin(user);
                         return RedirectToPage("/Index");
                     }
 
-                    return RedirectToPage("SignUp");
+                    return Page();
                 }
             }
 

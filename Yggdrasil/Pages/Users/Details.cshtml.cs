@@ -18,6 +18,7 @@ namespace Yggdrasil.Pages.Users
             _repository = repository;
         }
 
+        [BindProperty]
         public User User { get; set; }
 
         public IActionResult OnGet(int? id)
