@@ -1,15 +1,5 @@
 [
   {
-    "Id": 0,
-    "OrderedWares": null,
-    "DateTimeFrom": "0001-01-01T00:00:00",
-    "DateTimeTo": "0001-01-01T00:00:00",
-    "Address": null,
-    "TotalPrice": 0.0,
-    "Comment": null,
-    "Done": false
-  },
-  {
     "Id": 10,
     "OrderedWares": [
       {
