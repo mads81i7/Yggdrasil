@@ -18,14 +18,8 @@ namespace Yggdrasil.Models
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Brugertype")]
         public UserTypes UserType { get; set; }
 
-        [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Fornavn")]
-        public string FirstName { get; set; }
-
-        [BindProperty, Display(Name = "Mellemnavn")]
-        public string MiddleName { get; set; }
-
-        [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Efternavn")]
-        public string LastName { get; set; }
+        [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Fulde navn")]
+        public string FullName { get; set; }
 
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), EmailAddress(ErrorMessage = "Indtast en gyldig e-mail-adresse"), Display(Name = "Email")]
         public string EmailAddress { get; set; }

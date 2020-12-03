@@ -15,19 +15,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="User.ID" />
             <div class="form-group">
-                <label asp-for="User.FirstName" class="control-label"></label>
-                <input asp-for="User.FirstName" class="form-control" />
-                <span asp-validation-for="User.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.MiddleName" class="control-label"></label>
-                <input asp-for="User.MiddleName" class="form-control" />
-                <span asp-validation-for="User.MiddleName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.LastName" class="control-label"></label>
-                <input asp-for="User.LastName" class="form-control" />
-                <span asp-validation-for="User.LastName" class="text-danger"></span>
+                <label asp-for="User.FullName" class="control-label"></label>
+                <input asp-for="User.FullName" class="form-control" />
+                <span asp-validation-for="User.FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="User.EmailAddress" class="control-label"></label>
