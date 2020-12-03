@@ -2,9 +2,7 @@
   {
     "ID": 1,
     "UserType": 0,
-    "FirstName": "Jonathan",
-    "MiddleName": "Yannick",
-    "LastName": "Thomassen",
+    "FullName": "Jonathan Yannick Thomassen",
     "EmailAddress": "blah@blah.blah",
     "BirthDate": "1990-03-12T00:00:00",
     "Password": "asdfgh",
@@ -18,9 +16,7 @@
   {
     "ID": 2,
     "UserType": 0,
-    "FirstName": "Anders",
-    "MiddleName": null,
-    "LastName": "And",
+    "FullName": "Anders And",
     "EmailAddress": "anders.and@andeby.dk",
     "BirthDate": "2020-11-06T00:00:00",
     "Password": "andemanden",
@@ -34,9 +30,7 @@
   {
     "ID": 3,
     "UserType": 1,
-    "FirstName": "adsf",
-    "MiddleName": "adsf",
-    "LastName": "sfd",
+    "FullName": "adsf adsf sfd",
     "EmailAddress": "jonatho@gmail.com",
     "BirthDate": "0901-03-12T00:00:00",
     "Password": "asdfjklæ",
