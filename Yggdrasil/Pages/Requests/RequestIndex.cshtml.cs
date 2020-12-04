@@ -14,7 +14,9 @@ namespace Yggdrasil.Pages.Requests
     {
         private IOrderRepository repo;
         public List<Order> Orders { get; set; }
-        public User User1 { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string Criteria { get; set; }
 
         public RequestIndexModel(IOrderRepository repository, LoginService log)
         {
@@ -23,7 +25,7 @@ namespace Yggdrasil.Pages.Requests
 
         public void OnGet()
         {
-            Orders = repo.AllOrders();
+            Orders = repo.FilterOrders(Criteria);
         }
     }
 }
