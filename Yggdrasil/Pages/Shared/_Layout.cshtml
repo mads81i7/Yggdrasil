@@ -1,5 +1,4 @@
 ﻿@using Yggdrasil.Services
-@using Microsoft.AspNetCore.Mvc.RazorPages
 @using Yggdrasil.Models
 @inject ShoppingCartService ItemsInCart
 @inject LoginService LoginService
@@ -18,7 +17,7 @@
     @{
         if (LoginService.GetLoggedInUser() != null)
         {
-            <a href="" onclick="@{LoginService.UserLogOut();} window.location.reload(true)" class="float-right" style="font-size: larger">Log ud</a>
+            <a asp-page="/Users/Logout" class="float-right" style="font-size: larger">Log ud</a>
             <p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
             <a asp-page="/Profile/Index" class="float-right" style="font-size: larger">@LoginService.GetLoggedInUser().EmailAddress</a>
         }
