@@ -1,27 +1,7 @@
 [
   {
-    "Id": 10,
+    "Id": 1,
     "OrderedWares": [
-      {
-        "Id": 0,
-        "Name": "Vand",
-        "Price": 6.0,
-        "Description": "Det her er vand",
-        "Type": 4,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "Vand.jpg"
-      },
-      {
-        "Id": 1,
-        "Name": "Pizza",
-        "Price": 35.0,
-        "Description": "Det her er en Pizza",
-        "Type": 2,
-        "IsVegan": false,
-        "IsOrganic": false,
-        "ImageName": "Pizza.jpg"
-      },
       {
         "Id": 2,
         "Name": "Mango",
@@ -33,26 +13,31 @@
         "ImageName": "Mango.jpg"
       }
     ],
-    "DateTimeFrom": "2020-12-19T13:26:00",
-    "DateTimeTo": "2021-01-10T13:26:00",
-    "Address": "q31231",
-    "TotalPrice": 61.0,
-    "Comment": "123456",
-    "Done": false
+    "DateTimeFrom": "2020-12-04T10:18:00",
+    "DateTimeTo": "2020-12-04T12:18:00",
+    "Address": "Derovre",
+    "TotalPrice": 20.0,
+    "Comment": "rdttf",
+    "Done": false,
+    "User": {
+      "ID": 5,
+      "UserType": 2,
+      "FullName": "Mads Horsted Brunebjerg",
+      "EmailAddress": "MadsBrunebjerg@mail.dk",
+      "BirthDate": "1996-08-11T00:00:00",
+      "Password": "adgangskode",
+      "PasswordCheck": "adgangskode",
+      "AddressLine1": "Adresse",
+      "AddressLine2": null,
+      "PostalCode": 2600,
+      "City": "Glostrup",
+      "PhoneNo": "10101010",
+      "UserOrders": []
+    }
   },
   {
-    "Id": 11,
+    "Id": 2,
     "OrderedWares": [
-      {
-        "Id": 0,
-        "Name": "Vand",
-        "Price": 6.0,
-        "Description": "Det her er vand",
-        "Type": 4,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "Vand.jpg"
-      },
       {
         "Id": 1,
         "Name": "Pizza",
@@ -74,11 +59,82 @@
         "ImageName": "Mango.jpg"
       }
     ],
-    "DateTimeFrom": "2021-01-09T13:27:00",
-    "DateTimeTo": "2021-01-10T13:27:00",
-    "Address": "86745312",
-    "TotalPrice": 61.0,
-    "Comment": "79864531",
-    "Done": false
+    "DateTimeFrom": "2020-12-04T10:26:00",
+    "DateTimeTo": "2020-12-04T12:26:00",
+    "Address": "Derovre",
+    "TotalPrice": 55.0,
+    "Comment": "fkhjbk",
+    "Done": false,
+    "User": {
+      "ID": 5,
+      "UserType": 2,
+      "FullName": "Mads Horsted Brunebjerg",
+      "EmailAddress": "MadsBrunebjerg@mail.dk",
+      "BirthDate": "1996-08-11T00:00:00",
+      "Password": "adgangskode",
+      "PasswordCheck": "adgangskode",
+      "AddressLine1": "Adresse",
+      "AddressLine2": null,
+      "PostalCode": 2600,
+      "City": "Glostrup",
+      "PhoneNo": "10101010",
+      "UserOrders": []
+    }
+  },
+  {
+    "Id": 3,
+    "OrderedWares": [
+      {
+        "Id": 2,
+        "Name": "Mango",
+        "Price": 20.0,
+        "Description": "Dette er en Mango",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Mango.jpg"
+      },
+      {
+        "Id": 3,
+        "Name": "Ice tea",
+        "Price": 15.0,
+        "Description": "dette er en ice tea",
+        "Type": 4,
+        "IsVegan": false,
+        "IsOrganic": true,
+        "ImageName": null
+      },
+      {
+        "Id": 1,
+        "Name": "Pizza",
+        "Price": 35.0,
+        "Description": "Det her er en Pizza",
+        "Type": 2,
+        "IsVegan": false,
+        "IsOrganic": false,
+        "ImageName": "Pizza.jpg"
+      }
+    ],
+    "DateTimeFrom": "2020-12-04T10:29:00",
+    "DateTimeTo": "2020-12-04T12:29:00",
+    "Address": "jk",
+    "TotalPrice": 70.0,
+    "Comment": "jvh",
+    "Done": false,
+    "User": {
+      "ID": 5,
+      "UserType": 2,
+      "FullName": "Mads Horsted Brunebjerg",
+      "EmailAddress": "MadsBrunebjerg@mail.dk",
+      "BirthDate": "1996-08-11T00:00:00",
+      "Password": "adgangskode",
+      "PasswordCheck": "adgangskode",
+      "AddressLine1": "Adresse",
+      "AddressLine2": null,
+      "PostalCode": 2600,
+      "City": "Glostrup",
+      "PhoneNo": "10101010",
+      "UserOrders": []
+    }
   }
 ]

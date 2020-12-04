@@ -12,7 +12,7 @@
     "PostalCode": 5000,
     "City": "Blahblahblah",
     "PhoneNo": "23344556",
-    "UserOrders": null
+    "UserOrders": []
   },
   {
     "ID": 2,
@@ -27,7 +27,7 @@
     "PostalCode": 7200,
     "City": "Andeby",
     "PhoneNo": "00112233",
-    "UserOrders": null
+    "UserOrders": []
   },
   {
     "ID": 3,
@@ -41,7 +41,8 @@
     "AddressLine2": null,
     "PostalCode": 4050,
     "City": "Skibby",
-    "PhoneNo": "41681494"
+    "PhoneNo": "41681494",
+    "UserOrders": []
   },
   {
     "ID": 4,
@@ -55,6 +56,37 @@
     "AddressLine2": null,
     "PostalCode": 4040,
     "City": "Hyrule",
-    "PhoneNo": "2342ja23"
+    "PhoneNo": "2342ja23",
+    "UserOrders": []
+  },
+  {
+    "ID": 5,
+    "UserType": 2,
+    "FullName": "Mads Horsted Brunebjerg",
+    "EmailAddress": "MadsBrunebjerg@mail.dk",
+    "BirthDate": "1996-08-11T00:00:00",
+    "Password": "adgangskode",
+    "PasswordCheck": "adgangskode",
+    "AddressLine1": "Adresse",
+    "AddressLine2": null,
+    "PostalCode": 2600,
+    "City": "Glostrup",
+    "PhoneNo": "10101010",
+    "UserOrders": []
+  },
+  {
+    "ID": 6,
+    "UserType": 0,
+    "FullName": "AdminMads",
+    "EmailAddress": "MadsBrunebjerg@mail.com",
+    "BirthDate": "1990-08-04T00:00:00",
+    "Password": "adgangskode",
+    "PasswordCheck": "adgangskode",
+    "AddressLine1": "Adresse",
+    "AddressLine2": null,
+    "PostalCode": 2600,
+    "City": "Glostrup",
+    "PhoneNo": "10101010",
+    "UserOrders": []
   }
 ]

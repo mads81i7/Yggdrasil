@@ -1,15 +1,19 @@
 ﻿@page
 @using Newtonsoft.Json.Linq
 @using System.Diagnostics.Eventing.Reader
+@using Yggdrasil.Models
+@using Yggdrasil.Services
 @model Yggdrasil.Pages.Wares.GetAllWaresModel
 @{
 }
 
 <h1>Varer</h1>
-
-<p>
-    <a asp-page="CreateWare" class="button btn btn-dark btn-group-sm">Tilføj ny vare</a>
-</p>
+@if (Model.IsAdmin == true)
+{
+    <p>
+        <a asp-page="CreateWare" class="button btn btn-dark btn-group-sm">Tilføj ny vare</a>
+    </p>
+}
 
 <table class="table">
     <thead>

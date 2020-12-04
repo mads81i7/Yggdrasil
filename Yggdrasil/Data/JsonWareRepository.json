@@ -28,5 +28,15 @@
     "IsVegan": true,
     "IsOrganic": true,
     "ImageName": "Mango.jpg"
+  },
+  {
+    "Id": 3,
+    "Name": "Ice tea",
+    "Price": 15.0,
+    "Description": "dette er en ice tea",
+    "Type": 4,
+    "IsVegan": false,
+    "IsOrganic": true,
+    "ImageName": null
   }
 ]

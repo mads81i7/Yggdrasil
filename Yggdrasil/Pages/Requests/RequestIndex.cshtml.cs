@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
+using Yggdrasil.Services;
 
 namespace Yggdrasil.Pages.Requests
 {
@@ -13,8 +14,9 @@ namespace Yggdrasil.Pages.Requests
     {
         private IOrderRepository repo;
         public List<Order> Orders { get; set; }
+        public User User1 { get; set; }
 
-        public RequestIndexModel(IOrderRepository repository)
+        public RequestIndexModel(IOrderRepository repository, LoginService log)
         {
             repo = repository;
         }

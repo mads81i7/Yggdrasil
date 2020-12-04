@@ -5,7 +5,7 @@
 }
 
 <h3>Accepterede bestillinger</h3>
-<p>Antal bestillinger: @Model.acceptedOrders.Count</p>
+<p>Antal bestillinger: @Model.AcceptedOrders.Count</p>
 <table class="table">
     <thead>
     <tr>
@@ -18,17 +18,17 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.acceptedOrders)
+    @foreach (var item in Model.AcceptedOrders)
     {
         <tr>
-            <td>@item.Value.Id</td>
-            <td>@item.Value.Address </td>
-            <td>@item.Value.DateTimeFrom </td>
-            <td>@item.Value.DateTimeTo</td>
-            <td>@item.Value.TotalPrice </td>
-            <td>@item.Value.Comment </td>
+            <td>@item.Id</td>
+            <td>@item.Address </td>
+            <td>@item.DateTimeFrom </td>
+            <td>@item.DateTimeTo</td>
+            <td>@item.TotalPrice </td>
+            <td>@item.Comment </td>
             <td>
-                <a asp-page="DeleteOrder" asp-route-id="@item.Key">Slet </a>
+                <a asp-page="DeleteOrder" asp-route-id="@item.Id">Slet </a>
             </td>
         </tr>
     }
