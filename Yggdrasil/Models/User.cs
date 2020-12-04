@@ -31,6 +31,9 @@ namespace Yggdrasil.Models
         public string Password { get; set; }
 
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), DataType(DataType.Password), Display(Name = "Gentag adgangskode"), Compare(nameof(Password), ErrorMessage = "Adgangskoderne er ikke ens.")]
+        public string Password2 { get; set; }
+
+        [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), DataType(DataType.Password), Display(Name = "Adgangskode")]
         public string PasswordCheck { get; set; }
 
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Adresse (1)")]

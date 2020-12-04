@@ -36,7 +36,7 @@ namespace Yggdrasil.Pages.Login
             {
                 if (user.EmailAddress == User.EmailAddress)
                 {
-                    if (user.Password == User.Password)
+                    if (user.Password == User.PasswordCheck)
                     {
                         _loginService.UserLogin(user);
                         return RedirectToPage("/Index");

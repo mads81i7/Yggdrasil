@@ -29,10 +29,10 @@ namespace Yggdrasil
             services.AddRazorPages();
 
             services.AddSingleton<ShoppingCartService>();
-            services.AddSingleton<IWareCatalog, JsonWareRepository>();
-            services.AddSingleton<IOrderRepository, JsonOrderRepository>();
             services.AddSingleton<LoginService>();
 
+            services.AddTransient<IWareCatalog, JsonWareRepository>();
+            services.AddTransient<IOrderRepository, JsonOrderRepository>();
             services.AddTransient<IUserRepository, JsonUserRepository>();
         }
 

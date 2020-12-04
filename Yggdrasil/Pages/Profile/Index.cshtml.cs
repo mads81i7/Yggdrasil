@@ -9,7 +9,7 @@ namespace Yggdrasil.Pages.Profile
     public class IndexModel : PageModel
     {
         private readonly IUserRepository _repository;
-        private readonly LoginService _loginService;
+        public readonly LoginService _loginService;
 
         public IndexModel(IUserRepository repository, LoginService loginService)
         {
@@ -29,6 +29,13 @@ namespace Yggdrasil.Pages.Profile
                 return RedirectToPage("/Login/LoginIndex");
             }
             return Page();
+        }
+
+        public IActionResult OnGetLogOut()
+        {
+            _loginService.UserLogOut();
+
+            return RedirectToPage("/Index");
         }
     }
 }
