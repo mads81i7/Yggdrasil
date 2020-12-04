@@ -28,5 +28,75 @@
     "IsVegan": true,
     "IsOrganic": true,
     "ImageName": "Mango.jpg"
+  },
+  {
+    "Id": 3,
+    "Name": "Mælk",
+    "Price": 8.5,
+    "Description": "Dette er mælk",
+    "Type": 0,
+    "IsVegan": false,
+    "IsOrganic": true,
+    "ImageName": "maelk.jpg"
+  },
+  {
+    "Id": 4,
+    "Name": "Rugbrød",
+    "Price": 18.0,
+    "Description": "Dette er et rugbrød",
+    "Type": 2,
+    "IsVegan": true,
+    "IsOrganic": true,
+    "ImageName": "rugbroed.jpg"
+  },
+  {
+    "Id": 5,
+    "Name": "Salat",
+    "Price": 14.0,
+    "Description": "Dette er et Iceberg salathoved",
+    "Type": 2,
+    "IsVegan": true,
+    "IsOrganic": true,
+    "ImageName": "iceberg.jpg"
+  },
+  {
+    "Id": 6,
+    "Name": "Tomat",
+    "Price": 15.0,
+    "Description": "Dette er en pakke tomater",
+    "Type": 2,
+    "IsVegan": true,
+    "IsOrganic": true,
+    "ImageName": "tomat.jpg"
+  },
+  {
+    "Id": 7,
+    "Name": "Vindruer",
+    "Price": 18.0,
+    "Description": "Dette er en pakke grønne vindruer",
+    "Type": 2,
+    "IsVegan": true,
+    "IsOrganic": true,
+    "ImageName": "vindruer.jpg"
+  },
+  {
+    "Id": 8,
+    "Name": "Tun",
+    "Price": 10.0,
+    "Description": "Dette er en dåse med tun",
+    "Type": 2,
+    "IsVegan": false,
+    "IsOrganic": false,
+    "ImageName": "daasetun.jpg"
+  },
+  {
+    "Id": 9,
+    "Name": "Ris",
+    "Price": 16.5,
+    "Description": "Dette er en pose ris",
+    "Type": 3,
+    "IsVegan": true,
+    "IsOrganic": false,
+    "ImageName": "ris.jpg"
   }
 ]
