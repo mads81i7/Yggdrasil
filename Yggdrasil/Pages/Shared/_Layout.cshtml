@@ -50,9 +50,9 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Requests/RequestIndex">Bestillinger</a>
                     </li>
-                    @if (LogService.GetLoggedInUser() != null)
+                    @if (LoginService.GetLoggedInUser() != null)
                     {
-                        if (LogService.GetLoggedInUser().UserType == UserTypes.Admin)
+                        if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-light" asp-area="" asp-page="/Users/Index">Brugere</a>
