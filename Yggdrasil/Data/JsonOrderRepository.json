@@ -136,5 +136,61 @@
       "PhoneNo": "10101010",
       "UserOrders": []
     }
+  },
+  {
+    "Id": 4,
+    "OrderedWares": [
+      {
+        "Id": 0,
+        "Name": "Vand",
+        "Price": 6.0,
+        "Description": "Det her er vand",
+        "Type": 4,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Vand.jpg"
+      },
+      {
+        "Id": 2,
+        "Name": "Mango",
+        "Price": 20.0,
+        "Description": "Dette er en Mango",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Mango.jpg"
+      },
+      {
+        "Id": 3,
+        "Name": "Ice tea",
+        "Price": 15.0,
+        "Description": "dette er en ice tea",
+        "Type": 4,
+        "IsVegan": false,
+        "IsOrganic": true,
+        "ImageName": null
+      }
+    ],
+    "DateTimeFrom": "2020-12-04T11:23:00",
+    "DateTimeTo": "2020-12-04T11:35:00",
+    "Address": "hbk.v",
+    "TotalPrice": 41.0,
+    "Comment": "lm",
+    "Done": false,
+    "User": {
+      "ID": 6,
+      "UserType": 0,
+      "FullName": "AdminMads",
+      "EmailAddress": "MadsBrunebjerg@mail.com",
+      "BirthDate": "1990-08-04T00:00:00",
+      "Password": "adgangskode",
+      "PasswordCheck": "adgangskode",
+      "AddressLine1": "Adresse",
+      "AddressLine2": null,
+      "PostalCode": 2600,
+      "City": "Glostrup",
+      "PhoneNo": "10101010",
+      "UserOrders": []
+    }
   }
 ]

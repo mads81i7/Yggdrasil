@@ -1,5 +1,7 @@
 ﻿@using Yggdrasil.Services
+@using Yggdrasil.Models
 @inject ShoppingCartService ItemsInCart
+@inject LoginService LogService
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,9 +39,15 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Requests/RequestIndex">Bestillinger</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Users/Index">Brugere</a>
-                    </li>
+                    @if (LogService.GetLoggedInUser() != null)
+                    {
+                        if (LogService.GetLoggedInUser().UserType == UserTypes.Admin)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Users/Index">Brugere</a>
+                            </li>
+                        }
+                    }
                     <li class="nav-item">
                         <a class="button btn float-left text-light" asp-area="" asp-page="/Wares/GetAllWares">Bestil</a>
                     </li>
