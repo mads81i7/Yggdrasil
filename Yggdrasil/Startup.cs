@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Yggdrasil.Catalogs;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Services;
 
