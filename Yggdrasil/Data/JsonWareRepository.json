@@ -28,5 +28,25 @@
     "IsVegan": true,
     "IsOrganic": true,
     "ImageName": "Mango.jpg"
+  },
+  {
+    "Id": 3,
+    "Name": "Mango",
+    "Price": 20.0,
+    "Description": "Dette er en Mængo",
+    "Type": 2,
+    "IsVegan": true,
+    "IsOrganic": true,
+    "ImageName": "Mango.jpg"
+  },
+  {
+    "Id": 2,
+    "Name": "Mææængo",
+    "Price": 34989.0,
+    "Description": "asdfkjkj",
+    "Type": 2,
+    "IsVegan": false,
+    "IsOrganic": false,
+    "ImageName": null
   }
 ]

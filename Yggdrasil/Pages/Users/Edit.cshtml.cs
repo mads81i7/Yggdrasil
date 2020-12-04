@@ -45,19 +45,16 @@ namespace Yggdrasil.Pages.Users
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (_repository.GetUser((int) id).Password == User.PasswordCheck)
             {
-                return Page();
+                User.Password = _repository.GetUser((int)id).Password;
+                User.PasswordCheck = null;
+                User.UserType = _repository.GetUser((int)id).UserType;
+                _repository.EditUser((int)id, User);
+                return RedirectToPage("/Profile/Index");
             }
 
-            if (User == null)
-            {
-                return NotFound();
-            }
-
-            _repository.EditUser((int) id, User);
-
-            return RedirectToPage("./Index");
+            return Page();
         }
     }
 }
