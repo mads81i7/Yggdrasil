@@ -18,7 +18,7 @@
     @{
         if (LoginService.GetLoggedInUser() != null)
         {
-            <href onclick="@{LoginService.UserLogOut();} window.location.reload(true)" class="float-right" style="font-size: larger">Log ud</href>
+            <a href="" onclick="@{LoginService.UserLogOut();} window.location.reload(true)" class="float-right" style="font-size: larger">Log ud</a>
             <p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
             <a asp-page="/Profile/Index" class="float-right" style="font-size: larger">@LoginService.GetLoggedInUser().EmailAddress</a>
         }
