@@ -1,5 +1,8 @@
 ﻿@using Yggdrasil.Services
+@using Yggdrasil.Models
 @inject ShoppingCartService ItemsInCart
+@inject LoginService LoginService
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,16 +13,26 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+<div class="container-fluid">    
+    @{
+        if (LoginService.GetLoggedInUser() != null)
+        {
+            <a asp-page="/Profile/Index" class="float-right" style="font-size: larger">Log-ud</a>
+            <p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
+            <a asp-page="/Profile/Index" class="float-right" style="font-size: larger">Profil</a>
+        }
+        else
+        {
+            <a asp-page="/Login/LoginIndex" class="float-right" style="font-size: larger">Log-in</a>
+            <p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
+            <a asp-page="/Users/Create" class="float-right" style="font-size: larger">Opret</a>
+        }
+    }
 
-    <div class="container-fluid">
-        <a asp-page="/Login/LoginIndex" class="float-right" style="font-size: larger">Log-in</a><p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
-        <a asp-page="/Users/Create" class="float-right" style="font-size: larger">Opret</a><p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
-        <a asp-page="/Profile/Index" class="float-right" style="font-size: larger">Profil</a>
-
-        <div style="text-align: center">
-            <a asp-page="/Index"><img src="/Images/logo.png" class="yggtitle mx-auto d-inline" alt="Logo"/><img src="/Images/titleSmall.png" class="yggtitle mx-auto d-inline" style="width: auto" height="170" alt="Yggdrasil" /></a>
-        </div>
+    <div style="text-align: center">
+        <a asp-page="/Index"><img src="/Images/logo.png" class="yggtitle mx-auto d-inline" alt="Logo"/><img src="/Images/titleSmall.png" class="yggtitle mx-auto d-inline" style="width: auto" height="170" alt="Yggdrasil" /></a>
     </div>
+ </div>
 
 <header>
     <nav class="navbar navbar-default navbar-expand-sm navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3" role="navigation">
@@ -37,9 +50,15 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" asp-area="" asp-page="/Requests/RequestIndex">Bestillinger</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Users/Index">Brugere</a>
-                    </li>
+                    @if (LoginService.GetLoggedInUser() != null)
+                    {
+                        if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-page="/Users/Index">Brugere</a>
+                            </li>
+                        }
+                    }
                     <li class="nav-item">
                         <a class="button btn float-left text-light" asp-area="" asp-page="/Wares/GetAllWares">Bestil</a>
                     </li>

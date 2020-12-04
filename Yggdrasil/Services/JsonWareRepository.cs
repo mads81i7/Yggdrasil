@@ -16,13 +16,16 @@ namespace Yggdrasil.Services
             return JsonFileReader.ReadJsonWare(JsonFileName);
         }
 
-        private int WareId = 2;
         public void AddWare(Ware ware)
         {
+            List<int> ids = new List<int>();
             List<Ware> wares = AllWares().ToList();
+            foreach (Ware w in wares)
+            {
+                ids.Add(w.Id);
+            }
+            ware.Id = ids.Max() + 1;
             wares.Add(ware);
-            ware.Id = WareId;
-            WareId++;
             JsonFileWriter.WriteToJsonWare(wares, JsonFileName);
         }
 
