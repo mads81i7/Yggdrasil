@@ -37,6 +37,7 @@ namespace Yggdrasil.Pages.Users
                 return Page();
             }
 
+            User.Password2 = null;
             _repository.AddUser(User);
 
             return RedirectToPage("./Index");
