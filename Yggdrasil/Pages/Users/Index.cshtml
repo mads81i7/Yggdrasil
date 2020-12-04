@@ -1,4 +1,5 @@
 ﻿@page
+@using Yggdrasil.Models
 @model Yggdrasil.Pages.Users.IndexModel
 
 @{
@@ -50,7 +51,20 @@
 @foreach (var item in Model.Users) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.UserType)
+                @{
+                    if (item.UserType == UserTypes.Admin)
+                    {
+                        <p>Administrator</p>
+                    }
+                    else if (item.UserType == UserTypes.Courier)
+                    {
+                        <p>Bud</p>
+                    }
+                    else if (item.UserType == UserTypes.Customer)
+                    {
+                        <p>Kunde</p>
+                    }
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FullName)

@@ -1,4 +1,6 @@
 ﻿@page
+@using Yggdrasil.Models
+@using System.Diagnostics
 @model Yggdrasil.Pages.Users.DetailsModel
 
 @{
@@ -15,7 +17,20 @@
             @Html.DisplayNameFor(model => model.User.UserType)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.User.UserType)
+            @{
+                if (Model.User.UserType == UserTypes.Admin)
+                {
+                    <p>Administrator</p>
+                }
+                else if (Model.User.UserType == UserTypes.Courier)
+                {
+                    <p>Bud</p>
+                }
+                else if (Model.User.UserType == UserTypes.Customer)
+                {
+                    <p>Kunde</p>
+                }
+            }
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.User.FullName)

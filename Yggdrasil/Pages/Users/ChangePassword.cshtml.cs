@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +9,11 @@ using Yggdrasil.Models;
 
 namespace Yggdrasil.Pages.Users
 {
-    public class DetailsModel : PageModel
+    public class ChangePasswordModel : PageModel
     {
         private readonly IUserRepository _repository;
 
-        public DetailsModel(IUserRepository repository)
+        public ChangePasswordModel(IUserRepository repository)
         {
             _repository = repository;
         }
@@ -21,18 +21,14 @@ namespace Yggdrasil.Pages.Users
         [BindProperty]
         public User User { get; set; }
 
-        public IActionResult OnGet(int? id)
+        public IActionResult OnPost(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            _repository.AddUser(User);
 
-            User = _repository.GetUser((int)id);
-
-            if (User == null)
+            if (_repository.GetUser((int) id).Password == User.PasswordCheck)
             {
-                return NotFound();
+                _repository.GetUser((int) id).Password = User.Password;
+                return RedirectToPage("./Index");
             }
 
             return Page();
