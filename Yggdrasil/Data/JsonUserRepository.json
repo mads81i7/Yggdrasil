@@ -12,7 +12,8 @@
     "AddressLine2": null,
     "PostalCode": 5000,
     "City": "Blahblahblah",
-    "PhoneNo": "23344556"
+    "PhoneNo": "23344556",
+    "UserOrders": []
   },
   {
     "ID": 2,
@@ -27,7 +28,8 @@
     "AddressLine2": null,
     "PostalCode": 7200,
     "City": "Andeby",
-    "PhoneNo": "00112233"
+    "PhoneNo": "00112233",
+    "UserOrders": []
   },
   {
     "ID": 3,
@@ -42,7 +44,8 @@
     "AddressLine2": null,
     "PostalCode": 4050,
     "City": "Skibby",
-    "PhoneNo": "41681494"
+    "PhoneNo": "41681494",
+    "UserOrders": []
   },
   {
     "ID": 4,
@@ -54,7 +57,7 @@
     "Password2": null,
     "PasswordCheck": "princesszeldaismine",
     "AddressLine1": "Castle 1",
-    "AddressLine2": null,
+    "AddressLine2": "Highest tower",
     "PostalCode": 4040,
     "City": "Hyrule",
     "PhoneNo": "2342ja23"

@@ -36,7 +36,7 @@ namespace Yggdrasil.Models
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), DataType(DataType.Password), Display(Name = "Adgangskode")]
         public string PasswordCheck { get; set; }
 
-        [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Adresse (1)")]
+        [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Adresse")]
         public string AddressLine1 { get; set; }
 
         [BindProperty, Display(Name = "Adresse (2)")]
@@ -50,5 +50,12 @@ namespace Yggdrasil.Models
 
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), DataType(DataType.PhoneNumber), Display(Name = "Telefonnummer"), MinLength(8, ErrorMessage = "Indtast et gyldigt dansk telefonnummer."), MaxLength(8, ErrorMessage = "Indtast et gyldigt dansk telefonnummer.")]
         public string PhoneNo { get; set; }
+
+        public List<Order> UserOrders { get; set; }
+
+        public User()
+        {
+            UserOrders = new List<Order>();
+        }
     }
 }
