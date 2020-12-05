@@ -40,7 +40,6 @@ namespace Yggdrasil.Pages.Users
                 }
 
                 AccessDenied = "E-mail/kodeord findes ikke";
-                return Page();
             }
 
             return Page();
