@@ -10,6 +10,7 @@ namespace Yggdrasil.Pages.Users
     {
         private readonly IUserRepository _repository;
         private readonly LoginService _loginService;
+        public string AccessDenied = "";
 
         public LoginModel(IUserRepository repository, LoginService loginService)
         {
@@ -36,9 +37,10 @@ namespace Yggdrasil.Pages.Users
                         _loginService.UserLogin(user);
                         return RedirectToPage("/Index");
                     }
-
-                    return Page();
                 }
+
+                AccessDenied = "E-mail/kodeord findes ikke";
+                return Page();
             }
 
             return Page();

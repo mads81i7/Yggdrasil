@@ -6,6 +6,8 @@
 }
 <h3>Log-in</h3>
 
+<p class="text-danger">@Model.AccessDenied</p>
+
 <form method="post">
     <div class="form-group">
         <label asp-for="User.EmailAddress" class="control-label"></label>
@@ -15,6 +17,7 @@
     <div class="form-group">
         <label asp-for="User.PasswordCheck" class="control-label"></label>
         <input asp-for="User.PasswordCheck" class="form-control" />
+        <span asp-validation-for="User.PasswordCheck" class="text-danger"></span>
     </div>
     <div class="form-group">
         <input type="submit" value="Log ind" class="btn btn-primary" />
