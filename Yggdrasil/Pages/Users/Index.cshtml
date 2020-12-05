@@ -30,7 +30,7 @@
                 @Html.DisplayNameFor(model => model.Users[0].Password)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Users[0].AddressLine1)
+                Adresse
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Users[0].PostalCode)
@@ -89,9 +89,9 @@
                 @Html.DisplayFor(modelItem => item.PhoneNo)
             </td>
             <td>
-                |<a asp-page="./Edit" asp-route-id="@item.ID">Redigér</a>
-                |<a asp-page="./Details" asp-route-id="@item.ID">Detaljer</a>
-                |<a asp-page="./Delete" asp-route-id="@item.ID">Slet</a>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Redigér</a>
+                <a asp-page="./Details" asp-route-id="@item.ID">Detaljer</a>
+                <a asp-page="./Delete" asp-route-id="@item.ID">Slet</a>
             </td>
         </tr>
 }
