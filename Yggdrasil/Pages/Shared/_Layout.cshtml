@@ -19,13 +19,13 @@
         {
             <a asp-page="/Users/Logout" class="float-right" style="font-size: larger">Log ud</a>
             <p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
-            <a asp-page="/Profile/Index" class="float-right" style="font-size: larger">@LoginService.GetLoggedInUser().EmailAddress</a>
+            <a asp-page="/Users/Details" asp-route-id="@LoginService.GetLoggedInUser().ID" class="float-right" style="font-size: larger">@LoginService.GetLoggedInUser().EmailAddress</a>
         }
         else
         {
-            <a asp-page="/Login/LoginIndex" class="float-right" style="font-size: larger">Log-in</a>
+            <a asp-page="/Users/Login" class="float-right" style="font-size: larger">Log-in</a>
             <p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
-            <a asp-page="/Users/Create" class="float-right" style="font-size: larger">Opret</a>
+            <a asp-page="/Users/Create" class="float-right" style="font-size: larger">Opret profil</a>
         }
     }
 

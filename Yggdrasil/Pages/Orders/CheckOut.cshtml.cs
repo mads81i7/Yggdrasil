@@ -19,21 +19,21 @@ namespace Yggdrasil.Pages.Orders
 
         public ShoppingCartService CartService { get; set; }
         public IOrderRepository Repository { get; set; }
-        public LoginService LogIn { get; set; }
+        public LoginService Login { get; set; }
         public User User1 { get; set; } 
 
         public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log)
         {
             CartService = itemsInCart;
             Repository = repo;
-            LogIn = log;
-            User1 = LogIn.GetLoggedInUser();
+            Login = log;
+            User1 = Login.GetLoggedInUser();
         }
         public IActionResult OnGet()
         {
             if (User1 == null)
             {
-                return RedirectToPage("/Login/LoginIndex");
+                return RedirectToPage("/Users/Login");
             }
             else
             {
@@ -45,7 +45,7 @@ namespace Yggdrasil.Pages.Orders
         {
             Order.OrderedWares = CartService.GetOrderedWares();
             Order.TotalPrice = CartService.CalculateTotalPrice();
-            Order.User = LogIn.GetLoggedInUser();
+            Order.User = Login.GetLoggedInUser();
             Repository.AddOrder(Order);
             CartService.GetOrderedWares().Clear();
             return RedirectToPage("/Requests/RequestIndex");

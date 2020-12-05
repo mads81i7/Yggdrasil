@@ -19,7 +19,7 @@ namespace Yggdrasil.Pages.Users
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
 
         public IActionResult OnGet(int? id)
         {
@@ -37,19 +37,14 @@ namespace Yggdrasil.Pages.Users
             return Page();
         }
 
-        public async Task<IActionResult> OnPost(int? id)
+        public ActionResult OnPost(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            User = _repository.GetUser((int)id);
-
-            if (User != null)
-            {
-                _repository.RemoveUser(User);
-            }
+            _repository.RemoveUser((int)id);
 
             return RedirectToPage("./Index");
         }

@@ -1,21 +1,5 @@
 [
   {
-    "ID": 1,
-    "UserType": 0,
-    "FullName": "Jonathan Yannick Thomassen",
-    "EmailAddress": "blah@blah.blah",
-    "BirthDate": "1990-03-12T00:00:00",
-    "Password": "asdfgh",
-    "Password2": null,
-    "PasswordCheck": "asdfgh",
-    "AddressLine1": "Blahblah 2",
-    "AddressLine2": null,
-    "PostalCode": 5000,
-    "City": "Blahblahblah",
-    "PhoneNo": "23344556",
-    "UserOrders": []
-  },
-  {
     "ID": 2,
     "UserType": 1,
     "FullName": "Anders And",
@@ -60,7 +44,8 @@
     "AddressLine2": "Highest tower",
     "PostalCode": 4040,
     "City": "Hyrule",
-    "PhoneNo": "2342ja23"
+    "PhoneNo": "2342ja23",
+    "UserOrders": []
   },
   {
     "ID": 5,
@@ -69,11 +54,13 @@
     "EmailAddress": "katr4722@edu.easj.dk",
     "BirthDate": "1995-08-24T00:00:00",
     "Password": "password",
+    "Password2": null,
     "PasswordCheck": "password",
     "AddressLine1": "etellerandet 4",
     "AddressLine2": null,
     "PostalCode": 4000,
     "City": "Roskilde",
-    "PhoneNo": "12345678"
+    "PhoneNo": "12345678",
+    "UserOrders": []
   }
 ]

@@ -18,7 +18,7 @@ namespace Yggdrasil.Pages.Requests
         [BindProperty(SupportsGet = true)]
         private Order Order { get; set; }
 
-        public User User { get; set; }
+        public new User User { get; set; }
 
         public AcceptRequestModel(IOrderRepository repository, LoginService log)
         {

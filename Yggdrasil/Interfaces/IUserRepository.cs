@@ -10,7 +10,7 @@ namespace Yggdrasil.Interfaces
     {
         public List<User> GetAllUsers();
         public void AddUser(User user);
-        public void RemoveUser(User user);
+        public void RemoveUser(int id);
         public void EditUser(int id, User user);
         public User GetUser(int id);
     }

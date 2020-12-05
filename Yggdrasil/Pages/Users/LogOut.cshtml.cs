@@ -8,18 +8,18 @@ using Yggdrasil.Services;
 
 namespace Yggdrasil.Pages.Users
 {
-    public class LogOutModel : PageModel
+    public class LogoutModel : PageModel
     {
         private readonly LoginService _logInService;
 
-        public LogOutModel(LoginService logInService)
+        public LogoutModel(LoginService logInService)
         {
             _logInService = logInService;
         }
 
         public IActionResult OnGet()
         {
-            _logInService.UserLogOut();
+            _logInService.UserLogout();
 
             return RedirectToPage("/Index");
         }

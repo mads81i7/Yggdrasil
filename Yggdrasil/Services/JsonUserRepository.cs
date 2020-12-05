@@ -36,11 +36,11 @@ namespace Yggdrasil.Services
             JsonFileWriter.WriteToJsonUser(users, JsonFileName);
         }
 
-        public void RemoveUser(User user)
+        public void RemoveUser(int id)
         {
-            List<User> users = GetAllUsers().ToList();
+            List<User> users = GetAllUsers();
 
-            users.Remove(user);
+            users.RemoveAt(id-1);
             JsonFileWriter.WriteToJsonUser(users, JsonFileName);
         }
 

@@ -36,10 +36,10 @@ namespace Yggdrasil.Models
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), DataType(DataType.Password), Display(Name = "Adgangskode")]
         public string PasswordCheck { get; set; }
 
-        [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Adresse")]
+        [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), Display(Name = "Adresse (1. linje")]
         public string AddressLine1 { get; set; }
 
-        [BindProperty, Display(Name = "Adresse (2)")]
+        [BindProperty, Display(Name = "Adresse (2. linje)")]
         public string AddressLine2 { get; set; }
 
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), DataType(DataType.PostalCode), Display(Name = "Postnummer"), Range(1050, 9990, ErrorMessage = "Indtast et gyldigt dansk postnummer.")]

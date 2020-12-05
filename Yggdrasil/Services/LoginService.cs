@@ -15,7 +15,7 @@ namespace Yggdrasil.Services
             _loggedInUser = user;
         }
 
-        public void UserLogOut()
+        public void UserLogout()
         {
             _loggedInUser = null;
         }
