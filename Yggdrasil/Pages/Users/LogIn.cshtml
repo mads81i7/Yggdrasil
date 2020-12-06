@@ -4,6 +4,7 @@
 @{
     ViewData["Title"] = "Login";
 }
+
 <h3>Log-in</h3>
 
 <p class="text-danger">@Model.AccessDenied</p>
@@ -25,7 +26,8 @@
 </form>
 
 <p></p>
-<p>Har du ingen bruger?<a class="nav-link text-dark" asp-area="" asp-page="/Users/Create"> Sign up her!</a></p>
+<p>Har du ingen bruger?</p>
+<a class="nav-link" asp-page="/Users/Create">Opret dig her!</a>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

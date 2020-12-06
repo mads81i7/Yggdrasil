@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 
@@ -13,6 +8,7 @@ namespace Yggdrasil.Pages.Users
     public class EditModel : PageModel
     {
         private readonly IUserRepository _repository;
+        public string AccessDenied = "";
 
         public EditModel(IUserRepository repository)
         {
@@ -54,6 +50,7 @@ namespace Yggdrasil.Pages.Users
                 return RedirectToPage("/Profile/Index");
             }
 
+            AccessDenied = "Forkert kodeord";
             return Page();
         }
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
@@ -12,6 +8,7 @@ namespace Yggdrasil.Pages.Users
     public class DeleteModel : PageModel
     {
         private readonly IUserRepository _repository;
+        public string AccessDenied = "";
 
         public DeleteModel(IUserRepository repository)
         {
@@ -44,9 +41,14 @@ namespace Yggdrasil.Pages.Users
                 return NotFound();
             }
 
-            _repository.RemoveUser((int)id);
+            if (_repository.GetUser((int)id).Password == User.PasswordCheck)
+            {
+                _repository.RemoveUser((int) id);
+                return RedirectToPage("/Index");
+            }
 
-            return RedirectToPage("./Index");
+            AccessDenied = "Forkert kodeord";
+            return Page();
         }
     }
 }

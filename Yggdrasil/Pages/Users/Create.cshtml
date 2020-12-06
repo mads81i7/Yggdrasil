@@ -32,6 +32,7 @@
                 <label asp-for="User.BirthDate" class="control-label"></label>
                 <input asp-for="User.BirthDate" class="form-control" />
                 <span asp-validation-for="User.BirthDate" class="text-danger"></span>
+                <p class="text-danger">@Model.BirthDateMessage</p>
             </div>
             <div class="form-group">
                 <label asp-for="User.Password" class="control-label"></label>
