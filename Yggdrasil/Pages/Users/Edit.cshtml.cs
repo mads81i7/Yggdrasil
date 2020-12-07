@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 
@@ -13,6 +8,7 @@ namespace Yggdrasil.Pages.Users
     public class EditModel : PageModel
     {
         private readonly IUserRepository _repository;
+        public string AccessDenied = "";
 
         public EditModel(IUserRepository repository)
         {
@@ -20,7 +16,7 @@ namespace Yggdrasil.Pages.Users
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
 
         public IActionResult OnGet(int? id)
         {
@@ -45,19 +41,17 @@ namespace Yggdrasil.Pages.Users
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
+            if (_repository.GetUser((int) id).Password == User.PasswordCheck)
             {
-                return Page();
+                User.Password = _repository.GetUser((int)id).Password;
+                User.PasswordCheck = null;
+                User.UserType = _repository.GetUser((int)id).UserType;
+                _repository.EditUser((int)id, User);
+                return RedirectToPage("/Profile/Index");
             }
 
-            if (User == null)
-            {
-                return NotFound();
-            }
-
-            _repository.EditUser((int) id, User);
-
-            return RedirectToPage("./Index");
+            AccessDenied = "Forkert kodeord";
+            return Page();
         }
     }
 }

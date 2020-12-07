@@ -1,16 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Services;
-
 
 namespace Yggdrasil
 {
@@ -29,10 +23,10 @@ namespace Yggdrasil
             services.AddRazorPages();
 
             services.AddSingleton<ShoppingCartService>();
-            services.AddSingleton<IWareCatalog, JsonWareRepository>();
-            services.AddSingleton<IOrderRepository, JsonOrderRepository>();
             services.AddSingleton<LoginService>();
 
+            services.AddTransient<IWareCatalog, JsonWareRepository>();
+            services.AddTransient<IOrderRepository, JsonOrderRepository>();
             services.AddTransient<IUserRepository, JsonUserRepository>();
         }
 

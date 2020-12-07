@@ -1,13 +1,14 @@
 ﻿@page
-@using Yggdrasil.Models
-@model Yggdrasil.Pages.Login.LoginIndexModel
+@model Yggdrasil.Pages.Users.LoginModel
 
 @{
-    ViewData["Title"] = "LoginIndex";
+    ViewData["Title"] = "Login";
 }
+
 <h3>Log-in</h3>
 
-<h4>Log-in med eksisterende bruger:</h4>
+<p class="text-danger">@Model.AccessDenied</p>
+
 <form method="post">
     <div class="form-group">
         <label asp-for="User.EmailAddress" class="control-label"></label>
@@ -15,8 +16,9 @@
         <span asp-validation-for="User.EmailAddress" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="User.Password" class="control-label"></label>
-        <input asp-for="User.Password" class="form-control" />
+        <label asp-for="User.PasswordCheck" class="control-label"></label>
+        <input asp-for="User.PasswordCheck" class="form-control" />
+        <span asp-validation-for="User.PasswordCheck" class="text-danger"></span>
     </div>
     <div class="form-group">
         <input type="submit" value="Log ind" class="btn btn-primary" />
@@ -24,7 +26,8 @@
 </form>
 
 <p></p>
-<p>Har du ingen bruger?<a class="nav-link text-dark" asp-area="" asp-page="/Users/Create"> Sign up her!</a></p>
+<p>Har du ingen bruger?</p>
+<a class="nav-link" asp-page="/Users/Create">Opret dig her!</a>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

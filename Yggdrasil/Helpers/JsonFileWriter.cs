@@ -10,11 +10,12 @@ namespace Yggdrasil
 {
     public class JsonFileWriter
     {
-        public static void WriteToJsonUser(List<User> couriers, string JsonFileName)
+        public static void WriteToJsonUser(List<User> users, string JsonFileName)
         {
-            string output = Newtonsoft.Json.JsonConvert.SerializeObject(couriers, Newtonsoft.Json.Formatting.Indented);
+            string output = Newtonsoft.Json.JsonConvert.SerializeObject(users, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(JsonFileName, output);
         }
+
         public static void WriteToJsonWare(List<Ware> wares, string JsonFileName)
         {
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(wares, Newtonsoft.Json.Formatting.Indented);

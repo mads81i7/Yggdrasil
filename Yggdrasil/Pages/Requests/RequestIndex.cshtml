@@ -15,6 +15,7 @@
             <th>Til</th>
             <th>Total Pris</th>
             <th>Kommentar</th>
+            <th>Bruger</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
                 <td>@item.DateTimeTo</td>
                 <td>@item.TotalPrice </td>
                 <td>@item.Comment </td>
+                <td>@item.User.FullName</td>
                 <td><a asp-page="AcceptRequest" asp-route-id="@item">Accepter bestilling</a></td>
                 <td>
                     <ul style="list-style-type: none;">

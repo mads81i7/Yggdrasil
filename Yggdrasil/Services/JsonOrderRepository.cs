@@ -21,13 +21,16 @@ namespace Yggdrasil.Services
             throw new NotImplementedException();
         }
 
-        protected int Id = 10;
         public void AddOrder(Order or)
         {
+            List<int> ids = new List<int>();
             List<Order> orders = AllOrders().ToList();
+            foreach (Order o in orders)
+            {
+                ids.Add(o.Id);
+            }
+            or.Id = ids.Max() + 1;
             orders.Add(or);
-            or.Id = Id;
-            Id++;
             JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
 

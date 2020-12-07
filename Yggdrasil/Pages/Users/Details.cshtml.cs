@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
@@ -19,7 +15,7 @@ namespace Yggdrasil.Pages.Users
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
 
         public IActionResult OnGet(int? id)
         {
@@ -34,6 +30,7 @@ namespace Yggdrasil.Pages.Users
             {
                 return NotFound();
             }
+
             return Page();
         }
     }

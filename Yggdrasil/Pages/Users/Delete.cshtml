@@ -7,9 +7,9 @@
 
 <h1>Slet bruger</h1>
 
-<h3>Er du sikker på du vil slette denne bruger?</h3>
+<p class="text-danger">@Model.AccessDenied</p>
 <div>
-    <h4>Bruger</h4>
+    <h4>Er du sikker på, at du vil slette denne bruger?</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -37,15 +37,10 @@
             @Html.DisplayFor(model => model.User.Password)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.AddressLine1)
+            Adresse
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.AddressLine1)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.AddressLine2)
-        </dt>
-        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.AddressLine2)
         </dd>
         <dt class="col-sm-2">
@@ -69,8 +64,13 @@
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="User.ID" />
-        <input type="submit" value="Slet" class="btn btn-danger" /> |
+        <input type="hidden" asp-for="User.ID"/>
+        <div class="form-group">
+            <label asp-for="User.PasswordCheck" class="control-label">Skriv dit kodeord som sikkerhedscheck</label>
+            <input asp-for="User.PasswordCheck" class="form-control" />
+            <span asp-validation-for="User.PasswordCheck" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Slet" class="btn btn-danger"/> |
         <a asp-page="./Index">Tilbage til oversigten</a>
     </form>
 </div>

@@ -15,23 +15,39 @@ namespace Yggdrasil.Pages.Orders
         [BindProperty]
         public Order Order { get; set; }
 
+        public List<Ware> Wares { get; set; }   
+
         public ShoppingCartService CartService { get; set; }
         public IOrderRepository Repository { get; set; }
+        public LoginService Login { get; set; }
+        public User User1 { get; set; } 
 
-        public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart)
+        public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log)
         {
             CartService = itemsInCart;
             Repository = repo;
+            Login = log;
+            User1 = Login.GetLoggedInUser();
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (User1 == null)
+            {
+                return RedirectToPage("/Users/Login");
+            }
+            else
+            {
+                return Page();
+            }
         }
 
         public IActionResult OnPost()
         {
             Order.OrderedWares = CartService.GetOrderedWares();
             Order.TotalPrice = CartService.CalculateTotalPrice();
+            Order.User = Login.GetLoggedInUser();
             Repository.AddOrder(Order);
+            CartService.GetOrderedWares().Clear();
             return RedirectToPage("/Requests/RequestIndex");
         }
     }
