@@ -30,5 +30,21 @@
     "City": "Roskilde",
     "PhoneNo": "12345678",
     "UserOrders": []
+  },
+  {
+    "ID": 3,
+    "UserType": 0,
+    "FullName": "AdminMads",
+    "EmailAddress": "AdminMads@Mail.dk",
+    "BirthDate": "1996-08-11T00:00:00",
+    "Password": "adgangskode",
+    "Password2": null,
+    "PasswordCheck": null,
+    "AddressLine1": "Adresse",
+    "AddressLine2": null,
+    "PostalCode": 2600,
+    "City": "Glostrup",
+    "PhoneNo": "10101010",
+    "UserOrders": []
   }
 ]
