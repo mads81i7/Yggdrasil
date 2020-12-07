@@ -16,7 +16,7 @@ namespace Yggdrasil.Pages
         private readonly LoginService _loginService;
 
         [BindProperty]
-        public User User { get; set; } = new User();
+        public new User User { get; set; } = new User();
 
         public IndexModel(ILogger<IndexModel> logger, LoginService loginService)
         {

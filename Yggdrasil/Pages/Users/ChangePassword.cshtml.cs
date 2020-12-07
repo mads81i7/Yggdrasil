@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
@@ -12,6 +8,8 @@ namespace Yggdrasil.Pages.Users
     public class ChangePasswordModel : PageModel
     {
         private readonly IUserRepository _repository;
+        private string _newPassword;
+        public string AccessDenied = "";
 
         public ChangePasswordModel(IUserRepository repository)
         {
@@ -19,18 +17,21 @@ namespace Yggdrasil.Pages.Users
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
 
         public IActionResult OnPost(int? id)
         {
-            _repository.AddUser(User);
-
             if (_repository.GetUser((int) id).Password == User.PasswordCheck)
             {
-                _repository.GetUser((int) id).Password = User.Password;
+                _newPassword = User.Password;
+                User = _repository.GetUser((int) id);
+                User.Password = _newPassword;
+
+                _repository.EditUser((int) id, User);
                 return RedirectToPage("./Index");
             }
 
+            AccessDenied = "Forkert kodeord";
             return Page();
         }
     }

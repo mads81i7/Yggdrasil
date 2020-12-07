@@ -1,5 +1,4 @@
 ﻿@using Yggdrasil.Services
-@using Microsoft.AspNetCore.Mvc.RazorPages
 @using Yggdrasil.Models
 @inject ShoppingCartService ItemsInCart
 @inject LoginService LoginService
@@ -14,56 +13,54 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-<div class="container-fluid">
-    @{
-        if (LoginService.GetLoggedInUser() != null)
-        {
-            <href onclick="@{LoginService.UserLogOut();} window.location.reload(true)" class="float-right" style="font-size: larger">Log ud</href>
-            <p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
-            <a asp-page="/Profile/Index" class="float-right" style="font-size: larger">@LoginService.GetLoggedInUser().EmailAddress</a>
+    <div class="container-fluid">
+        @{
+            if (LoginService.GetLoggedInUser() != null)
+            {
+                <a asp-page="/Users/Logout" class="float-right" style="font-size: medium">Log ud</a>
+                <p class="float-right" style="font-size: medium">&nbsp; | &nbsp;</p>
+                <a asp-page="/Users/Details" asp-route-id="@LoginService.GetLoggedInUser().ID" class="float-right" style="font-size: medium">@LoginService.GetLoggedInUser().EmailAddress</a>
+            }
+            else
+            {
+                <a asp-page="/Users/Login" class="float-right" style="font-size: medium">Log-in</a>
+                <p class="float-right" style="font-size: medium">&nbsp; | &nbsp;</p>
+                <a asp-page="/Users/Create" class="float-right" style="font-size: medium">Opret profil</a>
+            }
         }
-        else
-        {
-            <a asp-page="/Login/LoginIndex" class="float-right" style="font-size: larger">Log-in</a>
-            <p class="float-right" style="font-size: larger">&nbsp; | &nbsp;</p>
-            <a asp-page="/Users/Create" class="float-right" style="font-size: larger">Opret</a>
-        }
-    }
-
-    <div style="text-align: center">
-        <a asp-page="/Index"><img src="/Images/logo.png" class="yggtitle mx-auto d-inline" alt="Logo"/><img src="/Images/titleSmall.png" class="yggtitle mx-auto d-inline" style="width: auto" height="170" alt="Yggdrasil" /></a>
     </div>
- </div>
+    <br />
+    <a asp-page="/Index"><img src="/Images/yggdrasil.png" class="mx-auto d-block" style="max-height: 150px" alt="Yggdrasil" /></a>
+    <br />
+    <header>
+        <nav class="navbar navbar-default navbar-expand-sm navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3" role="navigation">
+            <div class="container">
 
-<header>
-    <nav class="navbar navbar-default navbar-expand-sm navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3" role="navigation">
-        <div class="container">
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Index">Hjem</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-page="/Requests/RequestIndex">Bestillinger</a>
-                    </li>
-                    @if (LoginService.GetLoggedInUser() != null)
-                    {
-                        if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin)
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-page="/Index">Hjem</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-page="/Requests/RequestIndex">Bestillinger</a>
+                        </li>
+                        @if (LoginService.GetLoggedInUser() != null)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-page="/Users/Index">Brugere</a>
-                            </li>
+                            if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-danger" asp-page="/Users/Index">Brugere</a>
+                                </li>
+                            }
                         }
-                    }
-                    <li class="nav-item">
-                        <a class="button btn float-left text-light" asp-area="" asp-page="/Wares/GetAllWares">Bestil</a>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a class="button btn float-left text-light" asp-page="/Wares/GetAllWares">Bestil</a>
+                        </li>
+                    </ul>
                 </div>
             <ul class="nav navbar-nav navbar-collapse collapse">
                 <li class="ml-auto mr-1 dropdown">
@@ -95,16 +92,16 @@
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2020 - Yggdrasil - <a asp-area="" asp-page="/Privacy">Privacy</a>
-    </div>
-</footer>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Yggdrasil - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 
-@RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -4,14 +4,15 @@ using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 using Yggdrasil.Services;
 
-namespace Yggdrasil.Pages.Login
+namespace Yggdrasil.Pages.Users
 {
-    public class LoginIndexModel : PageModel
+    public class LoginModel : PageModel
     {
         private readonly IUserRepository _repository;
         private readonly LoginService _loginService;
+        public string AccessDenied = "";
 
-        public LoginIndexModel(IUserRepository repository, LoginService loginService)
+        public LoginModel(IUserRepository repository, LoginService loginService)
         {
             _repository = repository;
             _loginService = loginService;
@@ -23,7 +24,7 @@ namespace Yggdrasil.Pages.Login
         }
 
         [BindProperty]
-        public User User { get; set; }
+        public new User User { get; set; }
 
         public IActionResult OnPost()
         {
@@ -36,9 +37,9 @@ namespace Yggdrasil.Pages.Login
                         _loginService.UserLogin(user);
                         return RedirectToPage("/Index");
                     }
-
-                    return Page();
                 }
+
+                AccessDenied = "E-mail/kodeord findes ikke";
             }
 
             return Page();

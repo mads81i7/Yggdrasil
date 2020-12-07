@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 
@@ -12,6 +8,11 @@ namespace Yggdrasil.Pages.Users
 {
     public class CreateModel : PageModel
     {
+        public DateTime EarliestDate = new DateTime(1900, 1, 1);
+        public DateTime LatestDate = new DateTime(2002, 12, 12);
+
+        public string BirthDateMessage = "";
+
         private readonly IUserRepository _repository;
 
         public CreateModel(IUserRepository repository)
@@ -27,20 +28,20 @@ namespace Yggdrasil.Pages.Users
         [BindProperty]
         public new User User { get; set; }
 
-        [BindProperty]
-        public UserTypes UserTypes { get; }
-
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
-            {
                 return Page();
+
+            if ((User.BirthDate.CompareTo(EarliestDate) >= 0) && (User.BirthDate.CompareTo(LatestDate) <= 0))
+            {
+                User.Password2 = null;
+                _repository.AddUser(User);
+                return RedirectToPage("./Index");
             }
 
-            User.Password2 = null;
-            _repository.AddUser(User);
-
-            return RedirectToPage("./Index");
+            BirthDateMessage = "Fødselsdatoen er ugyldig";
+            return Page();
         }
     }
 }

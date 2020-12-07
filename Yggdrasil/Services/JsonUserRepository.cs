@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 
@@ -18,7 +16,7 @@ namespace Yggdrasil.Services
 
         public void AddUser(User user)
         {
-            List<User> users = GetAllUsers().ToList();
+            List<User> users = GetAllUsers();
             List<int> userIDs = new List<int>();
 
             foreach (User userAlt in users)
@@ -36,11 +34,13 @@ namespace Yggdrasil.Services
             JsonFileWriter.WriteToJsonUser(users, JsonFileName);
         }
 
-        public void RemoveUser(User user)
+        public void RemoveUser(int id)
         {
-            List<User> users = GetAllUsers().ToList();
+            List<User> users = GetAllUsers();
+            users[id - 1] = new User();
+            users[id - 1].ID = id;
 
-            users.Remove(user);
+
             JsonFileWriter.WriteToJsonUser(users, JsonFileName);
         }
 

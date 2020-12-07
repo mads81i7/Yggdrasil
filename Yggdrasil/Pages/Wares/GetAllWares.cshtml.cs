@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Yggdrasil.Catalogs;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 using Yggdrasil.Services;

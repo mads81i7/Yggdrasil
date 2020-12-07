@@ -52,7 +52,12 @@ namespace Yggdrasil.Services
 
         public Order GetOrder(int id)
         {
-            throw new NotImplementedException();
+            foreach (Order order in AllOrders())
+            {
+                if (order.Id == id)
+                    return order;
+            }
+            return new Order();
         }
 
         public void EditOrder(Order order)
@@ -62,7 +67,10 @@ namespace Yggdrasil.Services
 
         public void DeleteOrder(Order order)
         {
-            throw new NotImplementedException();
+            List<Order> orders = AllOrders().ToList();
+
+            orders.Remove(order);
+            JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
     }
 }
