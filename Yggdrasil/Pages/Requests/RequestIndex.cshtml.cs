@@ -12,7 +12,7 @@ namespace Yggdrasil.Pages.Requests
 {
     public class RequestIndexModel : PageModel
     {
-        private IOrderRepository repo;
+        private IOrderRepository _orderRepository;
         public List<Order> Orders { get; set; }
 
         [BindProperty(SupportsGet = true)]
@@ -20,12 +20,12 @@ namespace Yggdrasil.Pages.Requests
 
         public RequestIndexModel(IOrderRepository repository, LoginService log)
         {
-            repo = repository;
+            _orderRepository = repository;
         }
 
         public void OnGet()
         {
-            Orders = repo.FilterOrders(Criteria);
+            Orders = _orderRepository.AllOrders();
         }
     }
 }

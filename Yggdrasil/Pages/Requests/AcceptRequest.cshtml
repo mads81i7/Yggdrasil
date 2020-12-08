@@ -21,14 +21,12 @@
     @foreach (var item in Model.AcceptedOrders)
     {
         <tr>
-            <td>@item.Id</td>
-            <td>@item.Address </td>
-            <td>@item.DateTimeFrom </td>
-            <td>@item.DateTimeTo</td>
-            <td>@item.TotalPrice </td>
+            <td>@item.CustomerID</td>
+            <td>@item.AltAddress </td>
+            <td>@item.DateTimeWish </td>
             <td>@item.Comment </td>
             <td>
-                <a asp-page="DeleteOrder" asp-route-id="@item.Id">Slet </a>
+                <a asp-page="DeleteOrder" asp-route-id="@item.ID">Slet </a>
             </td>
         </tr>
     }

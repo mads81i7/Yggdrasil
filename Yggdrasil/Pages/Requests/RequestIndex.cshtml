@@ -33,14 +33,11 @@
         @foreach (var item in Model.Orders)
         {
             <tr>
-                <td>@item.Id</td>
-                <td>@item.Address </td>
-                <td>@item.User.PostalCode</td>
-                <td>@item.DateTimeFrom </td>
-                <td>@item.DateTimeTo</td>
-                <td>@item.TotalPrice </td>
+                <td>@item.ID</td>
+                <td>@item.AltAddress </td>
+                <td>@item.CustomerID</td>
+                <td>@item.DateTimeWish </td>
                 <td>@item.Comment </td>
-                <td>@item.User.FullName</td>
                 <td><a asp-page="AcceptRequest" asp-route-id="@item">Accepter bestilling</a></td>
                 <td>
                     <ul style="list-style-type: none;">

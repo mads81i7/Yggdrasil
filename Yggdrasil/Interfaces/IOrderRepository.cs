@@ -9,7 +9,7 @@ namespace Yggdrasil.Interfaces
     public interface IOrderRepository
     {
         List<Order> AllOrders();
-        List<Order> FilterOrders(string criteria);
+        //List<Order> FilterOrders(string criteria);
         void AddOrder(Order or);
         Order GetOrder(int id);
         void EditOrder(Order order);

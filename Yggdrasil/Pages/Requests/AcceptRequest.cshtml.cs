@@ -12,23 +12,26 @@ namespace Yggdrasil.Pages.Requests
 {
     public class AcceptRequestModel : PageModel
     {
-        public List<Order> AcceptedOrders { get; set; }
-        private IOrderRepository repo;
+        private IOrderRepository _orderRepository;
+        public List<Order> AcceptedOrders { get; set; } = new List<Order>();
 
         [BindProperty(SupportsGet = true)]
-        private Order Order { get; set; }
+        public Order Order { get; set; }
 
-        public new User User { get; set; }
-
-        public AcceptRequestModel(IOrderRepository repository, LoginService log)
+        public AcceptRequestModel(IOrderRepository repository, LoginService login)
         {
-            repo = repository;
-            User = log.GetLoggedInUser();
-            AcceptedOrders = User.UserOrders;
+            _orderRepository = repository;
+
+            foreach (Order order in repository.AllOrders())
+            {
+                if (order.CourierID == login.GetLoggedInUser().ID)
+                    AcceptedOrders.Add(order);
+            }
         }
+
         public void OnGet(int id)
         {
-            Order = repo.GetOrder(id);
+            Order = _orderRepository.GetOrder(id);
             Order.Done = true;
             AcceptedOrders.Add(Order);
         }
