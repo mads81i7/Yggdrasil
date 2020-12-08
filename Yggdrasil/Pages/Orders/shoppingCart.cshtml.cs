@@ -16,6 +16,8 @@ namespace Yggdrasil.Pages.Orders
         private IWareCatalog repo;
         [BindProperty]
         public Ware ware { get; set; }
+        [BindProperty]
+        public OrderItem oItem { get; set; }
 
         public List<Ware> Wares { get; set; }
 
@@ -38,5 +40,8 @@ namespace Yggdrasil.Pages.Orders
             Wares = itemsInCart.GetOrderedWares();
             return Page();
         }
+
+        
+
     }
 }

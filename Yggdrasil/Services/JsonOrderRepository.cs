@@ -16,9 +16,25 @@ namespace Yggdrasil.Services
             return JsonFileReader.ReadJsonOrder(JsonFileName);
         }
 
-        public List<Order> FilterOrders()
+        public List<Order> FilterOrders(string criteria)
         {
-            throw new NotImplementedException();
+            List<Order> orders = AllOrders();
+            if (criteria == "" || criteria == null)
+                return orders;
+            List<Order> emptyList = new List<Order>();
+            string lCriteria = criteria.ToLower();
+            foreach (Order o in (AllOrders()))
+            {
+                string lName = o.User.FullName.ToLower(); 
+                string lCity = o.User.City.ToLower();
+                string lAddress = o.Address.ToLower();
+                string lPostalCode = "" + o.User.PostalCode;
+
+                if (lName.Contains(lCriteria) || lCity.Contains(lCriteria) || lAddress.Contains(lCriteria) || lPostalCode.Contains(lCriteria))
+                    emptyList.Add(o);
+            }
+
+            return emptyList;
         }
 
         public void AddOrder(Order or)
