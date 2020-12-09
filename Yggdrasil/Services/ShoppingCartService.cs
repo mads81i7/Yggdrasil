@@ -9,16 +9,11 @@ namespace Yggdrasil.Services
 {
     public class ShoppingCartService
     {
-        private List<Ware> _waresInCart;
-
-        
-        [BindProperty]
-        private Ware Ware { get; set; }
+        private List<OrderItem> _waresInCart;
 
         public ShoppingCartService()
         {
-            _waresInCart = new List<Ware>();
-            Ware = new Ware();
+            _waresInCart = new List<OrderItem>();
         }
 
         //public void AddWare(Ware ware)
@@ -28,29 +23,54 @@ namespace Yggdrasil.Services
 
         public void AddWare(Ware ware)
         {
-            OrderItem aOrderItem = new OrderItem();
-            aOrderItem.Ware = ware;
-            aOrderItem.Amount = FindNumberOfSame(ware);
-            _waresInCart.Add(aOrderItem.Ware);
-        }
-        public int FindNumberOfSame(Ware ware)
-        {
-            int i = 0;
-            if (_waresInCart.Contains(ware))
+            OrderItem oItem = FindOrderItem(ware.Id);
+            if (oItem == null)
             {
-                i++;
+                OrderItem orderItem = new OrderItem(ware, 1);
+                _waresInCart.Add(orderItem);
+            }
+            else
+            {
+                UpdateOrderItem(ware.Id);
+            }
+        }
+
+        private void UpdateOrderItem(int id)
+        {
+            foreach (var oI in _waresInCart)
+            {
+                if (oI.Ware.Id == id)
+                    oI.Amount++;
+            }
+        }
+
+        public OrderItem FindOrderItem(int id)
+        {
+            foreach (var oI in _waresInCart)
+            {
+                if (oI.Ware.Id == id)
+                {
+                    return oI;
+                }
             }
 
-            return i;
+            return null;
         }
 
         public void DeleteWare(int id)
         {
-            foreach (Ware w in _waresInCart)
+            foreach (OrderItem w in _waresInCart)
             {
-                if (w.Id == id)
+                if (w.Ware.Id == id)
                 {
-                    _waresInCart.Remove(w);
+                    if (w.Amount <= 1)
+                    {
+                        _waresInCart.Remove(w);
+                    }
+                    if(w.Amount > 1)
+                    {
+                        w.Amount--;
+                    }
                     break;
                 }
             }
@@ -59,19 +79,29 @@ namespace Yggdrasil.Services
         public double CalculateTotalPrice()
         {
             double totalPrice = 0;
-            foreach (Ware w in _waresInCart)
+            foreach (OrderItem w in _waresInCart)
             {
-                totalPrice = totalPrice + w.Price;
+                totalPrice = totalPrice + w.Ware.Price * w.Amount;
             }
 
             return totalPrice;
         }
 
-        public List<Ware> GetOrderedWares()
+        public List<OrderItem> GetOrderedWares()
         {
             return _waresInCart;
         }
 
+        public int GetFullCount()
+        {
+            int fullCount = 0;
+            foreach (var c in _waresInCart)
+            {
+                fullCount = fullCount + c.Amount;
+            }
+
+            return fullCount;
+        }
 
         //private int Amount { get; set; }
         //public int CalculateAmount(int id)

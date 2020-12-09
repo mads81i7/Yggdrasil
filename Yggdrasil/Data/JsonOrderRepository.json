@@ -3,14 +3,8 @@
     "Id": 1,
     "OrderedWares": [
       {
-        "Id": 2,
-        "Name": "Mango",
-        "Price": 20.0,
-        "Description": "Dette er en Mango",
-        "Type": 2,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "Mango.jpg"
+        "Ware": null,
+        "Amount": 0
       }
     ],
     "DateTimeFrom": "2020-12-04T10:18:00",
@@ -26,6 +20,7 @@
       "EmailAddress": "MadsBrunebjerg@mail.dk",
       "BirthDate": "1996-08-11T00:00:00",
       "Password": "adgangskode",
+      "Password2": null,
       "PasswordCheck": "adgangskode",
       "AddressLine1": "Adresse",
       "AddressLine2": null,
@@ -39,24 +34,12 @@
     "Id": 2,
     "OrderedWares": [
       {
-        "Id": 1,
-        "Name": "Pizza",
-        "Price": 35.0,
-        "Description": "Det her er en Pizza",
-        "Type": 2,
-        "IsVegan": false,
-        "IsOrganic": false,
-        "ImageName": "Pizza.jpg"
+        "Ware": null,
+        "Amount": 0
       },
       {
-        "Id": 2,
-        "Name": "Mango",
-        "Price": 20.0,
-        "Description": "Dette er en Mango",
-        "Type": 2,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "Mango.jpg"
+        "Ware": null,
+        "Amount": 0
       }
     ],
     "DateTimeFrom": "2020-12-04T10:26:00",
@@ -72,6 +55,7 @@
       "EmailAddress": "MadsBrunebjerg@mail.dk",
       "BirthDate": "1996-08-11T00:00:00",
       "Password": "adgangskode",
+      "Password2": null,
       "PasswordCheck": "adgangskode",
       "AddressLine1": "Adresse",
       "AddressLine2": null,
@@ -85,34 +69,16 @@
     "Id": 3,
     "OrderedWares": [
       {
-        "Id": 2,
-        "Name": "Mango",
-        "Price": 20.0,
-        "Description": "Dette er en Mango",
-        "Type": 2,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "Mango.jpg"
+        "Ware": null,
+        "Amount": 0
       },
       {
-        "Id": 3,
-        "Name": "Ice tea",
-        "Price": 15.0,
-        "Description": "dette er en ice tea",
-        "Type": 4,
-        "IsVegan": false,
-        "IsOrganic": true,
-        "ImageName": null
+        "Ware": null,
+        "Amount": 0
       },
       {
-        "Id": 1,
-        "Name": "Pizza",
-        "Price": 35.0,
-        "Description": "Det her er en Pizza",
-        "Type": 2,
-        "IsVegan": false,
-        "IsOrganic": false,
-        "ImageName": "Pizza.jpg"
+        "Ware": null,
+        "Amount": 0
       }
     ],
     "DateTimeFrom": "2020-12-04T10:29:00",
@@ -128,6 +94,7 @@
       "EmailAddress": "MadsBrunebjerg@mail.dk",
       "BirthDate": "1996-08-11T00:00:00",
       "Password": "adgangskode",
+      "Password2": null,
       "PasswordCheck": "adgangskode",
       "AddressLine1": "Adresse",
       "AddressLine2": null,
@@ -141,34 +108,16 @@
     "Id": 4,
     "OrderedWares": [
       {
-        "Id": 0,
-        "Name": "Vand",
-        "Price": 6.0,
-        "Description": "Det her er vand",
-        "Type": 4,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "Vand.jpg"
+        "Ware": null,
+        "Amount": 0
       },
       {
-        "Id": 2,
-        "Name": "Mango",
-        "Price": 20.0,
-        "Description": "Dette er en Mango",
-        "Type": 2,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "Mango.jpg"
+        "Ware": null,
+        "Amount": 0
       },
       {
-        "Id": 3,
-        "Name": "Ice tea",
-        "Price": 15.0,
-        "Description": "dette er en ice tea",
-        "Type": 4,
-        "IsVegan": false,
-        "IsOrganic": true,
-        "ImageName": null
+        "Ware": null,
+        "Amount": 0
       }
     ],
     "DateTimeFrom": "2020-12-04T11:23:00",
@@ -184,12 +133,79 @@
       "EmailAddress": "MadsBrunebjerg@mail.com",
       "BirthDate": "1990-08-04T00:00:00",
       "Password": "adgangskode",
+      "Password2": null,
       "PasswordCheck": "adgangskode",
       "AddressLine1": "Adresse",
       "AddressLine2": null,
       "PostalCode": 2600,
       "City": "Glostrup",
       "PhoneNo": "10101010",
+      "UserOrders": []
+    }
+  },
+  {
+    "Id": 5,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 0,
+          "Name": "Vand",
+          "Price": 6.0,
+          "Description": "Det her er vand",
+          "Type": 4,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "Vand.jpg"
+        },
+        "Amount": 2
+      },
+      {
+        "Ware": {
+          "Id": 1,
+          "Name": "Pizza",
+          "Price": 35.0,
+          "Description": "Det her er en Pizza",
+          "Type": 2,
+          "IsVegan": false,
+          "IsOrganic": false,
+          "ImageName": "Pizza.jpg"
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 6,
+          "Name": "Tomat",
+          "Price": 15.0,
+          "Description": "Dette er en pakke tomater",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "tomat.jpg"
+        },
+        "Amount": 1
+      }
+    ],
+    "DateTimeFrom": "2020-12-10T14:51:00",
+    "DateTimeTo": "2020-12-10T16:51:00",
+    "Address": "etellerandet 4",
+    "TotalPrice": 62.0,
+    "Comment": "testing nyt",
+    "Done": false,
+    "User": {
+      "ID": 2,
+      "UserType": 0,
+      "FullName": "Katrine Kesselhahn",
+      "EmailAddress": "katr4722@edu.easj.dk",
+      "BirthDate": "1995-08-24T00:00:00",
+      "Password": "password",
+      "Password2": null,
+      "PasswordCheck": null,
+      "AddressLine1": "etellerandet 4",
+      "AddressLine2": null,
+      "PostalCode": 4000,
+      "City": "Roskilde",
+      "PhoneNo": "12345678",
       "UserOrders": []
     }
   }

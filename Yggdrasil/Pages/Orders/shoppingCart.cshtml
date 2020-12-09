@@ -14,27 +14,30 @@
         <th>Antal</th>
     </tr>
     </thead>
-    <tbody>
-    @foreach (var item in Model.Wares)
+    @if (Model.OItems.Count != 0)
     {
-        
+        <tbody>
+        @foreach (var item in Model.OItems)
+        {
+
             <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-                <td>@item.Description</td>
-                <td>@item.Price</td>
-                <td>@Model.itemsInCart.FindNumberOfSame(item)</td>
+                <td>@item.Ware.Id</td>
+                <td>@item.Ware.Name</td>
+                <td>@item.Ware.Description</td>
+                <td>@item.Ware.Price</td>
+                <td>@item.Amount</td>
                 <td>
                     <form method="post">
-                        <button asp-page-handler="Remove" asp-route-Id="@item.Id" class="btn btn-danger btn-group-lg pull-right">
+                        <button asp-page-handler="Remove" asp-route-Id="@item.Ware.Id" class="btn btn-danger btn-group-lg pull-right">
                             Fjern fra kurv
                         </button>
                     </form>
                 </td>
             </tr>
-        
+
+        }
+        </tbody>
     }
-    </tbody>
 </table>
 <h2>Total : @Model.itemsInCart.CalculateTotalPrice() kr.</h2>
 <a asp-page="/Wares/GetAllWares" class="button btn btn-dark btn-group-lg pull-right">Continue Shopping</a>

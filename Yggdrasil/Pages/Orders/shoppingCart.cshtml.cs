@@ -12,32 +12,34 @@ namespace Yggdrasil.Pages.Orders
 {
     public class shoppingCartModel : PageModel
     {
-        public ShoppingCartService itemsInCart;
+        public ShoppingCartService itemsInCart { get; }
         private IWareCatalog repo;
-        [BindProperty]
+        
         public Ware ware { get; set; }
-        [BindProperty]
-        public OrderItem oItem { get; set; }
-
-        public List<Ware> Wares { get; set; }
+        
+        public List<OrderItem> OItems { get; set; }
 
 
         public shoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo)
         {
             itemsInCart = shoppingService;
             repo = wareRepo;
-            Wares = new List<Ware>();
+            OItems = new List<OrderItem>();
         }
-        public void OnGet(int Id)
+        public IActionResult OnGet(/*int? id*/)
         {
-            //itemsInCart.AddWare(repo.GetWare(Id));
-            Wares = itemsInCart.GetOrderedWares();
+            //if (id == null)
+            //    return Page();
+            //Ware ware = repo.GetWare((int)id);
+            //itemsInCart.AddWare(ware);
+            OItems = itemsInCart.GetOrderedWares();
+            return Page();
         }
 
-        public IActionResult OnPostRemove(int Id)
+        public IActionResult OnPostRemove(int id)
         {
-            itemsInCart.DeleteWare(Id);
-            Wares = itemsInCart.GetOrderedWares();
+            itemsInCart.DeleteWare(id);
+            OItems = itemsInCart.GetOrderedWares();
             return Page();
         }
 

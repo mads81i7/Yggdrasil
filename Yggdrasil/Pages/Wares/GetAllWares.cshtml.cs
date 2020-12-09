@@ -25,7 +25,7 @@ namespace Yggdrasil.Pages.Wares
             IsAdmin = false;
         }
         public List<Ware> Wares { get; private set; }
-        public List<Ware> CartList { get; private set; }
+        public List<OrderItem> CartList { get; private set; }
         public User LoggedInUser { get; set; }
         public bool IsAdmin { get; set; }   
         [BindProperty]

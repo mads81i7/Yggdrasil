@@ -15,10 +15,10 @@ namespace Yggdrasil.Pages.Orders
         [BindProperty]
         public Order Order { get; set; }
 
-        public List<Ware> Wares { get; set; }   
+        public List<OrderItem> Wares { get; set; }   
 
-        public ShoppingCartService CartService { get; set; }
-        public IOrderRepository Repository { get; set; }
+        private ShoppingCartService CartService { get; set; }
+        private IOrderRepository Repository { get; set; }
         public LoginService Login { get; set; }
         public User User1 { get; set; } 
 
@@ -43,6 +43,10 @@ namespace Yggdrasil.Pages.Orders
 
         public IActionResult OnPost()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
             Order.OrderedWares = CartService.GetOrderedWares();
             Order.TotalPrice = CartService.CalculateTotalPrice();
             Order.User = Login.GetLoggedInUser();
