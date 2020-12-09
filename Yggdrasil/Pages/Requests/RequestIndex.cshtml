@@ -42,6 +42,7 @@
                 <td>@item.Comment </td>
                 <td>@item.User.FullName</td>
                 <td><a asp-page="AcceptRequest" asp-route-id="@item">Accepter bestilling</a></td>
+                <td><a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Detaljer</a></td>
                 <td>
                     <ul style="list-style-type: none;">
                         <li><a asp-page="EditOrder" asp-route-id="@item">Rediger </a></li>

@@ -11,11 +11,17 @@ namespace Yggdrasil.Pages.Users
     {
         private readonly IUserRepository _userRepo;
         private readonly LoginService _loginService;
+        public int AmountOfAdmins { get; set; }
+        public int AmountOfCouriers { get; set; }
+        public int AmountOfCustomers { get; set; }
 
         public IndexModel(IUserRepository repository, LoginService loginService)
         {
             _userRepo = repository;
             _loginService = loginService;
+            AmountOfAdmins = 0;
+            AmountOfCouriers = 0;
+            AmountOfCustomers = 0;
         }
 
         public IList<User> Users { get; set; }

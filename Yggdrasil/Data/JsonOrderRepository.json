@@ -10,7 +10,8 @@
         "Type": 2,
         "IsVegan": true,
         "IsOrganic": true,
-        "ImageName": "Mango.jpg"
+        "ImageName": "Mango.jpg",
+        "AmountSold": 0
       }
     ],
     "DateTimeFrom": "2020-12-04T10:18:00",
@@ -47,7 +48,8 @@
         "Type": 2,
         "IsVegan": false,
         "IsOrganic": false,
-        "ImageName": "Pizza.jpg"
+        "ImageName": "Pizza.jpg",
+        "AmountSold": 0
       },
       {
         "Id": 2,
@@ -57,7 +59,8 @@
         "Type": 2,
         "IsVegan": true,
         "IsOrganic": true,
-        "ImageName": "Mango.jpg"
+        "ImageName": "Mango.jpg",
+        "AmountSold": 0
       }
     ],
     "DateTimeFrom": "2020-12-04T10:26:00",
@@ -94,7 +97,8 @@
         "Type": 2,
         "IsVegan": true,
         "IsOrganic": true,
-        "ImageName": "Mango.jpg"
+        "ImageName": "Mango.jpg",
+        "AmountSold": 0
       },
       {
         "Id": 3,
@@ -104,7 +108,8 @@
         "Type": 4,
         "IsVegan": false,
         "IsOrganic": true,
-        "ImageName": null
+        "ImageName": null,
+        "AmountSold": 0
       },
       {
         "Id": 1,
@@ -114,7 +119,8 @@
         "Type": 2,
         "IsVegan": false,
         "IsOrganic": false,
-        "ImageName": "Pizza.jpg"
+        "ImageName": "Pizza.jpg",
+        "AmountSold": 0
       }
     ],
     "DateTimeFrom": "2020-12-04T10:29:00",
@@ -151,7 +157,8 @@
         "Type": 4,
         "IsVegan": true,
         "IsOrganic": true,
-        "ImageName": "Vand.jpg"
+        "ImageName": "Vand.jpg",
+        "AmountSold": 0
       },
       {
         "Id": 2,
@@ -161,7 +168,8 @@
         "Type": 2,
         "IsVegan": true,
         "IsOrganic": true,
-        "ImageName": "Mango.jpg"
+        "ImageName": "Mango.jpg",
+        "AmountSold": 0
       },
       {
         "Id": 3,
@@ -171,7 +179,8 @@
         "Type": 4,
         "IsVegan": false,
         "IsOrganic": true,
-        "ImageName": null
+        "ImageName": null,
+        "AmountSold": 0
       }
     ],
     "DateTimeFrom": "2020-12-04T11:23:00",
@@ -208,7 +217,8 @@
         "Type": 3,
         "IsVegan": true,
         "IsOrganic": false,
-        "ImageName": "ris.jpg"
+        "ImageName": "ris.jpg",
+        "AmountSold": 0
       },
       {
         "Id": 1,
@@ -218,7 +228,8 @@
         "Type": 2,
         "IsVegan": false,
         "IsOrganic": false,
-        "ImageName": "Pizza.jpg"
+        "ImageName": "Pizza.jpg",
+        "AmountSold": 0
       }
     ],
     "DateTimeFrom": "2020-12-07T10:32:00",
@@ -230,6 +241,181 @@
     "User": {
       "ID": 3,
       "UserType": 1,
+      "FullName": "AdminMads",
+      "EmailAddress": "AdminMads@Mail.dk",
+      "BirthDate": "1996-08-11T00:00:00",
+      "Password": "adgangskode",
+      "Password2": null,
+      "PasswordCheck": null,
+      "AddressLine1": "Adresse",
+      "AddressLine2": null,
+      "PostalCode": 2600,
+      "City": "Glostrup",
+      "PhoneNo": "10101010",
+      "UserOrders": []
+    }
+  },
+  {
+    "Id": 6,
+    "OrderedWares": [
+      {
+        "Id": 0,
+        "Name": "Vand",
+        "Price": 6.0,
+        "Description": "Det her er vand",
+        "Type": 4,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Vand.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 1,
+        "Name": "Pizza",
+        "Price": 35.0,
+        "Description": "Det her er en Pizza",
+        "Type": 2,
+        "IsVegan": false,
+        "IsOrganic": false,
+        "ImageName": "Pizza.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 2,
+        "Name": "Mango",
+        "Price": 20.0,
+        "Description": "Dette er en Mango",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Mango.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 3,
+        "Name": "Mælk",
+        "Price": 8.5,
+        "Description": "Dette er mælk",
+        "Type": 0,
+        "IsVegan": false,
+        "IsOrganic": true,
+        "ImageName": "maelk.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 4,
+        "Name": "Rugbrød",
+        "Price": 18.0,
+        "Description": "Dette er et rugbrød",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "rugbroed.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 5,
+        "Name": "Salat",
+        "Price": 14.0,
+        "Description": "Dette er et Iceberg salathoved",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "iceberg.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 6,
+        "Name": "Tomat",
+        "Price": 15.0,
+        "Description": "Dette er en pakke tomater",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "tomat.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 7,
+        "Name": "Vindruer",
+        "Price": 18.0,
+        "Description": "Dette er en pakke grønne vindruer",
+        "Type": 2,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "vindruer.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 8,
+        "Name": "Tun",
+        "Price": 10.0,
+        "Description": "Dette er en dåse med tun",
+        "Type": 2,
+        "IsVegan": false,
+        "IsOrganic": false,
+        "ImageName": "daasetun.jpg",
+        "AmountSold": 0
+      },
+      {
+        "Id": 9,
+        "Name": "Ris",
+        "Price": 16.5,
+        "Description": "Dette er en pose ris",
+        "Type": 3,
+        "IsVegan": true,
+        "IsOrganic": false,
+        "ImageName": "ris.jpg",
+        "AmountSold": 0
+      }
+    ],
+    "DateTimeFrom": "2020-12-24T16:00:00",
+    "DateTimeTo": "2020-12-24T18:00:00",
+    "Address": "Vej 123",
+    "TotalPrice": 161.0,
+    "Comment": "Husk at skrive en kommentar",
+    "Done": false,
+    "User": {
+      "ID": 3,
+      "UserType": 0,
+      "FullName": "AdminMads",
+      "EmailAddress": "AdminMads@Mail.dk",
+      "BirthDate": "1996-08-11T00:00:00",
+      "Password": "adgangskode",
+      "Password2": null,
+      "PasswordCheck": null,
+      "AddressLine1": "Adresse",
+      "AddressLine2": null,
+      "PostalCode": 2600,
+      "City": "Glostrup",
+      "PhoneNo": "10101010",
+      "UserOrders": []
+    }
+  },
+  {
+    "Id": 7,
+    "OrderedWares": [
+      {
+        "Id": 0,
+        "Name": "Vand",
+        "Price": 6.0,
+        "Description": "Det her er vand",
+        "Type": 4,
+        "IsVegan": true,
+        "IsOrganic": true,
+        "ImageName": "Vand.jpg",
+        "AmountSold": 0
+      }
+    ],
+    "DateTimeFrom": "2020-12-09T10:01:00",
+    "DateTimeTo": "2020-12-09T12:01:00",
+    "Address": "Der",
+    "TotalPrice": 6.0,
+    "Comment": "asdfh",
+    "Done": false,
+    "User": {
+      "ID": 3,
+      "UserType": 0,
       "FullName": "AdminMads",
       "EmailAddress": "AdminMads@Mail.dk",
       "BirthDate": "1996-08-11T00:00:00",

@@ -40,7 +40,6 @@ namespace Yggdrasil.Services
             users[id - 1] = new User();
             users[id - 1].ID = id;
 
-
             JsonFileWriter.WriteToJsonUser(users, JsonFileName);
         }
 

@@ -28,9 +28,8 @@ namespace Yggdrasil.Pages.Orders
             repo = wareRepo;
             Wares = new List<Ware>();
         }
-        public void OnGet(int Id)
+        public void OnGet()
         {
-            //itemsInCart.AddWare(repo.GetWare(Id));
             Wares = itemsInCart.GetOrderedWares();
         }
 
