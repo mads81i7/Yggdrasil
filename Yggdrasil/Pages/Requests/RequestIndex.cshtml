@@ -1,5 +1,7 @@
 ﻿@page
+@using Yggdrasil.Interfaces
 @model Yggdrasil.Pages.Requests.RequestIndexModel
+@inject IUserRepository UserRepository
 
 @{
     ViewData["Title"] = "Bestillinger";
@@ -10,14 +12,14 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Addresse</th>
+            <th>Navn</th>
+            <th>Adresse</th>
             <th>Postnummer</th>
-            <th>Fra</th>
-            <th>Til</th>
-            <th>Total Pris</th>
+            <th>By</th>
+            <th>Telefonnummer</th>
+            <th>Email</th>
             <th>Kommentar</th>
-            <th>Bruger</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -25,14 +27,20 @@
         {
             if (item.CourierID < 1)
             {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.AltAddress </td>
-                    <td>@item.CustomerID</td>
-                    <td>@item.DateTimeWish </td>
-                    <td>@item.Comment </td>
-                    <td><form method="post"><input type="submit" asp-page-handler="Accept" asp-route-id="@item.Id" value="Acceptér bestilling" class="btn btn-primary" /></form></td>
-                </tr>
+        <tr>
+            <td>@UserRepository.GetUser(item.CustomerID).FullName</td>
+            <td>@UserRepository.GetUser(item.CustomerID).AddressLine1</td>
+            <td>@UserRepository.GetUser(item.CustomerID).PostalCode</td>
+            <td>@UserRepository.GetUser(item.CustomerID).City</td>
+            <td>@UserRepository.GetUser(item.CustomerID).PhoneNo</td>
+            <td>@UserRepository.GetUser(item.CustomerID).EmailAddress</td>
+            @*<td>@item.AltAddress </td>
+            <td>@item.DateTimeWish </td>*@
+            <td>@item.Comment </td>
+            <td>
+                <form method="post"><input type="submit" asp-page-handler="Accept" asp-route-id="@item.Id" value="Acceptér bestilling" class="btn btn-primary" /></form>
+            </td>
+        </tr>
             }
         }
     </tbody>

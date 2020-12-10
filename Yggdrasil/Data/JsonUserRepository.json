@@ -28,5 +28,50 @@
     "PostalCode": 4000,
     "City": "Roskilde",
     "PhoneNo": "12345678"
+  },
+  {
+    "ID": 3,
+    "UserType": 0,
+    "FullName": "AdminMads",
+    "EmailAddress": "AdminMads@Mail.dk",
+    "BirthDate": "1996-07-10T00:00:00",
+    "Password": "adgangskode",
+    "Password2": null,
+    "PasswordCheck": null,
+    "AddressLine1": "Adresse",
+    "AddressLine2": null,
+    "PostalCode": 2600,
+    "City": "Glostrup",
+    "PhoneNo": "10101010"
+  },
+  {
+    "ID": 4,
+    "UserType": 2,
+    "FullName": "CustomerMads",
+    "EmailAddress": "CustomerMads@Mail.dk",
+    "BirthDate": "1980-07-10T00:00:00",
+    "Password": "adgangskode",
+    "Password2": null,
+    "PasswordCheck": null,
+    "AddressLine1": "Adresse",
+    "AddressLine2": null,
+    "PostalCode": 2600,
+    "City": "Glostrup",
+    "PhoneNo": "10101010"
+  },
+  {
+    "ID": 5,
+    "UserType": 1,
+    "FullName": "CourierMads",
+    "EmailAddress": "CourierMads@Mail.dk",
+    "BirthDate": "1995-07-10T00:00:00",
+    "Password": "adgangskode",
+    "Password2": null,
+    "PasswordCheck": null,
+    "AddressLine1": "Adresse",
+    "AddressLine2": null,
+    "PostalCode": 2600,
+    "City": "Glostrup",
+    "PhoneNo": "10101010"
   }
 ]

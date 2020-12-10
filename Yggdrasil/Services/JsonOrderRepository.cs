@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
@@ -12,10 +11,10 @@ namespace Yggdrasil.Services
 
         string JsonFileName = @"Data\JsonOrderRepository.json";
 
-        /*public JsonOrderRepository(IUserRepository userRepository)
-        {
-            _userRepository = userRepository;
-        }*/
+        //public JsonOrderRepository(IUserRepository userRepository)
+        //{
+        //    _userRepository = userRepository;
+        //}
 
         public List<Order> AllOrders()
         {
@@ -84,6 +83,6 @@ namespace Yggdrasil.Services
 
             orders.Remove(order);
             JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
-        }
+        } 
     }
 }

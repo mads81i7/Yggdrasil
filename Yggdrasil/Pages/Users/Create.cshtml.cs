@@ -37,7 +37,7 @@ namespace Yggdrasil.Pages.Users
             {
                 User.Password2 = null;
                 _repository.AddUser(User);
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Index");
             }
 
             BirthDateMessage = "Fødselsdatoen er ugyldig";
