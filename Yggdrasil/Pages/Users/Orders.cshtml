@@ -1,0 +1,102 @@
+﻿@page
+@model Yggdrasil.Pages.Users.OrdersModel
+
+@{
+    ViewData["Title"] = "Ordrer";
+}
+
+<h3>Aktive ordrer</h3>
+
+    <table class="table table-striped" style="white-space: nowrap">
+        <thead>
+            <tr>
+                <th>
+                    Alternativ adresse
+                </th>
+                <th>
+                    Kommentar
+                </th>
+                <th>
+                    Tidsønske
+                </th>
+                <th>
+                    Bedømmelse
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                @if (item.CustomerID == Model.User.ID && !item.Done)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AltAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateTimeWish)
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @Html.DisplayNameFor(modelItem => item.Rating)<br />
+                                
+                                <form method="post">
+                                    @for (var i = 1; i <= 5; i++)
+                                    {
+                                        <input type="radio" asp-for="Rating" value="@i" />@i
+                                    }
+                                    <input type="submit" value="Modtaget varer" asp-route-id="@item.ID" class="btn btn-primary" />
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <h3>Afsluttede ordrer</h3>
+
+    <table class="table table-striped" style="white-space: nowrap">
+        <thead>
+            <tr>
+                <th>
+                    Alternativ adresse
+                </th>
+                <th>
+                    Kommentar
+                </th>
+                <th>
+                    Tidsønske
+                </th>
+                <th>
+                    Bedømmelse
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
+            {
+                @if (item.CustomerID == Model.User.ID && item.Done)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AltAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DateTimeWish)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rating)
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>

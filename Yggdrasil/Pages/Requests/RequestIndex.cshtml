@@ -1,21 +1,12 @@
 ﻿@page
 @model Yggdrasil.Pages.Requests.RequestIndexModel
+
 @{
-    ViewData["Title"] = "RequestIndex";
+    ViewData["Title"] = "Bestillinger";
 }
+
 <h3>Bestillinger</h3>
 
-<div>
-    <form method="get">
-        <p>
-            Search:
-            <input type="text" asp-for="Criteria" />
-            <input type="submit" value="Filtrer" class="btn button btn-dark"/>
-        </p>
-    </form>
-</div>
-
-<p>Antal bestillinger: @Model.Orders.Count</p>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -32,23 +23,17 @@
     <tbody>
         @foreach (var item in Model.Orders)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Address </td>
-                <td>@item.User.PostalCode</td>
-                <td>@item.DateTimeFrom </td>
-                <td>@item.DateTimeTo</td>
-                <td>@item.TotalPrice </td>
-                <td>@item.Comment </td>
-                <td>@item.User.FullName</td>
-                <td><a asp-page="AcceptRequest" asp-route-id="@item">Accepter bestilling</a></td>
-                <td>
-                    <ul style="list-style-type: none;">
-                        <li><a asp-page="EditOrder" asp-route-id="@item">Rediger </a></li>
-                        <li><a asp-page="DeleteOrder" asp-route-id="@item">Slet </a></li>
-                    </ul>
-                </td>
-            </tr>
+            if (item.CourierID < 1)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.AltAddress </td>
+                    <td>@item.CustomerID</td>
+                    <td>@item.DateTimeWish </td>
+                    <td>@item.Comment </td>
+                    <td><form method="post"><input type="submit" asp-page-handler="Accept" asp-route-id="@item.ID" value="Acceptér bestilling" class="btn btn-primary" /></form></td>
+                </tr>
+            }
         }
     </tbody>
 </table>

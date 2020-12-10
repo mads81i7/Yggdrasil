@@ -10,5 +10,6 @@ namespace Yggdrasil.Interfaces
         public void RemoveUser(int id);
         public void EditUser(int id, User user);
         public User GetUser(int id);
+        public double GetRatingForUser(User user);
     }
 }

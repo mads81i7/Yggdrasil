@@ -1,212 +1,47 @@
 [
   {
-    "Id": 1,
-    "OrderedWares": [
-      {
-        "Ware": null,
-        "Amount": 0
-      }
+    "ID": 0,
+    "OrderedWareIDs": [
+      1,
+      8,
+      9
     ],
-    "DateTimeFrom": "2020-12-04T10:18:00",
-    "DateTimeTo": "2020-12-04T12:18:00",
-    "Address": "Derovre",
-    "TotalPrice": 20.0,
-    "Comment": "rdttf",
-    "Done": false,
-    "User": {
-      "ID": 5,
-      "UserType": 2,
-      "FullName": "Mads Horsted Brunebjerg",
-      "EmailAddress": "MadsBrunebjerg@mail.dk",
-      "BirthDate": "1996-08-11T00:00:00",
-      "Password": "adgangskode",
-      "Password2": null,
-      "PasswordCheck": "adgangskode",
-      "AddressLine1": "Adresse",
-      "AddressLine2": null,
-      "PostalCode": 2600,
-      "City": "Glostrup",
-      "PhoneNo": "10101010",
-      "UserOrders": []
-    }
+    "DateTimeWish": "2020-12-08T17:26:00",
+    "AltAddress": "asfd",
+    "Comment": "asdf",
+    "Done": true,
+    "Rating": 4,
+    "CustomerID": 1,
+    "CourierID": 1
   },
   {
-    "Id": 2,
-    "OrderedWares": [
-      {
-        "Ware": null,
-        "Amount": 0
-      },
-      {
-        "Ware": null,
-        "Amount": 0
-      }
+    "ID": 1,
+    "OrderedWareIDs": [
+      1,
+      2,
+      6
     ],
-    "DateTimeFrom": "2020-12-04T10:26:00",
-    "DateTimeTo": "2020-12-04T12:26:00",
-    "Address": "Derovre",
-    "TotalPrice": 55.0,
-    "Comment": "fkhjbk",
-    "Done": false,
-    "User": {
-      "ID": 5,
-      "UserType": 2,
-      "FullName": "Mads Horsted Brunebjerg",
-      "EmailAddress": "MadsBrunebjerg@mail.dk",
-      "BirthDate": "1996-08-11T00:00:00",
-      "Password": "adgangskode",
-      "Password2": null,
-      "PasswordCheck": "adgangskode",
-      "AddressLine1": "Adresse",
-      "AddressLine2": null,
-      "PostalCode": 2600,
-      "City": "Glostrup",
-      "PhoneNo": "10101010",
-      "UserOrders": []
-    }
+    "DateTimeWish": "2020-12-09T12:00:00",
+    "AltAddress": null,
+    "Comment": null,
+    "Done": true,
+    "Rating": 5,
+    "CustomerID": 1,
+    "CourierID": 1
   },
   {
-    "Id": 3,
-    "OrderedWares": [
-      {
-        "Ware": null,
-        "Amount": 0
-      },
-      {
-        "Ware": null,
-        "Amount": 0
-      },
-      {
-        "Ware": null,
-        "Amount": 0
-      }
+    "ID": 2,
+    "OrderedWareIDs": [
+      3,
+      6,
+      9
     ],
-    "DateTimeFrom": "2020-12-04T10:29:00",
-    "DateTimeTo": "2020-12-04T12:29:00",
-    "Address": "jk",
-    "TotalPrice": 70.0,
-    "Comment": "jvh",
-    "Done": false,
-    "User": {
-      "ID": 5,
-      "UserType": 2,
-      "FullName": "Mads Horsted Brunebjerg",
-      "EmailAddress": "MadsBrunebjerg@mail.dk",
-      "BirthDate": "1996-08-11T00:00:00",
-      "Password": "adgangskode",
-      "Password2": null,
-      "PasswordCheck": "adgangskode",
-      "AddressLine1": "Adresse",
-      "AddressLine2": null,
-      "PostalCode": 2600,
-      "City": "Glostrup",
-      "PhoneNo": "10101010",
-      "UserOrders": []
-    }
-  },
-  {
-    "Id": 4,
-    "OrderedWares": [
-      {
-        "Ware": null,
-        "Amount": 0
-      },
-      {
-        "Ware": null,
-        "Amount": 0
-      },
-      {
-        "Ware": null,
-        "Amount": 0
-      }
-    ],
-    "DateTimeFrom": "2020-12-04T11:23:00",
-    "DateTimeTo": "2020-12-04T11:35:00",
-    "Address": "hbk.v",
-    "TotalPrice": 41.0,
-    "Comment": "lm",
-    "Done": false,
-    "User": {
-      "ID": 6,
-      "UserType": 0,
-      "FullName": "AdminMads",
-      "EmailAddress": "MadsBrunebjerg@mail.com",
-      "BirthDate": "1990-08-04T00:00:00",
-      "Password": "adgangskode",
-      "Password2": null,
-      "PasswordCheck": "adgangskode",
-      "AddressLine1": "Adresse",
-      "AddressLine2": null,
-      "PostalCode": 2600,
-      "City": "Glostrup",
-      "PhoneNo": "10101010",
-      "UserOrders": []
-    }
-  },
-  {
-    "Id": 5,
-    "OrderedWares": [
-      {
-        "Ware": {
-          "Id": 0,
-          "Name": "Vand",
-          "Price": 6.0,
-          "Description": "Det her er vand",
-          "Type": 4,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "Vand.jpg"
-        },
-        "Amount": 2
-      },
-      {
-        "Ware": {
-          "Id": 1,
-          "Name": "Pizza",
-          "Price": 35.0,
-          "Description": "Det her er en Pizza",
-          "Type": 2,
-          "IsVegan": false,
-          "IsOrganic": false,
-          "ImageName": "Pizza.jpg"
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 6,
-          "Name": "Tomat",
-          "Price": 15.0,
-          "Description": "Dette er en pakke tomater",
-          "Type": 2,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "tomat.jpg"
-        },
-        "Amount": 1
-      }
-    ],
-    "DateTimeFrom": "2020-12-10T14:51:00",
-    "DateTimeTo": "2020-12-10T16:51:00",
-    "Address": "etellerandet 4",
-    "TotalPrice": 62.0,
-    "Comment": "testing nyt",
-    "Done": false,
-    "User": {
-      "ID": 2,
-      "UserType": 0,
-      "FullName": "Katrine Kesselhahn",
-      "EmailAddress": "katr4722@edu.easj.dk",
-      "BirthDate": "1995-08-24T00:00:00",
-      "Password": "password",
-      "Password2": null,
-      "PasswordCheck": null,
-      "AddressLine1": "etellerandet 4",
-      "AddressLine2": null,
-      "PostalCode": 4000,
-      "City": "Roskilde",
-      "PhoneNo": "12345678",
-      "UserOrders": []
-    }
+    "DateTimeWish": "2020-12-09T12:00:00",
+    "AltAddress": null,
+    "Comment": null,
+    "Done": true,
+    "Rating": 5,
+    "CustomerID": 1,
+    "CourierID": 1
   }
 ]

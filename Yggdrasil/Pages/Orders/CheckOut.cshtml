@@ -6,10 +6,10 @@
 <form class="form-horizontal" method="post">
     <div asp-validation-summary="ModelOnly"></div>
     <div class="form-group">
-        <label asp-for="@Model.Order.Address" class="control-label"></label>
+        <label asp-for="@Model.Order.AltAddress" class="control-label"></label>
         <div>
-            <input asp-for="@Model.Order.Address" type="text" class="form-control">
-            <span asp-validation-for="@Model.Order.Address" class="text-danger"></span>
+            <input asp-for="@Model.Order.AltAddress" type="text" class="form-control">
+            <span asp-validation-for="@Model.Order.AltAddress" class="text-danger"></span>
         </div>
     </div>
 
@@ -25,10 +25,8 @@
         <label class="control-label">Leverings tidsrum</label>
         <div>
             <p>
-                <input asp-for="@Model.Order.DateTimeFrom" />
-                <span asp-validation-for="@Model.Order.DateTimeFrom" class="text-danger"></span>
-                <input asp-for="@Model.Order.DateTimeTo" />
-                <span asp-validation-for="@Model.Order.DateTimeTo" class="text-danger"></span>
+                <input asp-for="@Model.Order.DateTimeWish" />
+                <span asp-validation-for="@Model.Order.DateTimeWish" class="text-danger"></span>
             </p>
         </div>
     </div>

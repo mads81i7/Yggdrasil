@@ -19,6 +19,16 @@
             {
                 <a asp-page="/Users/Logout" class="float-right" style="font-size: medium">Log ud</a>
                 <p class="float-right" style="font-size: medium">&nbsp; | &nbsp;</p>
+                if (LoginService.GetLoggedInUser().UserType == UserTypes.Customer || LoginService.GetLoggedInUser().UserType == UserTypes.Admin)
+                {
+                    <a asp-page="/Users/Orders" asp-route-id="@LoginService.GetLoggedInUser().ID" class="float-right" style="font-size: medium">Mine ordrer</a>
+                    <p class="float-right" style="font-size: medium">&nbsp; | &nbsp;</p>
+                }
+                if (LoginService.GetLoggedInUser().UserType == UserTypes.Courier || LoginService.GetLoggedInUser().UserType == UserTypes.Admin)
+                {
+                    <a asp-page="/Users/Deliveries" asp-route-id="@LoginService.GetLoggedInUser().ID" class="float-right" style="font-size: medium">Mine leveringer</a>
+                    <p class="float-right" style="font-size: medium">&nbsp; | &nbsp;</p>
+                }
                 <a asp-page="/Users/Details" asp-route-id="@LoginService.GetLoggedInUser().ID" class="float-right" style="font-size: medium">@LoginService.GetLoggedInUser().EmailAddress</a>
             }
             else

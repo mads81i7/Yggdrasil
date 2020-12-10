@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
@@ -15,8 +12,12 @@ namespace Yggdrasil.Pages.Orders
         [BindProperty]
         public Order Order { get; set; }
 
+        private readonly ShoppingCartService _cartService;
+        private readonly IOrderRepository _orderRepository;
+        private readonly LoginService _login;
         public List<OrderItem> Wares { get; set; }   
 
+        public CheckOutModel(IOrderRepository orderRepository, ShoppingCartService cartService, LoginService login)
         private ShoppingCartService CartService { get; set; }
         private IOrderRepository Repository { get; set; }
         public LoginService Login { get; set; }
@@ -24,25 +25,30 @@ namespace Yggdrasil.Pages.Orders
 
         public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log)
         {
-            CartService = itemsInCart;
-            Repository = repo;
-            Login = log;
-            User1 = Login.GetLoggedInUser();
+            _cartService = cartService;
+            _orderRepository = orderRepository;
+            _login = login;
         }
+
         public IActionResult OnGet()
         {
-            if (User1 == null)
-            {
+            if (_login.GetLoggedInUser() == null)
                 return RedirectToPage("/Users/Login");
-            }
-            else
-            {
-                return Page();
-            }
+
+            return Page();
         }
 
         public IActionResult OnPost()
         {
+            List<int> orderedWareIDs = new List<int>();
+            foreach (Ware ware in _cartService.GetOrderedWares())
+            {
+                orderedWareIDs.Add(ware.Id);
+            }
+            Order.OrderedWareIDs = orderedWareIDs;
+            Order.CustomerID = _login.GetLoggedInUser().ID;
+            _orderRepository.AddOrder(Order);
+            _cartService.GetOrderedWares().Clear();
             if (!ModelState.IsValid)
             {
                 return Page();

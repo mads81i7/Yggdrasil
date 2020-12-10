@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
@@ -10,19 +7,18 @@ using Yggdrasil.Services;
 
 namespace Yggdrasil.Pages.Orders
 {
-    public class shoppingCartModel : PageModel
+    public class ShoppingCartModel : PageModel
     {
-        public ShoppingCartService itemsInCart { get; }
+        public readonly ShoppingCartService ItemsInCart;
         private IWareCatalog repo;
         
         public Ware ware { get; set; }
         
         public List<OrderItem> OItems { get; set; }
 
-
-        public shoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo)
+        public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo)
         {
-            itemsInCart = shoppingService;
+            ItemsInCart = shoppingService;
             repo = wareRepo;
             OItems = new List<OrderItem>();
         }
@@ -42,8 +38,5 @@ namespace Yggdrasil.Pages.Orders
             OItems = itemsInCart.GetOrderedWares();
             return Page();
         }
-
-        
-
     }
 }

@@ -46,12 +46,5 @@ namespace Yggdrasil.Models
 
         [BindProperty, Required(ErrorMessage = "{0} skal udfyldes"), DataType(DataType.PhoneNumber), Display(Name = "Telefon"), MinLength(8, ErrorMessage = "Indtast et gyldigt dansk telefonnummer."), MaxLength(8, ErrorMessage = "Indtast et gyldigt dansk telefonnummer.")]
         public string PhoneNo { get; set; }
-
-        public List<Order> UserOrders { get; set; }
-
-        public User()
-        {
-            UserOrders = new List<Order>();
-        }
     }
 }

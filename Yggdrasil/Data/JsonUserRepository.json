@@ -12,8 +12,7 @@
     "AddressLine2": null,
     "PostalCode": 4050,
     "City": "Skibby",
-    "PhoneNo": "41681494",
-    "UserOrders": []
+    "PhoneNo": "41681494"
   },
   {
     "ID": 2,
@@ -28,7 +27,6 @@
     "AddressLine2": null,
     "PostalCode": 4000,
     "City": "Roskilde",
-    "PhoneNo": "12345678",
-    "UserOrders": []
+    "PhoneNo": "12345678"
   }
 ]
