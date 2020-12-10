@@ -1,18 +1,20 @@
 ﻿@page
 @model Yggdrasil.Pages.Orders.CheckOutModel
+
 @{
     ViewData["Title"] = "Check ud";
 }
+
 <h1>Check ud</h1>
 <form class="form-horizontal" method="post">
     <div asp-validation-summary="ModelOnly"></div>
-    <div class="form-group">
+    @*<div class="form-group">
         <label asp-for="@Model.Order.AltAddress" class="control-label"></label>
         <div>
             <input asp-for="@Model.Order.AltAddress" type="text" class="form-control">
             <span asp-validation-for="@Model.Order.AltAddress" class="text-danger"></span>
         </div>
-    </div>
+    </div>*@
 
     <div class="form-group">
         <label asp-for="@Model.Order.Comment" class="control-label"></label>
@@ -22,15 +24,15 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="control-label">Leverings tidsrum</label>
+    @*<div class="form-group">
+        <label class="control-label">Leveringstidspunkt</label>
         <div>
             <p>
                 <input asp-for="@Model.Order.DateTimeWish" />
                 <span asp-validation-for="@Model.Order.DateTimeWish" class="text-danger"></span>
             </p>
         </div>
-    </div>
+    </div>*@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">

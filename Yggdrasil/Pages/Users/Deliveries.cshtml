@@ -27,15 +27,15 @@
             @if (item.CourierID == Model.User.ID && !item.Done)
             {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.AltAddress)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Comment)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.DateTimeWish)
-            </td>
+            </td>*@
         </tr>
             }
         }
@@ -68,15 +68,15 @@
             @if (item.CourierID == Model.User.ID && item.Done)
             {
                 <tr>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.AltAddress)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.Comment)
                     </td>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.DateTimeWish)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.Rating)
                     </td>
