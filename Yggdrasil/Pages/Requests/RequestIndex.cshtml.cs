@@ -16,11 +16,19 @@ namespace Yggdrasil.Pages.Requests
         private readonly LoginService _loginService;
         public List<Order> Orders;
 
+        [BindProperty(SupportsGet = true)]
+        public string Criteria { get; set; }
+
         public RequestIndexModel(IOrderRepository orderRepository, LoginService loginService)
         {
             _orderRepository = orderRepository;
             _loginService = loginService;
             Orders = _orderRepository.AllOrders();
+        }
+
+        public void OnGet()
+        {
+            Orders = _orderRepository.FilterOrders(Criteria);
         }
 
         public IActionResult OnPostAccept(int id)

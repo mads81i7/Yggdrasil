@@ -2,16 +2,19 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
+using Yggdrasil.Services;
 
 namespace Yggdrasil.Pages.Users
 {
     public class DetailsModel : PageModel
     {
-        public readonly IUserRepository _repository;
+        private readonly IUserRepository _repository;
+        public readonly IOrderRepository _repo;
 
-        public DetailsModel(IUserRepository repository)
+        public DetailsModel(IUserRepository repository, IOrderRepository repo)
         {
             _repository = repository;
+            _repo = repo;
         }
 
         [BindProperty]

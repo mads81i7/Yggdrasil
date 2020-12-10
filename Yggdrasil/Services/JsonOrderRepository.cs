@@ -8,21 +8,21 @@ namespace Yggdrasil.Services
 {
     public class JsonOrderRepository : IOrderRepository
     {
-        //private readonly IUserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
 
         string JsonFileName = @"Data\JsonOrderRepository.json";
 
-        /*public JsonOrderRepository(IUserRepository userRepository)
+        public JsonOrderRepository(IUserRepository userRepository)
         {
             _userRepository = userRepository;
-        }*/
+        }
 
         public List<Order> AllOrders()
         {
             return JsonFileReader.ReadJsonOrder(JsonFileName);
         }
 
-        /*public List<Order> FilterOrders(string criteria)
+        public List<Order> FilterOrders(string criteria)
         {
             List<Order> orders = AllOrders();
             if (string.IsNullOrEmpty(criteria))
@@ -41,7 +41,7 @@ namespace Yggdrasil.Services
             }
 
             return emptyList;
-        }*/
+        }
 
         public void AddOrder(Order order)
         {
@@ -86,5 +86,25 @@ namespace Yggdrasil.Services
             JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
 
+
+        public double GetRatingForUser(User user)
+        {
+            int cummulativeRatings = 0;
+            int noOfRatings = 0;
+
+            foreach (Order order in AllOrders())
+            {
+                if (order.CourierID == user.ID)
+                {
+                    cummulativeRatings += order.Rating;
+                    noOfRatings++;
+                }
+            }
+
+            if (noOfRatings > 0)
+                return (double)cummulativeRatings / (double)noOfRatings;
+
+            return 0.0;
+        }
     }
 }
