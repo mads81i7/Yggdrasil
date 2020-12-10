@@ -2,9 +2,10 @@
 @model Yggdrasil.Pages.Orders.ShoppingCartModel
 
 @{
+    ViewData["Title"] = "Indkøbskurv";
 }
 
-<h1>Indkøbs Kurv</h1>
+<h1>Indkøbskurv</h1>
 <table class="table">
     <thead>
         <tr>
@@ -18,25 +19,25 @@
     @if (Model.OItems.Count != 0)
     {
         <tbody>
-        @foreach (var item in Model.OItems)
-        {
+            @foreach (var item in Model.OItems)
+            {
 
-            <tr>
-                <td>@item.Ware.Id</td>
-                <td>@item.Ware.Name</td>
-                <td>@item.Ware.Description</td>
-                <td>@item.Ware.Price</td>
-                <td>@item.Amount</td>
-                <td>
-                    <form method="post">
-                        <button asp-page-handler="Remove" asp-route-Id="@item.Ware.Id" class="btn btn-danger btn-group-lg pull-right">
-                            Fjern fra kurv
-                        </button>
-                    </form>
-                </td>
-            </tr>
+                <tr>
+                    <td>@item.Ware.Id</td>
+                    <td>@item.Ware.Name</td>
+                    <td>@item.Ware.Description</td>
+                    <td>@item.Ware.Price</td>
+                    <td>@item.Amount</td>
+                    <td>
+                        <form method="post">
+                            <button asp-page-handler="Remove" asp-route-Id="@item.Ware.Id" class="btn btn-danger btn-group-lg pull-right">
+                                Fjern fra kurv
+                            </button>
+                        </form>
+                    </td>
+                </tr>
 
-        }
+            }
         </tbody>
     }
 </table>

@@ -10,15 +10,15 @@
     <table class="table table-striped" style="white-space: nowrap">
         <thead>
             <tr>
-                <th>
+                @*<th>
                     Alternativ adresse
-                </th>
+                </th>*@
                 <th>
                     Kommentar
                 </th>
-                <th>
+                @*<th>
                     Tidsønske
-                </th>
+                </th>*@
                 <th>
                     Bedømmelse
                 </th>
@@ -30,15 +30,15 @@
                 @if (item.CustomerID == Model.User.ID && !item.Done)
                 {
                     <tr>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.AltAddress)
-                        </td>
+                        </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.Comment)
                         </td>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.DateTimeWish)
-                        </td>
+                        </td>*@
                         <td>
                             <div class="form-group">
                                 @Html.DisplayNameFor(modelItem => item.Rating)<br />
@@ -63,15 +63,15 @@
     <table class="table table-striped" style="white-space: nowrap">
         <thead>
             <tr>
-                <th>
+                @*<th>
                     Alternativ adresse
-                </th>
+                </th>*@
                 <th>
                     Kommentar
                 </th>
-                <th>
+                @*<th>
                     Tidsønske
-                </th>
+                </th>*@
                 <th>
                     Bedømmelse
                 </th>
@@ -83,15 +83,15 @@
                 @if (item.CustomerID == Model.User.ID && item.Done)
                 {
                     <tr>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.AltAddress)
-                        </td>
+                        </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.Comment)
                         </td>
-                        <td>
+                        @*<td>
                             @Html.DisplayFor(modelItem => item.DateTimeWish)
-                        </td>
+                        </td>*@
                         <td>
                             @Html.DisplayFor(modelItem => item.Rating)
                         </td>
