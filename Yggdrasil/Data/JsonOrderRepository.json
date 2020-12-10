@@ -4,73 +4,6 @@
     "OrderedWares": [
       {
         "Ware": {
-          "Id": 1,
-          "Name": "Pizza",
-          "Price": 35.0,
-          "Description": "Det her er en Pizza",
-          "Type": 2,
-          "IsVegan": false,
-          "IsOrganic": false,
-          "ImageName": "Pizza.jpg",
-          "AmountSold": 0
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 5,
-          "Name": "Salat",
-          "Price": 14.0,
-          "Description": "Dette er et Iceberg salathoved",
-          "Type": 2,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "iceberg.jpg",
-          "AmountSold": 0
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 0,
-          "Name": "Vand",
-          "Price": 6.0,
-          "Description": "Det her er vand",
-          "Type": 4,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "Vand.jpg",
-          "AmountSold": 0
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 8,
-          "Name": "Tun",
-          "Price": 10.0,
-          "Description": "Dette er en dåse med tun",
-          "Type": 2,
-          "IsVegan": false,
-          "IsOrganic": false,
-          "ImageName": "daasetun.jpg",
-          "AmountSold": 0
-        },
-        "Amount": 2
-      }
-    ],
-    "TotalPrice": 75.0,
-    "Comment": null,
-    "Done": true,
-    "Rating": 5,
-    "CustomerID": 1,
-    "CourierID": 1
-  },
-  {
-    "Id": 1,
-    "OrderedWares": [
-      {
-        "Ware": {
           "Id": 2,
           "Name": "Mango",
           "Price": 20.0,
@@ -95,7 +28,7 @@
           "ImageName": "Vand.jpg",
           "AmountSold": 0
         },
-        "Amount": 1
+        "Amount": 2
       },
       {
         "Ware": {
@@ -110,24 +43,10 @@
           "AmountSold": 0
         },
         "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 1,
-          "Name": "Pizza",
-          "Price": 35.0,
-          "Description": "Det her er en Pizza",
-          "Type": 2,
-          "IsVegan": false,
-          "IsOrganic": false,
-          "ImageName": "Pizza.jpg",
-          "AmountSold": 0
-        },
-        "Amount": 1
       }
     ],
-    "TotalPrice": 71.0,
-    "Comment": "I garagen",
+    "TotalPrice": 42.0,
+    "Comment": null,
     "Done": false,
     "Rating": 0,
     "CustomerID": 1,
