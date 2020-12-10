@@ -7,7 +7,7 @@ namespace Yggdrasil.Pages.Users
 {
     public class DetailsModel : PageModel
     {
-        private readonly IUserRepository _repository;
+        public readonly IUserRepository _repository;
 
         public DetailsModel(IUserRepository repository)
         {

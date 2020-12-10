@@ -81,6 +81,7 @@
         </dd>
     </dl>
 </div>
+<p>Rating: @Model._repository.GetRatingForUser(Model.User)</p>
 <div>
     <a asp-page="/Users/Edit" asp-route-id="@Model.User.ID">Redigér oplysninger</a> |
     <a asp-page="/Users/ChangePassword" asp-route-id="@Model.User.ID">Skift kodeord</a> |
