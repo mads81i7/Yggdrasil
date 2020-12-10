@@ -11,14 +11,21 @@ namespace Yggdrasil.Pages.Users
     {
         private readonly IUserRepository _userRepo;
         private readonly LoginService _loginService;
+        private IWareCatalog _wareRepo;
+        private IOrderRepository _orderRepo;
+
+        public List<Ware> Wares { get; set; }
+        public List<Order> Orders { get; set; }
         public int AmountOfAdmins { get; set; }
         public int AmountOfCouriers { get; set; }
         public int AmountOfCustomers { get; set; }
 
-        public IndexModel(IUserRepository repository, LoginService loginService)
+        public IndexModel(IUserRepository repository, LoginService loginService, IWareCatalog wareRepo, IOrderRepository orderRepo)
         {
             _userRepo = repository;
             _loginService = loginService;
+            _wareRepo = wareRepo;
+            _orderRepo = orderRepo;
             AmountOfAdmins = 0;
             AmountOfCouriers = 0;
             AmountOfCustomers = 0;
@@ -28,6 +35,8 @@ namespace Yggdrasil.Pages.Users
 
         public IActionResult OnGet()
         {
+            Wares = _wareRepo.AllWares();
+            Orders = _orderRepo.AllOrders();
             if (_loginService.GetLoggedInUser() != null)
             {
                 if (_loginService.GetLoggedInUser().UserType == UserTypes.Admin)

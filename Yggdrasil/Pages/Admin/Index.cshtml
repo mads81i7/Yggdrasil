@@ -5,9 +5,9 @@
 @{
     ViewData["Title"] = "Brugere";
 }
-<button type="button" class="collapsible">Open Collapsible</button>
-<div class="content">
-    <h1>Brugere</h1>
+
+<button class="accordion">Brugere</button>
+<div class="panel">
     @foreach (var item in Model.Users)
     {
         if (item.UserType == UserTypes.Admin && item.EmailAddress != null)
@@ -23,7 +23,7 @@
             Model.AmountOfCustomers++;
         }
     }
-    <h6>Antal af forskellelige brugere</h6>
+    <h6><br/> Antal af forskellelige brugere</h6>
     <p>Admin : @Model.AmountOfAdmins || Bud : @Model.AmountOfCouriers || Kunde : @Model.AmountOfCustomers</p>
     <table class="table table-striped" style="white-space: nowrap">
         <thead>
@@ -84,4 +84,38 @@
         }
         </tbody>
     </table>
-    </div>
+</div>
+
+<button class="accordion">Vare statistik</button>
+<div class="panel">
+    @foreach (Order o in Model.Orders)
+    {
+        foreach (Ware w in o.OrderedWares)
+        {
+            Model.Wares[w.Id].AmountSold++;
+        }
+    }
+
+    <h4>Antal solgt</h4>
+    @foreach (Ware w in Model.Wares)
+    {
+        <p>@w.Name : @w.AmountSold</p>
+    }
+</div>
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
