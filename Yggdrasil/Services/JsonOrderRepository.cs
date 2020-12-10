@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 
@@ -9,44 +8,55 @@ namespace Yggdrasil.Services
 {
     public class JsonOrderRepository : IOrderRepository
     {
+        //private readonly IUserRepository _userRepository;
+
         string JsonFileName = @"Data\JsonOrderRepository.json";
+
+        /*public JsonOrderRepository(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }*/
 
         public List<Order> AllOrders()
         {
             return JsonFileReader.ReadJsonOrder(JsonFileName);
         }
 
-        public List<Order> FilterOrders(string criteria)
+        /*public List<Order> FilterOrders(string criteria)
         {
             List<Order> orders = AllOrders();
-            if (criteria == "" || criteria == null)
+            if (string.IsNullOrEmpty(criteria))
                 return orders;
             List<Order> emptyList = new List<Order>();
             string lCriteria = criteria.ToLower();
-            foreach (Order o in (AllOrders()))
+            foreach (Order order in (AllOrders()))
             {
-                string lName = o.User.FullName.ToLower(); 
-                string lCity = o.User.City.ToLower();
-                string lAddress = o.Address.ToLower();
-                string lPostalCode = "" + o.User.PostalCode;
+                string lName = _userRepository.GetUser(order.CustomerID).FullName.ToLower();
+                string lCity = _userRepository.GetUser(order.CustomerID).City.ToLower();
+                string lAddress = _userRepository.GetUser(order.CustomerID).AddressLine1.ToLower();
+                string lPostalCode = _userRepository.GetUser(order.CustomerID).PostalCode.ToString();
 
                 if (lName.Contains(lCriteria) || lCity.Contains(lCriteria) || lAddress.Contains(lCriteria) || lPostalCode.Contains(lCriteria))
-                    emptyList.Add(o);
+                    emptyList.Add(order);
             }
 
             return emptyList;
-        }
+        }*/
 
-        public void AddOrder(Order or)
+        public void AddOrder(Order order)
         {
             List<int> ids = new List<int>();
-            List<Order> orders = AllOrders().ToList();
-            foreach (Order o in orders)
+            List<Order> orders = AllOrders();
+            foreach (Order orderAlt in orders)
             {
-                ids.Add(o.Id);
+                ids.Add(orderAlt.Id);
             }
-            or.Id = ids.Max() + 1;
-            orders.Add(or);
+
+            if (ids.Count > 0)
+                order.Id = ids.Max() + 1;
+            else
+                order.Id = 0;
+            orders.Add(order);
             JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
 
@@ -60,9 +70,12 @@ namespace Yggdrasil.Services
             return new Order();
         }
 
-        public void EditOrder(Order order)
+        public void EditOrder(int id, Order order)
         {
-            throw new NotImplementedException();
+            List<Order> orders = AllOrders().ToList();
+            orders[id] = order;
+
+            JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
 
         public void DeleteOrder(Order order)
@@ -72,5 +85,6 @@ namespace Yggdrasil.Services
             orders.Remove(order);
             JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
+
     }
 }

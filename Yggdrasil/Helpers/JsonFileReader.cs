@@ -22,7 +22,6 @@ namespace Yggdrasil
             string jsonString = File.ReadAllText(JsonFileName);
             return JsonSerializer.Deserialize<List<Ware>>(jsonString);
         }
-
         public static List<Order> ReadJsonOrder(string JsonFileName)
         {
             string jsonString = File.ReadAllText(JsonFileName);

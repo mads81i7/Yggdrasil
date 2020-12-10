@@ -21,7 +21,7 @@ namespace Yggdrasil.Models
         public bool IsOrganic { get; set; }
         public string ImageName { get; set; }
         
-        public int AmountSold { get; set; } 
+        public int AmountSold { get; set; }
         
     }
 }

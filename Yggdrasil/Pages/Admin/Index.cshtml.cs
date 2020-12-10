@@ -9,7 +9,7 @@ namespace Yggdrasil.Pages.Users
 {
     public class IndexModel : PageModel
     {
-        private readonly IUserRepository _userRepo;
+        public readonly IUserRepository UserRepo;
         private readonly LoginService _loginService;
         private IWareCatalog _wareRepo;
         private IOrderRepository _orderRepo;
@@ -22,7 +22,7 @@ namespace Yggdrasil.Pages.Users
 
         public IndexModel(IUserRepository repository, LoginService loginService, IWareCatalog wareRepo, IOrderRepository orderRepo)
         {
-            _userRepo = repository;
+            UserRepo = repository;
             _loginService = loginService;
             _wareRepo = wareRepo;
             _orderRepo = orderRepo;
@@ -41,7 +41,7 @@ namespace Yggdrasil.Pages.Users
             {
                 if (_loginService.GetLoggedInUser().UserType == UserTypes.Admin)
                 {
-                    Users = _userRepo.GetAllUsers();
+                    Users = UserRepo.GetAllUsers();
                     return Page();
                 }
             }

@@ -1,38 +1,40 @@
 ﻿@page
+@using Yggdrasil.Services
 @model Yggdrasil.Pages.Orders.OrderDetailsModel
 @{
     ViewData["Title"] = "bestillings info";
 }
 <h4>ID : @Model.Order.Id</h4>
-<h4>Kunde : @Model.Order.User.EmailAddress</h4>
-<h4>Addresse : @Model.Order.Address</h4>
+<h4>Kunde : @Model.User1.FullName | Email : @Model.User1.EmailAddress</h4>
+<h4>Addresse : @Model.Order.AltAddress</h4>
 <h4>Kommentar: @Model.Order.Comment</h4>
-<h4>Leveringstidsrum : @Model.Order.DateTimeFrom - @Model.Order.DateTimeTo</h4>
+<h4>Leveringstidsrum : @Model.Order.DateTimeWish</h4>
 
-<h4><br/>Bestilte varer</h4>
+<h4><br />Bestilte varer</h4>
 <table class="table">
     <thead>
-    <tr>
-        <th>Id</th>
-        <th>Navn</th>
-        <th>Beskrivelse</th>
-        <th>Pris</th>
-        <th>Type</th>
-        <th>Økologisk</th>
-        <th>Vegansk</th>
-    </tr>
+        <tr>
+            <th>Id</th>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th>Pris</th>
+            <th>Type</th>
+            <th>Økologisk</th>
+            <th>Vegansk</th>
+            <th>Antal</th>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Order.OrderedWares)
-    {
+        @foreach (var item in Model.Order.OrderedWares)
+        {
         <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            <td>@item.Price kr.</td>
-            <td>@item.Type</td>
+            <td>@item.Ware.Id</td>
+            <td>@item.Ware.Name</td>
+            <td>@item.Ware.Description</td>
+            <td>@item.Ware.Price kr.</td>
+            <td>@item.Ware.Type</td>
             <td>
-                @if (item.IsOrganic == true)
+                @if (item.Ware.IsOrganic == true)
                 {
                     <p>Ja</p>
                 }
@@ -42,7 +44,7 @@
                 }
             </td>
             <td>
-                @if (item.IsVegan == true)
+                @if (item.Ware.IsVegan == true)
                 {
                     <p>Ja</p>
                 }
@@ -51,9 +53,10 @@
                     <p>Nej</p>
                 }
             </td>
-            <td><img src="~/Images/@item.ImageName" width="90" height="70"></td>
+            <td>@item.Amount</td>
+            <td><img src="~/Images/@item.Ware.ImageName" width="90" height="70"></td>
         </tr>
-    }
+        }
     </tbody>
 </table>
 <h2>Total : @Model.Order.TotalPrice kr.</h2>

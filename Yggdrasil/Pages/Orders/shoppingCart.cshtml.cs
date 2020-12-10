@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
@@ -10,37 +7,36 @@ using Yggdrasil.Services;
 
 namespace Yggdrasil.Pages.Orders
 {
-    public class shoppingCartModel : PageModel
+    public class ShoppingCartModel : PageModel
     {
-        public ShoppingCartService itemsInCart;
+        public readonly ShoppingCartService ItemsInCart;
         private IWareCatalog repo;
-        [BindProperty]
+        
         public Ware ware { get; set; }
-        [BindProperty]
-        public OrderItem oItem { get; set; }
+        
+        public List<OrderItem> OItems { get; set; }
 
-        public List<Ware> Wares { get; set; }
-
-
-        public shoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo)
+        public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo)
         {
-            itemsInCart = shoppingService;
+            ItemsInCart = shoppingService;
             repo = wareRepo;
-            Wares = new List<Ware>();
+            OItems = new List<OrderItem>();
         }
-        public void OnGet()
+        public IActionResult OnGet(/*int? id*/)
         {
-            Wares = itemsInCart.GetOrderedWares();
-        }
-
-        public IActionResult OnPostRemove(int Id)
-        {
-            itemsInCart.DeleteWare(Id);
-            Wares = itemsInCart.GetOrderedWares();
+            //if (id == null)
+            //    return Page();
+            //Ware ware = repo.GetWare((int)id);
+            //itemsInCart.AddWare(ware);
+            OItems = ItemsInCart.GetOrderedWares();
             return Page();
         }
 
-        
-
+        public IActionResult OnPostRemove(int id)
+        {
+            ItemsInCart.DeleteWare(id);
+            OItems = ItemsInCart.GetOrderedWares();
+            return Page();
+        }
     }
 }

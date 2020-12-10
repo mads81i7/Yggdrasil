@@ -1,4 +1,4 @@
-﻿@page
+﻿@*@page
 @using Yggdrasil.Models
 @model Yggdrasil.Pages.Admin.WareStatsModel
 @{
@@ -16,4 +16,4 @@
 @foreach (Ware w in Model.Wares)
 {
     <p>@w.Name : @w.AmountSold</p>
-}
+}*@
