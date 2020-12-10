@@ -1,14 +1,13 @@
 ﻿@page
-@using Yggdrasil.Services
 @model Yggdrasil.Pages.Orders.OrderDetailsModel
 @{
-    ViewData["Title"] = "bestillings info";
+    ViewData["Title"] = "Bestillingsinfo";
 }
 <h4>ID : @Model.Order.Id</h4>
 <h4>Kunde : @Model.User1.FullName | Email : @Model.User1.EmailAddress</h4>
-<h4>Addresse : @Model.Order.AltAddress</h4>
+@*<h4>Addresse : @Model.Order.AltAddress</h4>*@
 <h4>Kommentar: @Model.Order.Comment</h4>
-<h4>Leveringstidsrum : @Model.Order.DateTimeWish</h4>
+@*<h4>Leveringstidsrum : @Model.Order.DateTimeWish</h4>*@
 
 <h4><br />Bestilte varer</h4>
 <table class="table">
