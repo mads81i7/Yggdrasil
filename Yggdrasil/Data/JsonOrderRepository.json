@@ -1,13 +1,10 @@
 [
   {
-    "ID": 0,
-    "OrderedWareIDs": [
-      1,
-      8,
-      9
-    ],
     "DateTimeWish": "2020-12-08T17:26:00",
     "AltAddress": "asfd",
+    "Id": 0,
+    "OrderedWares": null,
+    "TotalPrice": 0.0,
     "Comment": "asdf",
     "Done": true,
     "Rating": 4,
@@ -15,14 +12,11 @@
     "CourierID": 1
   },
   {
-    "ID": 1,
-    "OrderedWareIDs": [
-      1,
-      2,
-      6
-    ],
     "DateTimeWish": "2020-12-09T12:00:00",
     "AltAddress": null,
+    "Id": 0,
+    "OrderedWares": null,
+    "TotalPrice": 0.0,
     "Comment": null,
     "Done": true,
     "Rating": 5,
@@ -30,18 +24,67 @@
     "CourierID": 1
   },
   {
-    "ID": 2,
-    "OrderedWareIDs": [
-      3,
-      6,
-      9
-    ],
     "DateTimeWish": "2020-12-09T12:00:00",
     "AltAddress": null,
+    "Id": 0,
+    "OrderedWares": null,
+    "TotalPrice": 0.0,
     "Comment": null,
     "Done": true,
     "Rating": 5,
     "CustomerID": 1,
     "CourierID": 1
+  },
+  {
+    "DateTimeWish": "2020-12-11T12:34:00",
+    "AltAddress": null,
+    "Id": 1,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 4,
+          "Name": "Rugbrød",
+          "Price": 18.0,
+          "Description": "Dette er et rugbrød",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "rugbroed.jpg"
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 8,
+          "Name": "Tun",
+          "Price": 10.0,
+          "Description": "Dette er en dåse med tun",
+          "Type": 2,
+          "IsVegan": false,
+          "IsOrganic": false,
+          "ImageName": "daasetun.jpg"
+        },
+        "Amount": 2
+      },
+      {
+        "Ware": {
+          "Id": 0,
+          "Name": "Vand",
+          "Price": 6.0,
+          "Description": "Det her er vand",
+          "Type": 4,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "Vand.jpg"
+        },
+        "Amount": 1
+      }
+    ],
+    "TotalPrice": 44.0,
+    "Comment": "på trinnet",
+    "Done": false,
+    "Rating": 0,
+    "CustomerID": 2,
+    "CourierID": 0
   }
 ]

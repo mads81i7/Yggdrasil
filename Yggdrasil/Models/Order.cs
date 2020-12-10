@@ -9,15 +9,10 @@ namespace Yggdrasil.Models
 {
     public class Order
     {
-        public int ID { get; set; }
-        public List<int> OrderedWareIDs { get; set; }
         public DateTime DateTimeWish { get; set; }
         public string AltAddress { get; set; }
         public int Id { get; set; }
         public List<OrderItem> OrderedWares { get; set; }
-        public DateTime DateTimeFrom { get; set; }
-        public DateTime DateTimeTo { get; set; }
-        public string Address { get; set; }
         public double TotalPrice { get; set; }
         public string Comment { get; set; }
         public bool Done { get; set; } = false;

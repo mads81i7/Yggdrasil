@@ -15,19 +15,13 @@ namespace Yggdrasil.Pages.Orders
         private readonly ShoppingCartService _cartService;
         private readonly IOrderRepository _orderRepository;
         private readonly LoginService _login;
-        public List<OrderItem> Wares { get; set; }   
-
-        public CheckOutModel(IOrderRepository orderRepository, ShoppingCartService cartService, LoginService login)
-        private ShoppingCartService CartService { get; set; }
-        private IOrderRepository Repository { get; set; }
-        public LoginService Login { get; set; }
-        public User User1 { get; set; } 
+        public List<OrderItem> Wares { get; set; }
 
         public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log)
         {
-            _cartService = cartService;
-            _orderRepository = orderRepository;
-            _login = login;
+            _cartService = itemsInCart;
+            _orderRepository = repo;
+            _login = log;
         }
 
         public IActionResult OnGet()
@@ -40,24 +34,11 @@ namespace Yggdrasil.Pages.Orders
 
         public IActionResult OnPost()
         {
-            List<int> orderedWareIDs = new List<int>();
-            foreach (Ware ware in _cartService.GetOrderedWares())
-            {
-                orderedWareIDs.Add(ware.Id);
-            }
-            Order.OrderedWareIDs = orderedWareIDs;
+            Order.OrderedWares = _cartService.GetOrderedWares();
+            Order.TotalPrice = _cartService.CalculateTotalPrice();
             Order.CustomerID = _login.GetLoggedInUser().ID;
             _orderRepository.AddOrder(Order);
             _cartService.GetOrderedWares().Clear();
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-            Order.OrderedWares = CartService.GetOrderedWares();
-            Order.TotalPrice = CartService.CalculateTotalPrice();
-            Order.User = Login.GetLoggedInUser();
-            Repository.AddOrder(Order);
-            CartService.GetOrderedWares().Clear();
             return RedirectToPage("/Requests/RequestIndex");
         }
     }

@@ -28,14 +28,14 @@ namespace Yggdrasil.Pages.Orders
             //    return Page();
             //Ware ware = repo.GetWare((int)id);
             //itemsInCart.AddWare(ware);
-            OItems = itemsInCart.GetOrderedWares();
+            OItems = ItemsInCart.GetOrderedWares();
             return Page();
         }
 
         public IActionResult OnPostRemove(int id)
         {
-            itemsInCart.DeleteWare(id);
-            OItems = itemsInCart.GetOrderedWares();
+            ItemsInCart.DeleteWare(id);
+            OItems = ItemsInCart.GetOrderedWares();
             return Page();
         }
     }

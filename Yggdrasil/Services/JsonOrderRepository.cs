@@ -49,13 +49,13 @@ namespace Yggdrasil.Services
             List<Order> orders = AllOrders();
             foreach (Order orderAlt in orders)
             {
-                ids.Add(orderAlt.ID);
+                ids.Add(orderAlt.Id);
             }
 
             if (ids.Count > 0)
-                order.ID = ids.Max() + 1;
+                order.Id = ids.Max() + 1;
             else
-                order.ID = 0;
+                order.Id = 0;
             orders.Add(order);
             JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
@@ -64,7 +64,7 @@ namespace Yggdrasil.Services
         {
             foreach (Order order in AllOrders())
             {
-                if (order.ID == id)
+                if (order.Id == id)
                     return order;
             }
             return new Order();
