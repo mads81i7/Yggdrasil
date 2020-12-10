@@ -51,7 +51,11 @@ namespace Yggdrasil.Services
             {
                 ids.Add(orderAlt.ID);
             }
-            order.ID = ids.Max() + 1;
+
+            if (ids.Count > 0)
+                order.ID = ids.Max() + 1;
+            else
+                order.ID = 0;
             orders.Add(order);
             JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
@@ -66,9 +70,12 @@ namespace Yggdrasil.Services
             return new Order();
         }
 
-        public void EditOrder(Order order)
+        public void EditOrder(int id, Order order)
         {
-            throw new NotImplementedException();
+            List<Order> orders = AllOrders().ToList();
+            orders[id] = order;
+
+            JsonFileWriter.WriteToJsonOrder(orders, JsonFileName);
         }
 
         public void DeleteOrder(Order order)

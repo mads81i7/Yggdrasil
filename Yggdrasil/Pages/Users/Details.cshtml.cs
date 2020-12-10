@@ -20,16 +20,12 @@ namespace Yggdrasil.Pages.Users
         public IActionResult OnGet(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             User = _repository.GetUser((int)id);
 
             if (User == null)
-            {
                 return NotFound();
-            }
 
             return Page();
         }

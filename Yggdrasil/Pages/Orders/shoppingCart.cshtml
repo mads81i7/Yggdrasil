@@ -1,41 +1,40 @@
 ﻿@page
-@using Yggdrasil.Models
-@model Yggdrasil.Pages.Orders.shoppingCartModel
+@model Yggdrasil.Pages.Orders.ShoppingCartModel
+
 @{
 }
+
 <h1>Indkøbs Kurv</h1>
 <table class="table">
     <thead>
-    <tr>
-        <th>Id</th>
-        <th>Navn</th>
-        <th>Beskrivelse</th>
-        <th>Pris</th>
-        <th>Antal</th>
-    </tr>
+        <tr>
+            <th>Id</th>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th>Pris</th>
+            <th>Antal</th>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Wares)
-    {
-        
+        @foreach (var item in Model.Wares)
+        {
             <tr>
                 <td>@item.Id</td>
                 <td>@item.Name</td>
                 <td>@item.Description</td>
                 <td>@item.Price</td>
-                <td>@Model.itemsInCart.FindNumberOfSame(item)</td>
+                <td>@Model.ItemsInCart.FindNumberOfSame(item)</td>
                 <td>
                     <form method="post">
-                        <button asp-page-handler="Remove" asp-route-Id="@item.Id" class="btn btn-danger btn-group-lg pull-right">
+                        <button asp-page-handler="Remove" asp-route-id="@item.Id" class="btn btn-danger btn-group-lg pull-right">
                             Fjern fra kurv
                         </button>
                     </form>
                 </td>
             </tr>
-        
-    }
+        }
     </tbody>
 </table>
-<h2>Total : @Model.itemsInCart.CalculateTotalPrice() kr.</h2>
+<h2>Total : @Model.ItemsInCart.CalculateTotalPrice() kr.</h2>
 <a asp-page="/Wares/GetAllWares" class="button btn btn-dark btn-group-lg pull-right">Continue Shopping</a>
 <a asp-page="/Orders/CheckOut" class="button btn btn-dark btn-group-lg pull-right">Check Out</a>

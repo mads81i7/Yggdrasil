@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
@@ -32,7 +33,12 @@ namespace Yggdrasil.Pages.Orders
 
         public IActionResult OnPost()
         {
-            Order.OrderedWareIDs = _cartService.GetOrderedWares();
+            List<int> orderedWareIDs = new List<int>();
+            foreach (Ware ware in _cartService.GetOrderedWares())
+            {
+                orderedWareIDs.Add(ware.Id);
+            }
+            Order.OrderedWareIDs = orderedWareIDs;
             Order.CustomerID = _login.GetLoggedInUser().ID;
             _orderRepository.AddOrder(Order);
             _cartService.GetOrderedWares().Clear();

@@ -12,20 +12,23 @@ namespace Yggdrasil.Pages.Requests
 {
     public class RequestIndexModel : PageModel
     {
-        private IOrderRepository _orderRepository;
-        public List<Order> Orders { get; set; }
+        private readonly IOrderRepository _orderRepository;
+        private readonly LoginService _loginService;
+        public List<Order> Orders;
 
-        [BindProperty(SupportsGet = true)]
-        public string Criteria { get; set; }
-
-        public RequestIndexModel(IOrderRepository repository, LoginService log)
+        public RequestIndexModel(IOrderRepository orderRepository, LoginService loginService)
         {
-            _orderRepository = repository;
+            _orderRepository = orderRepository;
+            _loginService = loginService;
+            Orders = _orderRepository.AllOrders();
         }
 
-        public void OnGet()
+        public IActionResult OnPostAccept(int id)
         {
-            Orders = _orderRepository.AllOrders();
+            Orders[id].CourierID = _loginService.GetLoggedInUser().ID;
+            _orderRepository.EditOrder(id, Orders[id]);
+
+            return Page();
         }
     }
 }

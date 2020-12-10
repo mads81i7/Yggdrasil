@@ -1,0 +1,87 @@
+﻿@page
+@model Yggdrasil.Pages.Users.DeliveriesModel
+
+@{
+    ViewData["Title"] = "Leveringer";
+}
+
+<h3>Aktive leveringer</h3>
+
+<table class="table table-striped" style="white-space: nowrap">
+    <thead>
+        <tr>
+            <th>
+                Alternativ adresse
+            </th>
+            <th>
+                Kommentar
+            </th>
+            <th>
+                Tidsønske
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Orders)
+        {
+            @if (item.CourierID == Model.User.ID && !item.Done)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AltAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTimeWish)
+            </td>
+        </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<h3>Afsluttede leveringer</h3>
+
+<table class="table table-striped" style="white-space: nowrap">
+    <thead>
+        <tr>
+            <th>
+                Alternativ adresse
+            </th>
+            <th>
+                Kommentar
+            </th>
+            <th>
+                Tidsønske
+            </th>
+            <th>
+                Bedømmelse
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Orders)
+        {
+            @if (item.CourierID == Model.User.ID && item.Done)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AltAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTimeWish)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

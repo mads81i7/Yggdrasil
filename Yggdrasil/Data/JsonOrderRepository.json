@@ -2,107 +2,46 @@
   {
     "ID": 0,
     "OrderedWareIDs": [
-      {
-        "Id": 0,
-        "Name": null,
-        "Price": 0.0,
-        "Description": null,
-        "Type": 0,
-        "IsVegan": false,
-        "IsOrganic": false,
-        "ImageName": null
-      },
-      {
-        "Id": 0,
-        "Name": null,
-        "Price": 0.0,
-        "Description": null,
-        "Type": 0,
-        "IsVegan": false,
-        "IsOrganic": false,
-        "ImageName": null
-      }
+      1,
+      8,
+      9
     ],
-    "DateTimeWish": "2020-12-04T11:23:00",
-    "AltAddress": null,
-    "Comment": "Ved døren",
-    "Done": false,
-    "Rating": 0,
+    "DateTimeWish": "2020-12-08T17:26:00",
+    "AltAddress": "asfd",
+    "Comment": "asdf",
+    "Done": true,
+    "Rating": 4,
     "CustomerID": 1,
-    "CourierID": -1
-  },
-  {
-    "ID": 0,
-    "OrderedWareIDs": [
-      {
-        "Id": 0,
-        "Name": null,
-        "Price": 0.0,
-        "Description": null,
-        "Type": 0,
-        "IsVegan": false,
-        "IsOrganic": false,
-        "ImageName": null
-      },
-      {
-        "Id": 0,
-        "Name": null,
-        "Price": 0.0,
-        "Description": null,
-        "Type": 0,
-        "IsVegan": false,
-        "IsOrganic": false,
-        "ImageName": null
-      }
-    ],
-    "DateTimeWish": "0001-01-01T00:00:00",
-    "AltAddress": null,
-    "Comment": null,
-    "Done": false,
-    "Rating": 0,
-    "CustomerID": 2,
-    "CourierID": -1
+    "CourierID": 1
   },
   {
     "ID": 1,
     "OrderedWareIDs": [
-      {
-        "Id": 0,
-        "Name": "Vand",
-        "Price": 6.0,
-        "Description": "Det her er vand",
-        "Type": 4,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "Vand.jpg"
-      },
-      {
-        "Id": 5,
-        "Name": "Salat",
-        "Price": 14.0,
-        "Description": "Dette er et Iceberg salathoved",
-        "Type": 2,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "iceberg.jpg"
-      },
-      {
-        "Id": 4,
-        "Name": "Rugbrød",
-        "Price": 18.0,
-        "Description": "Dette er et rugbrød",
-        "Type": 2,
-        "IsVegan": true,
-        "IsOrganic": true,
-        "ImageName": "rugbroed.jpg"
-      }
+      1,
+      2,
+      6
     ],
-    "DateTimeWish": "2020-12-08T13:30:00",
-    "AltAddress": "asdfasdfsadf",
-    "Comment": "adsf",
-    "Done": false,
-    "Rating": 4,
+    "DateTimeWish": "2020-12-09T12:00:00",
+    "AltAddress": null,
+    "Comment": null,
+    "Done": true,
+    "Rating": 5,
     "CustomerID": 1,
-    "CourierID": 0
+    "CourierID": 1
+  },
+  {
+    "ID": 2,
+    "OrderedWareIDs": [
+      3,
+      6,
+      9
+    ],
+    "DateTimeWish": "2020-12-09T12:00:00",
+    "AltAddress": null,
+    "Comment": null,
+    "Done": true,
+    "Rating": 5,
+    "CustomerID": 1,
+    "CourierID": 1
   }
 ]

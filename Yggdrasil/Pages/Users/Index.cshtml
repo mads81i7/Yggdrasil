@@ -61,7 +61,7 @@
                 @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
-                @Model.UserRepo.GetRatingForUser(item)
+                @($"{Model.UserRepo.GetRatingForUser(item):0.##}")
             </td>
             <td>
                 <a asp-page="./Details" asp-route-id="@item.ID">Detaljer</a> |

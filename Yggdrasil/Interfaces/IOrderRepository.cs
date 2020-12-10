@@ -12,7 +12,7 @@ namespace Yggdrasil.Interfaces
         //List<Order> FilterOrders(string criteria);
         void AddOrder(Order or);
         Order GetOrder(int id);
-        void EditOrder(Order order);
+        void EditOrder(int id, Order order);
         void DeleteOrder(Order order);
     }
 }
