@@ -4,14 +4,29 @@
     "OrderedWares": [
       {
         "Ware": {
-          "Id": 2,
-          "Name": "Mango",
-          "Price": 20.0,
-          "Description": "Dette er en Mango",
+          "Id": 1,
+          "Name": "Pizza",
+          "Price": 35.0,
+          "Description": "Det her er en Pizza",
+          "Type": 2,
+          "IsVegan": false,
+          "IsOrganic": false,
+          "ImageName": "Pizza.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 5,
+          "Name": "Salat",
+          "Price": 14.0,
+          "Description": "Dette er et Iceberg salathoved",
           "Type": 2,
           "IsVegan": true,
           "IsOrganic": true,
-          "ImageName": "Mango.jpg"
+          "ImageName": "iceberg.jpg",
+          "AmountSold": 0
         },
         "Amount": 1
       },
@@ -24,13 +39,28 @@
           "Type": 4,
           "IsVegan": true,
           "IsOrganic": true,
-          "ImageName": "Vand.jpg"
+          "ImageName": "Vand.jpg",
+          "AmountSold": 0
         },
         "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 8,
+          "Name": "Tun",
+          "Price": 10.0,
+          "Description": "Dette er en dåse med tun",
+          "Type": 2,
+          "IsVegan": false,
+          "IsOrganic": false,
+          "ImageName": "daasetun.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 2
       }
     ],
-    "TotalPrice": 26.0,
-    "Comment": "kjkjdf\r\n",
+    "TotalPrice": 75.0,
+    "Comment": null,
     "Done": true,
     "Rating": 5,
     "CustomerID": 1,
@@ -41,14 +71,28 @@
     "OrderedWares": [
       {
         "Ware": {
-          "Id": 4,
-          "Name": "Rugbrød",
-          "Price": 18.0,
-          "Description": "Dette er et rugbrød",
+          "Id": 2,
+          "Name": "Mango",
+          "Price": 20.0,
+          "Description": "Dette er en Mango",
           "Type": 2,
           "IsVegan": true,
           "IsOrganic": true,
-          "ImageName": "rugbroed.jpg",
+          "ImageName": "Mango.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 0,
+          "Name": "Vand",
+          "Price": 6.0,
+          "Description": "Det her er vand",
+          "Type": 4,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "Vand.jpg",
           "AmountSold": 0
         },
         "Amount": 1
@@ -69,57 +113,6 @@
       },
       {
         "Ware": {
-          "Id": 6,
-          "Name": "Tomat",
-          "Price": 15.0,
-          "Description": "Dette er en pakke tomater",
-          "Type": 2,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "tomat.jpg"
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 0,
-          "Name": "Vand",
-          "Price": 6.0,
-          "Description": "Det her er vand",
-          "Type": 4,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "Vand.jpg",
-          "AmountSold": 0
-        },
-        "Amount": 1
-      }
-    ],
-    "TotalPrice": 49.0,
-    "Comment": "Ved døren",
-    "Done": false,
-    "Rating": 0,
-    "CustomerID": 1,
-    "CourierID": 0
-  },
-  {
-    "Id": 2,
-    "OrderedWares": [
-      {
-        "Ware": {
-          "Id": 8,
-          "Name": "Tun",
-          "Price": 10.0,
-          "Description": "Dette er en dåse med tun",
-          "Type": 2,
-          "IsVegan": false,
-          "IsOrganic": false,
-          "ImageName": "daasetun.jpg"
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
           "Id": 1,
           "Name": "Pizza",
           "Price": 35.0,
@@ -127,82 +120,17 @@
           "Type": 2,
           "IsVegan": false,
           "IsOrganic": false,
-          "ImageName": "Pizza.jpg"
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 0,
-          "Name": "Vand",
-          "Price": 6.0,
-          "Description": "Det her er vand",
-          "Type": 4,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "Vand.jpg"
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 4,
-          "Name": "Rugbrød",
-          "Price": 18.0,
-          "Description": "Dette er et rugbrød",
-          "Type": 2,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "rugbroed.jpg"
-        },
-        "Amount": 1
-      },
-      {
-        "Ware": {
-          "Id": 9,
-          "Name": "Ris",
-          "Price": 16.5,
-          "Description": "Dette er en pose ris",
-          "Type": 3,
-          "IsVegan": true,
-          "IsOrganic": false,
-          "ImageName": "ris.jpg"
-        },
-        "Amount": 1
-      }
-    ],
-    "TotalPrice": 85.5,
-    "Comment": null,
-    "Done": true,
-    "Rating": 3,
-    "CustomerID": 1,
-    "CourierID": 0
-  },
-  {
-    "DateTimeWish": "2020-12-11T13:24:00",
-    "AltAddress": "Her",
-    "Id": 2,
-    "OrderedWares": [
-      {
-        "Ware": {
-          "Id": 0,
-          "Name": "Vand",
-          "Price": 6.0,
-          "Description": "Det her er vand",
-          "Type": 4,
-          "IsVegan": true,
-          "IsOrganic": true,
-          "ImageName": "Vand.jpg",
+          "ImageName": "Pizza.jpg",
           "AmountSold": 0
         },
-        "Amount": 10
+        "Amount": 1
       }
     ],
-    "TotalPrice": 60.0,
-    "Comment": "Jeg skal have Vand",
+    "TotalPrice": 71.0,
+    "Comment": "I garagen",
     "Done": false,
     "Rating": 0,
-    "CustomerID": 3,
-    "CourierID": 0
+    "CustomerID": 1,
+    "CourierID": 1
   }
 ]

@@ -27,7 +27,7 @@
         <tbody>
             @foreach (var item in Model.Orders)
             {
-                @if (item.CustomerID == Model.User.ID && !item.Done)
+                @if (item.CustomerID == Model.User.ID && !item.Done && item.CourierID != 0)
                 {
                     <tr>
                         @*<td>
