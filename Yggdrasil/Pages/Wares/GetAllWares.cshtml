@@ -13,6 +13,18 @@
     </p>
 }
 
+<h2>
+    <form method="post">
+    <select asp-for="ware.Type" asp-items="Html.GetEnumSelectList<WareType>()">
+        <option value="">All</option>
+    </select>
+    <button asp-page-handler="Search" class="button btn btn-dark btn-group-lg pull-right">
+            Search
+        </button>
+    </form>
+
+</h2>
+
 <table class="table">
     <thead>
     <tr>
@@ -40,7 +52,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Wares)
+    @foreach (var item in Model.WaresFilter)
     {
         <tr>
             <td>@item.Id</td>
