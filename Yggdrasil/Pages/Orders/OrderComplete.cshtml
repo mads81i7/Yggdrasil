@@ -1,0 +1,33 @@
+﻿@page
+@model Yggdrasil.Pages.Orders.OrderCompleteModel
+@{
+}
+<h2>Bestilling udført</h2>
+<h5><br/>Tak fordi du handler gennem Yggdrasil</h5>
+<h5><br/>Din bestilling indeholder følgende varer</h5>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Navn</th>
+        <th>Beskrivelse</th>
+        <th>Pris</th>
+        <th>Antal</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Order.OrderedWares)
+        {
+
+            <tr>
+                <td>@item.Ware.Id</td>
+                <td>@item.Ware.Name</td>
+                <td>@item.Ware.Description</td>
+                <td>@item.Ware.Price</td>
+                <td>@item.Amount</td>
+            </tr>
+
+        }
+        </tbody>
+</table>
+<h2>Total : @Model.Order.TotalPrice kr.</h2>

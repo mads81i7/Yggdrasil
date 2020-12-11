@@ -73,5 +73,20 @@
     "PostalCode": 2600,
     "City": "Glostrup",
     "PhoneNo": "10101010"
+  },
+  {
+    "ID": 6,
+    "UserType": 1,
+    "FullName": "Jens hansen",
+    "EmailAddress": "jenshansen@Mail.dk",
+    "BirthDate": "1945-12-24T00:00:00",
+    "Password": "yessir",
+    "Password2": null,
+    "PasswordCheck": null,
+    "AddressLine1": "hyggehejsa 34",
+    "AddressLine2": null,
+    "PostalCode": 4610,
+    "City": "Taastrup",
+    "PhoneNo": "10101011"
   }
 ]

@@ -39,7 +39,7 @@ namespace Yggdrasil.Pages.Orders
             Order.CustomerID = _login.GetLoggedInUser().ID;
             _orderRepository.AddOrder(Order);
             _cartService.GetOrderedWares().Clear();
-            return RedirectToPage("/Requests/RequestIndex");
+            return RedirectToPage("OrderComplete", Order);
         }
     }
 }
