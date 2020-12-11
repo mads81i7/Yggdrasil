@@ -1,5 +1,7 @@
 ﻿@page
+@using Yggdrasil.Interfaces
 @model Yggdrasil.Pages.Users.DeliveriesModel
+@inject IUserRepository UserRepository
 
 @{
     ViewData["Title"] = "Leveringer";
@@ -11,14 +13,17 @@
     <thead>
         <tr>
             <th>
-                Alternativ adresse
+                Adresse
             </th>
+            @*<th>
+                Alternativ adresse
+            </th>*@
             <th>
                 Kommentar
             </th>
-            <th>
+            @*<th>
                 Tidsønske
-            </th>
+            </th>*@
         </tr>
     </thead>
     <tbody>
@@ -26,17 +31,23 @@
         {
             @if (item.CourierID == Model.User.ID && !item.Done)
             {
-        <tr>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.AltAddress)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Comment)
-            </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.DateTimeWish)
-            </td>*@
-        </tr>
+                <tr>
+                <td>
+                    @UserRepository.GetUser(item.CustomerID).AddressLine1
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.AltAddress)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.DateTimeWish)
+                </td>*@
+                <td>
+                    <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
+                </td>
+                </tr>
             }
         }
     </tbody>
@@ -47,15 +58,15 @@
 <table class="table table-striped" style="white-space: nowrap">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 Alternativ adresse
-            </th>
+            </th>*@
             <th>
                 Kommentar
             </th>
-            <th>
+            @*<th>
                 Tidsønske
-            </th>
+            </th>*@
             <th>
                 Bedømmelse
             </th>
@@ -79,6 +90,9 @@
                     </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                    <td>
+                        <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
                     </td>
                 </tr>
             }

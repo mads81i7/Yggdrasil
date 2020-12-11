@@ -3,7 +3,7 @@
 @model Yggdrasil.Pages.Users.IndexModel
 
 @{
-    ViewData["Title"] = "Brugere";
+    ViewData["Title"] = "Aministrator";
 }
 
 <button class="accordion">Brugere</button>
@@ -23,7 +23,7 @@
             Model.AmountOfCustomers++;
         }
     }
-    <h6><br/> Antal af forskellelige brugere</h6>
+    <h6><br/> Antal af forskellige brugere</h6>
     <p>Admin : @Model.AmountOfAdmins || Bud : @Model.AmountOfCouriers || Kunde : @Model.AmountOfCustomers</p>
     <table class="table table-striped" style="white-space: nowrap">
         <thead>
@@ -87,7 +87,7 @@
     </table>
 </div>
 
-<button class="accordion">Vare statistik</button>
+<button class="accordion">Varestatistik</button>
 <div class="panel">
     @foreach (Order o in Model.Orders)
     {

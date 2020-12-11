@@ -9,39 +9,57 @@
 
 <h3>Bestillinger</h3>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Navn</th>
-            <th>Adresse</th>
-            <th>Postnummer</th>
-            <th>By</th>
-            <th>Telefonnummer</th>
-            <th>Email</th>
-            <th>Kommentar</th>
-            <th></th>
-        </tr>
-    </thead>
+@foreach (var item in Model.Orders)
+{
+    if (item.CourierID < 1)
+    {
+        Model.EmptyRequestList = false;
+        break;
+    }
+}
+
+@if (Model.EmptyRequestList != true)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Adresse</th>
+                <th>Postnummer</th>
+                <th>By</th>
+                <th>Telefonnummer</th>
+                <th>Email</th>
+                <th>Kommentar</th>
+                <th></th>
+            </tr>
+        </thead>
     <tbody>
         @foreach (var item in Model.Orders)
         {
             if (item.CourierID < 1)
             {
-        <tr>
-            <td>@UserRepository.GetUser(item.CustomerID).FullName</td>
-            <td>@UserRepository.GetUser(item.CustomerID).AddressLine1</td>
-            <td>@UserRepository.GetUser(item.CustomerID).PostalCode</td>
-            <td>@UserRepository.GetUser(item.CustomerID).City</td>
-            <td>@UserRepository.GetUser(item.CustomerID).PhoneNo</td>
-            <td>@UserRepository.GetUser(item.CustomerID).EmailAddress</td>
-            @*<td>@item.AltAddress </td>
-            <td>@item.DateTimeWish </td>*@
-            <td>@item.Comment </td>
-            <td>
-                <form method="post"><input type="submit" asp-page-handler="Accept" asp-route-id="@item.Id" value="Acceptér bestilling" class="btn btn-primary" /></form>
-            </td>
-        </tr>
+                <tr>
+                    <td>@UserRepository.GetUser(item.CustomerID).FullName</td>
+                    <td>@UserRepository.GetUser(item.CustomerID).AddressLine1</td>
+                    <td>@UserRepository.GetUser(item.CustomerID).PostalCode</td>
+                    <td>@UserRepository.GetUser(item.CustomerID).City</td>
+                    <td>@UserRepository.GetUser(item.CustomerID).PhoneNo</td>
+                    <td>@UserRepository.GetUser(item.CustomerID).EmailAddress</td>
+                    @*<td>@item.AltAddress </td>
+                    <td>@item.DateTimeWish </td>*@
+                    <td>@item.Comment</td>
+                    <td>
+                        <form method="post"><input type="submit" asp-page-handler="Accept" asp-route-id="@item.Id" value="Acceptér bestilling" class="btn btn-primary" /></form>
+                    </td>
+                </tr>
             }
         }
     </tbody>
-</table>
+    </table>
+}
+else
+{
+    <div class="jumbotron container float-right">
+        Der er ingen ordreanmoninger i øjeblikket, kig tilbage senere. :)
+    </div>
+}
