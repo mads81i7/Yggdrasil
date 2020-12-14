@@ -1,61 +1,115 @@
 ﻿@page
 @model Yggdrasil.Pages.Orders.OrderDetailsModel
 @{
-    ViewData["Title"] = "Bestillingsinfo";
+    ViewData["Title"] = "Ordredetaljer";
 }
-<h4>ID : @Model.Order.Id</h4>
-<h4>Kunde : @Model.User1.FullName | Email : @Model.User1.EmailAddress</h4>
-@*<h4>Addresse : @Model.Order.AltAddress</h4>*@
-<h4>Kommentar: @Model.Order.Comment</h4>
-@*<h4>Leveringstidsrum : @Model.Order.DateTimeWish</h4>*@
 
-<h4><br />Bestilte varer</h4>
+<h2>Ordredetaljer</h2>
+<br />
+
 <table class="table">
     <thead>
         <tr>
-            <th>Id</th>
+            <th></th>
             <th>Navn</th>
             <th>Beskrivelse</th>
-            <th>Pris</th>
             <th>Type</th>
             <th>Økologisk</th>
             <th>Vegansk</th>
             <th>Antal</th>
+            <th>Pris</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Order.OrderedWares)
         {
-        <tr>
-            <td>@item.Ware.Id</td>
-            <td>@item.Ware.Name</td>
-            <td>@item.Ware.Description</td>
-            <td>@item.Ware.Price kr.</td>
-            <td>@item.Ware.Type</td>
-            <td>
-                @if (item.Ware.IsOrganic == true)
-                {
-                    <p>Ja</p>
-                }
-                else
-                {
-                    <p>Nej</p>
-                }
-            </td>
-            <td>
-                @if (item.Ware.IsVegan == true)
-                {
-                    <p>Ja</p>
-                }
-                else
-                {
-                    <p>Nej</p>
-                }
-            </td>
-            <td>@item.Amount</td>
-            <td><img src="~/Images/@item.Ware.ImageName" width="90" height="70"></td>
-        </tr>
+            <tr>
+                <td><img src="~/Images/@item.Ware.ImageName" width="90" height="70"></td>
+                <td>@item.Ware.Name</td>
+                <td>@item.Ware.Description</td>
+                <td>@item.Ware.Type</td>
+                <td>
+                    @if (item.Ware.IsOrganic == true)
+                    {
+                        <p>Ja</p>
+                    }
+                    else
+                    {
+                        <p>Nej</p>
+                    }
+                </td>
+                <td>
+                    @if (item.Ware.IsVegan == true)
+                    {
+                        <p>Ja</p>
+                    }
+                    else
+                    {
+                        <p>Nej</p>
+                    }
+                </td>
+                <td>@item.Amount</td>
+                <td>@($"{item.Ware.Price:C}")</td>
+            </tr>
         }
     </tbody>
 </table>
-<h2>Total : @Model.Order.TotalPrice kr.</h2>
+
+<div class="float-right">
+    <h2>Total: @($"{Model.Order.TotalPrice:C}") </h2>
+</div>
+
+<br />
+<br />
+<br />
+
+<div class="float-left" style="margin-left: 30%">
+    <h5>Navn</h5>
+    <h5>Adresse</h5>
+    @if (Model.User.AddressLine2 != null)
+    {
+        <h5></h5>
+    }
+    <h5>Postnr/By</h5>
+    <h5>Telefon</h5>
+    <h5>Email</h5>
+    <h5>Kommentar</h5>
+</div>
+
+<div class="float-right" align="right" style="margin-right: 30%">
+    <h5>@Model.User.FullName</h5>
+    <h5>@Model.User.AddressLine1</h5>
+    @if (Model.User.AddressLine2 != null)
+    {
+        <h5>@Model.User.AddressLine2</h5>
+    }
+    <h5>@Model.User.PostalCode @Model.User.City</h5>
+    <h5>@Model.User.PhoneNo</h5>
+    <h5>@Model.User.EmailAddress</h5>
+    <h5>@Model.Order.Comment</h5>
+</div>
+
+<br />
+<br />
+
+@if (Model.Order.CourierID == 0)
+{
+    <form method="post">
+        <input type="submit" style="margin-top: 10em; position: absolute; left: 45%" asp-page-handler="Accept" asp-route-id="@Model.Order.Id" value="Acceptér bestilling" class="btn btn-primary"/>
+    </form>
+
+    <br />
+    <br />
+}
+else
+{
+
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

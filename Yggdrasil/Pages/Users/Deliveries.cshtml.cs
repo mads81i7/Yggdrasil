@@ -10,6 +10,8 @@ namespace Yggdrasil.Pages.Users
     public class DeliveriesModel : PageModel
     {
         private readonly IOrderRepository _orderRepository;
+        public bool EmptyActiveList;
+        public bool EmptyCompletedList;
 
         public DeliveriesModel(IOrderRepository orderRepository, LoginService loginService)
         {
@@ -17,6 +19,8 @@ namespace Yggdrasil.Pages.Users
 
             User = loginService.GetLoggedInUser();
             Orders = _orderRepository.AllOrders();
+            EmptyActiveList = true;
+            EmptyCompletedList = true;
         }
 
         public IList<Order> Orders { get; set; }

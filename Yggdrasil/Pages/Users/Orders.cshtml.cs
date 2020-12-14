@@ -13,6 +13,8 @@ namespace Yggdrasil.Pages.Users
 
         public IList<Order> Orders;
         public new User User;
+        public bool EmptyActiveList;
+        public bool EmptyCompletedList;
 
         [BindProperty]
         public int Rating { get; set; }
@@ -23,6 +25,8 @@ namespace Yggdrasil.Pages.Users
 
             Orders = _orderRepository.AllOrders();
             User = loginService.GetLoggedInUser();
+            EmptyActiveList = true;
+            EmptyCompletedList = true;
         }
 
         public IActionResult OnGet()
