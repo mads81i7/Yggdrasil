@@ -1,6 +1,6 @@
 ﻿namespace Yggdrasil.Models
 {
-    public enum WareType {Dairy, Canned, Fresh, Dry, Drink}
+    public enum WareType {All, Dairy, Canned, Fresh, Dry, Drink}
     public class Ware
     {
         public int Id { get; set; }
