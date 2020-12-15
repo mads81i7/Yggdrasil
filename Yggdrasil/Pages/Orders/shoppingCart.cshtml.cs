@@ -10,24 +10,16 @@ namespace Yggdrasil.Pages.Orders
     public class ShoppingCartModel : PageModel
     {
         public readonly ShoppingCartService ItemsInCart;
-        private IWareCatalog repo;
-        
-        public Ware ware { get; set; }
+
         public List<OrderItem> OItems { get; set; }
 
-        public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo)
+        public ShoppingCartModel(ShoppingCartService shoppingService)
         {
             ItemsInCart = shoppingService;
-            repo = wareRepo;
             OItems = new List<OrderItem>();
         }
-
-        public IActionResult OnGet(/*int? id*/)
+        public IActionResult OnGet()
         {
-            //if (id == null)
-            //    return Page();
-            //Ware ware = repo.GetWare((int)id);
-            //itemsInCart.AddWare(ware);
             OItems = ItemsInCart.GetOrderedWares();
             return Page();
         }

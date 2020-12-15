@@ -4,14 +4,28 @@
     "OrderedWares": [
       {
         "Ware": {
-          "Id": 2,
-          "Name": "Mango",
-          "Price": 20.0,
-          "Description": "Dette er en Mango",
+          "Id": 4,
+          "Name": "Rugbrød",
+          "Price": 18.0,
+          "Description": "Dette er et rugbrød",
           "Type": 2,
           "IsVegan": true,
           "IsOrganic": true,
-          "ImageName": "Mango.jpg",
+          "ImageName": "rugbroed.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 6,
+          "Name": "Tomat",
+          "Price": 15.0,
+          "Description": "Dette er en pakke tomater",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "tomat.jpg",
           "AmountSold": 0
         },
         "Amount": 1
@@ -28,7 +42,32 @@
           "ImageName": "Vand.jpg",
           "AmountSold": 0
         },
-        "Amount": 2
+        "Amount": 1
+      }
+    ],
+    "TotalPrice": 39.0,
+    "Comment": "Foran døren",
+    "Done": true,
+    "Rating": 5,
+    "CustomerID": 6,
+    "CourierID": 7
+  },
+  {
+    "Id": 1,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 3,
+          "Name": "Mælk",
+          "Price": 8.5,
+          "Description": "Dette er mælk",
+          "Type": 0,
+          "IsVegan": false,
+          "IsOrganic": true,
+          "ImageName": "maelk.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
       },
       {
         "Ware": {
@@ -43,13 +82,214 @@
           "AmountSold": 0
         },
         "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 9,
+          "Name": "Ris",
+          "Price": 16.5,
+          "Description": "Dette er en pose ris",
+          "Type": 3,
+          "IsVegan": true,
+          "IsOrganic": false,
+          "ImageName": "ris.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 0,
+          "Name": "Vand",
+          "Price": 6.0,
+          "Description": "Det her er vand",
+          "Type": 4,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "Vand.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 4,
+          "Name": "Rugbrød",
+          "Price": 18.0,
+          "Description": "Dette er et rugbrød",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "rugbroed.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
       }
     ],
-    "TotalPrice": 42.0,
+    "TotalPrice": 59.0,
+    "Comment": null,
+    "Done": true,
+    "Rating": 3,
+    "CustomerID": 1,
+    "CourierID": 1
+  },
+  {
+    "Id": 2,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 2,
+          "Name": "Mango",
+          "Price": 20.0,
+          "Description": "Dette er en Mango",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "Mango.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 1,
+          "Name": "Pizza",
+          "Price": 35.0,
+          "Description": "Det her er en Pizza",
+          "Type": 2,
+          "IsVegan": false,
+          "IsOrganic": false,
+          "ImageName": "Pizza.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 7,
+          "Name": "Vindruer",
+          "Price": 18.0,
+          "Description": "Dette er en pakke grønne vindruer",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "vindruer.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      }
+    ],
+    "TotalPrice": 73.0,
     "Comment": null,
     "Done": false,
     "Rating": 0,
     "CustomerID": 1,
     "CourierID": 1
+  },
+  {
+    "Id": 3,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 3,
+          "Name": "Mælk",
+          "Price": 8.5,
+          "Description": "Letmælk, 1l, Arla",
+          "Type": 0,
+          "IsVegan": false,
+          "IsOrganic": true,
+          "ImageName": "maelk.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 0,
+          "Name": "Vand",
+          "Price": 6.0,
+          "Description": "50cl, Kildevand, Aqua'Dor",
+          "Type": 4,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "Vand.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 9,
+          "Name": "Ris",
+          "Price": 16.5,
+          "Description": "Løse ris\n4 x 125g\nFirst Price",
+          "Type": 3,
+          "IsVegan": true,
+          "IsOrganic": false,
+          "ImageName": "ris.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      }
+    ],
+    "TotalPrice": 31.0,
+    "Comment": null,
+    "Done": false,
+    "Rating": 0,
+    "CustomerID": 1,
+    "CourierID": 0
+  },
+  {
+    "Id": 4,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 3,
+          "Name": "Mælk",
+          "Price": 8.5,
+          "Description": "Letmælk, 1l, Arla",
+          "Type": 0,
+          "IsVegan": false,
+          "IsOrganic": true,
+          "ImageName": "maelk.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 1,
+          "Name": "Pizza",
+          "Price": 35.0,
+          "Description": "Tomat, Ost, Pepperoni. Medium.",
+          "Type": 2,
+          "IsVegan": false,
+          "IsOrganic": false,
+          "ImageName": "Pizza.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 2
+      },
+      {
+        "Ware": {
+          "Id": 8,
+          "Name": "Tun",
+          "Price": 10.0,
+          "Description": "Tun i Solsikkeolie\n100g\nGlyngøre ",
+          "Type": 2,
+          "IsVegan": false,
+          "IsOrganic": false,
+          "ImageName": "daasetun.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 2
+      }
+    ],
+    "TotalPrice": 98.5,
+    "Comment": null,
+    "Done": false,
+    "Rating": 0,
+    "CustomerID": 6,
+    "CourierID": 0
   }
 ]

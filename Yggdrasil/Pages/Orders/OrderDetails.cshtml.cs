@@ -1,30 +1,45 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
+using Yggdrasil.Services;
 
 namespace Yggdrasil.Pages.Orders
 {
     public class OrderDetailsModel : PageModel
     {
-        public Order Order { get; set; }
-        public IOrderRepository Repo { get; set; }
-        public IUserRepository UserRepo { get; set; }
-        public User User1 { get; set; }  
+        private readonly IOrderRepository _orderRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly LoginService _loginService;
 
-        public OrderDetailsModel(IOrderRepository repository, IUserRepository userRepository)
+        public new User User { get; set; }
+        public User LoggedInUser { get; set; }
+        public Order Order { get; set; }
+
+        public OrderDetailsModel(IOrderRepository repository, IUserRepository userRepository, LoginService loginService)
         {
-            Repo = repository;
-            UserRepo = userRepository;
+            _orderRepository = repository;
+            _userRepository = userRepository;
+            _loginService = loginService;
+
+            LoggedInUser = loginService.GetLoggedInUser();
         }
+
         public void OnGet(int id)
         {
-            Order = Repo.GetOrder(id);
-            User1 = UserRepo.GetUser(Order.CustomerID);
+            Order = _orderRepository.GetOrder(id);
+            User = _userRepository.GetUser(Order.CustomerID);
+        }
+
+        public IActionResult OnPostAccept(int id)
+        {
+            Order = _orderRepository.GetOrder(id);
+            User = _userRepository.GetUser(Order.CustomerID);
+
+            Order.CourierID = _loginService.GetLoggedInUser().ID;
+            _orderRepository.EditOrder(Order.Id, Order);
+
+            return RedirectToPage("/Users/Deliveries");
         }
     }
 }

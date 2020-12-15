@@ -95,7 +95,7 @@
         {
             foreach (OrderItem oi in o.OrderedWares)
             {
-                Model.Wares[oi.Ware.Id].AmountSold = 1 * oi.Amount;
+                Model.Wares[oi.Ware.Id].AmountSold = Model.Wares[oi.Ware.Id].AmountSold +  1 * oi.Amount;
             } 
         }
         

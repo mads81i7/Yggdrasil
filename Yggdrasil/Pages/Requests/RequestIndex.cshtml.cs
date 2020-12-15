@@ -22,13 +22,5 @@ namespace Yggdrasil.Pages.Requests
 
             EmptyRequestList = true;
         }
-
-        public IActionResult OnPostAccept(int id)
-        {
-            Orders[id].CourierID = _loginService.GetLoggedInUser().ID;
-            _orderRepository.EditOrder(id, Orders[id]);
-
-            return Page();
-        }
     }
 }

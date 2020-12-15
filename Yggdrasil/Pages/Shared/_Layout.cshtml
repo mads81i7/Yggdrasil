@@ -1,5 +1,6 @@
 ﻿@using Yggdrasil.Services
 @using Yggdrasil.Models
+@using System.Diagnostics.Eventing.Reader
 @inject ShoppingCartService ItemsInCart
 @inject LoginService LoginService
 
@@ -39,8 +40,10 @@
             }
         }
     </div>
-    <br />
-    <a asp-page="/Index"><img src="/Images/yggdrasil.png" class="mx-auto d-block" style="max-height: 150px" alt="Yggdrasil" /></a>
+<br />
+<div style="padding-left:29%">
+    <a asp-page="/Index"><img src="/Images/yggdrasil.png" style="max-height: 150px" alt="Yggdrasil" /></a>
+</div>
     <br />
     <header>
         <nav class="navbar navbar-default navbar-expand-sm navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3" role="navigation">
@@ -55,11 +58,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-page="/Index">Hjem</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Requests/RequestIndex">Bestillinger</a>
-                        </li>
                         @if (LoginService.GetLoggedInUser() != null)
                         {
+                            if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin || LoginService.GetLoggedInUser().UserType == UserTypes.Courier)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-page="/Requests/RequestIndex">Bestillinger</a>
+                                </li>
+                            }
+                            if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin || LoginService.GetLoggedInUser().UserType == UserTypes.Customer)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-page="/Wares/GetAllWares">Bestil varer</a>
+                                </li>
+                            }
                             if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin)
                             {
                                 <li class="nav-item">
@@ -67,40 +79,43 @@
                                 </li>
                             }
                         }
-                        <li class="nav-item">
-                            <a class="button btn float-left text-light" asp-page="/Wares/GetAllWares">Bestil</a>
-                        </li>
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-page="/Wares/GetAllWares">Bestil varer</a>
+                            </li>
+                        }
                     </ul>
                 </div>
-            <ul class="nav navbar-nav navbar-collapse collapse">
-                <li class="ml-auto mr-1 dropdown">
-                    <button class="btn nav-link text-light dropdown-toggle noti" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
-                        </svg> Kurv 
-                    <span class="badge">@ItemsInCart.GetFullCount()</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-item-text text-center">
-                            Der er @ItemsInCart.GetFullCount() vare(r) i kurven.
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li class="dropdown-item-text">
-                            Total @ItemsInCart.CalculateTotalPrice() kr.
-                        </li>
-                        <li class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" asp-area="" asp-page="/Orders/shoppingCart">Gå ind i kurven</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-</div>
+                <ul class="nav navbar-nav navbar-collapse collapse">
+                    <li class="ml-auto mr-1 dropdown">
+                        <button class="btn nav-link text-light dropdown-toggle noti" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                            </svg> Kurv
+                            <span class="badge">@ItemsInCart.GetFullCount()</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item-text text-center">
+                                Der er @ItemsInCart.GetFullCount() vare(r) i kurven.
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li class="dropdown-item-text">
+                                Total @ItemsInCart.CalculateTotalPrice() kr.
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" asp-area="" asp-page="/Orders/shoppingCart">Gå ind i kurven</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">

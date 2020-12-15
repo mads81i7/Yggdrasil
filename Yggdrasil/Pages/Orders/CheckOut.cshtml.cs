@@ -15,7 +15,6 @@ namespace Yggdrasil.Pages.Orders
         private readonly ShoppingCartService _cartService;
         private readonly IOrderRepository _orderRepository;
         private readonly LoginService _login;
-        public List<OrderItem> Wares { get; set; }
 
         public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log)
         {
@@ -39,7 +38,7 @@ namespace Yggdrasil.Pages.Orders
             Order.CustomerID = _login.GetLoggedInUser().ID;
             _orderRepository.AddOrder(Order);
             _cartService.GetOrderedWares().Clear();
-            return RedirectToPage("/Requests/RequestIndex");
+            return RedirectToPage("OrderComplete", Order);
         }
     }
 }
