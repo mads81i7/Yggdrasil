@@ -1,13 +1,12 @@
 ﻿@page
-@using Newtonsoft.Json.Linq
-@using System.Diagnostics.Eventing.Reader
 @using Yggdrasil.Models
-@using Yggdrasil.Services
 @model Yggdrasil.Pages.Wares.GetAllWaresModel
+
 @{
+    ViewData["Title"] = "Alle varer";
 }
 
-<h1>Varer</h1>
+<h3>Varer</h3>
 @if (Model.IsAdmin == true)
 {
     <p>
@@ -15,34 +14,50 @@
     </p>
 }
 
+<h2>
+    <form method="post">
+    <select asp-for="ware.Type" asp-items="Html.GetEnumSelectList<WareType>()">
+        <option value="">All</option>
+    </select>
+    <button asp-page-handler="Search" class="button btn btn-dark btn-group-lg pull-right">
+            Search
+        </button>
+    </form>
+
+</h2>
+
 <table class="table">
     <thead>
-    <tr>
-        <th>
-            Id
-        </th>
-        <th>
-            Navn
-        </th>
-        <th>
-            Beskrivelse
-        </th>
-        <th>
-            Pris
-        </th>
-        <th>
-            Type
-        </th>
-        <th>
-            Økologisk
-        </th>
-        <th>
-            Vegansk
-        </th>
-    </tr>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Navn
+            </th>
+            <th>
+                Beskrivelse
+            </th>
+            <th>
+                Pris
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Økologisk
+            </th>
+            <th>
+                Vegansk
+            </th>
+            <th>
+            </th>
+            <th>
+            </th>
+        </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model.Wares)
+    @foreach (var item in Model.WaresFilter)
     {
         <tr>
             <td>@item.Id</td>

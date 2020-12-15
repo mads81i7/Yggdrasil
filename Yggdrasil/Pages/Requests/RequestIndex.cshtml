@@ -1,5 +1,7 @@
 ﻿@page
+@using Yggdrasil.Interfaces
 @model Yggdrasil.Pages.Requests.RequestIndexModel
+@inject IUserRepository UserRepository
 
 @{
     ViewData["Title"] = "Bestillinger";
@@ -7,34 +9,48 @@
 
 <h3>Bestillinger</h3>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Addresse</th>
-            <th>Postnummer</th>
-            <th>Fra</th>
-            <th>Til</th>
-            <th>Total Pris</th>
-            <th>Kommentar</th>
-            <th>Bruger</th>
-        </tr>
-    </thead>
+@foreach (var item in Model.Orders)
+{
+    if (item.CourierID < 1)
+    {
+        Model.EmptyRequestList = false;
+        break;
+    }
+}
+
+@if (Model.EmptyRequestList != true)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Navn</th>
+                <th>Postnummer</th>
+                <th>By</th>
+                <th>Kommentar</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
     <tbody>
         @foreach (var item in Model.Orders)
         {
             if (item.CourierID < 1)
             {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.AltAddress </td>
-                    <td>@item.CustomerID</td>
-                    <td>@item.DateTimeWish </td>
-                    <td>@item.Comment </td>
-                    <td><a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Detaljer</a></td>
-                    <td><form method="post"><input type="submit" asp-page-handler="Accept" asp-route-id="@item.Id" value="Acceptér bestilling" class="btn btn-primary" /></form></td>
-                </tr>
+        <tr>
+            <td>@UserRepository.GetUser(item.CustomerID).FullName</td>
+            <td>@UserRepository.GetUser(item.CustomerID).PostalCode</td>
+            <td>@UserRepository.GetUser(item.CustomerID).City</td>
+            <td>@item.Comment</td>
+            <td><a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a></td>
+        </tr>
             }
         }
     </tbody>
-</table>
+    </table>
+}
+else
+{
+    <div class="jumbotron container float-right">
+        Der er ingen ordreanmoninger i øjeblikket, kig tilbage senere. :)
+    </div>
+}

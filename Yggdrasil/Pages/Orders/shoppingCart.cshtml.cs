@@ -23,7 +23,6 @@ namespace Yggdrasil.Pages.Orders
             OItems = ItemsInCart.GetOrderedWares();
             return Page();
         }
-
         public IActionResult OnPostRemove(int id)
         {
             ItemsInCart.DeleteWare(id);

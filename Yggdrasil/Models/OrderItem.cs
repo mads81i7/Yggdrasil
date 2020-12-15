@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Yggdrasil.Models
+﻿namespace Yggdrasil.Models
 {
     public class OrderItem
     {
@@ -12,7 +7,6 @@ namespace Yggdrasil.Models
 
         public OrderItem()
         {
-
         }
 
         public OrderItem(Ware ware, int amount)
@@ -20,7 +14,5 @@ namespace Yggdrasil.Models
             Ware = ware;
             Amount = amount;
         }
-
     }
-    
 }

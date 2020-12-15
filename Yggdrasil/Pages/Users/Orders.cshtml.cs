@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
@@ -17,6 +13,8 @@ namespace Yggdrasil.Pages.Users
 
         public IList<Order> Orders;
         public new User User;
+        public bool EmptyActiveList;
+        public bool EmptyCompletedList;
 
         [BindProperty]
         public int Rating { get; set; }
@@ -27,6 +25,8 @@ namespace Yggdrasil.Pages.Users
 
             Orders = _orderRepository.AllOrders();
             User = loginService.GetLoggedInUser();
+            EmptyActiveList = true;
+            EmptyCompletedList = true;
         }
 
         public IActionResult OnGet()
