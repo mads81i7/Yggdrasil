@@ -66,7 +66,7 @@
                                     <a class="nav-link text-light" asp-page="/Requests/RequestIndex">Bestillinger</a>
                                 </li>
                             }
-                            if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin || LoginService.GetLoggedInUser().UserType == UserTypes.Courier)
+                            if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin || LoginService.GetLoggedInUser().UserType == UserTypes.Customer)
                             {
                                 <li class="nav-item">
                                     <a class="nav-link text-light" asp-page="/Wares/GetAllWares">Bestil varer</a>
