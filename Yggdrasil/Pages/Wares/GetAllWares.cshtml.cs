@@ -133,7 +133,6 @@ namespace Yggdrasil.Pages.Wares
             {
                 ware = catalog.GetWare(Id);
                 ItemsInCart.AddWare(ware);
-                CartList = ItemsInCart.GetOrderedWares();
                 Wares = catalog.AllWares();
             }
             return Page();
