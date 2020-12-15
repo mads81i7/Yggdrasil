@@ -13,6 +13,7 @@ namespace Yggdrasil.Pages.Orders
         private readonly LoginService _loginService;
 
         public new User User { get; set; }
+        public User LoggedInUser { get; set; }
         public Order Order { get; set; }
 
         public OrderDetailsModel(IOrderRepository repository, IUserRepository userRepository, LoginService loginService)
@@ -20,6 +21,8 @@ namespace Yggdrasil.Pages.Orders
             _orderRepository = repository;
             _userRepository = userRepository;
             _loginService = loginService;
+
+            LoggedInUser = loginService.GetLoggedInUser();
         }
 
         public void OnGet(int id)

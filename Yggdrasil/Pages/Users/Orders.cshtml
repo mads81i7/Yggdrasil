@@ -24,6 +24,9 @@
                 <th>
                 </th>
                 <th>
+                    Total pris
+                </th>
+                <th>
                     Kommentar
                 </th>
                 <th>
@@ -36,35 +39,38 @@
             {
                 @if (item.CustomerID == Model.User.ID && !item.Done)
                 {
-                    <tr>
-                        <td>
-                            <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Comment)
-                        </td>
-                        @if (item.CourierID != 0)
-                        {
-                            <td>
-                                <div class="form-group">
-                                    <form method="post">
-                                        @for (var i = 1; i <= 5; i++)
-                                        {
-                                            @i
-                                            <input type="radio" asp-for="Rating" value="@i" />@:&nbsp;
-                                        }
-                                        &nbsp; &nbsp; <input type="submit" value="Modtaget varer" asp-route-id="@item.Id" class="btn btn-primary" />
-                                    </form>
-                                </div>
-                            </td>
-                        }
-                        else
-                        {
-                            <td>
-                                Venter på at et bud accepterer ordren.
-                            </td>
-                        }
-                    </tr>
+            <tr>
+                <td>
+                    <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
+                </td>
+                <td>
+                    @($"{item.TotalPrice:C}")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                @if (item.CourierID != 0)
+                {
+                    <td>
+                        <div class="form-group">
+                            <form method="post">
+                                @for (var i = 1; i <= 5; i++)
+                                {
+                                    @i
+                                    <input type="radio" asp-for="Rating" value="@i" />@:&nbsp;
+                                }
+                                &nbsp; &nbsp; <input type="submit" value="Modtaget varer" asp-route-id="@item.Id" class="btn btn-primary" />
+                            </form>
+                        </div>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Venter på at et bud accepterer ordren.
+                    </td>
+                }
+            </tr>
                 }
             }
         </tbody>
@@ -96,6 +102,9 @@ else
                 <th>
                 </th>
                 <th>
+                    Total pris
+                </th>
+                <th>
                     Kommentar
                 </th>
                 <th>
@@ -111,6 +120,9 @@ else
                     <tr>
                         <td>
                             <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
+                        </td>
+                        <td>
+                            @($"{item.TotalPrice:C}")
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Comment)
