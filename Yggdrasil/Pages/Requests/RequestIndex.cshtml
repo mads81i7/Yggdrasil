@@ -20,17 +20,17 @@
 
 @if (Model.EmptyRequestList != true)
 {
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Navn</th>
-                <th>Postnummer</th>
-                <th>By</th>
-                <th>Kommentar</th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Postnummer</th>
+            <th>By</th>
+            <th>Kommentar</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var item in Model.Orders)
         {
@@ -46,11 +46,11 @@
             }
         }
     </tbody>
-    </table>
+</table>
 }
 else
 {
-    <div class="jumbotron container float-right">
-        Der er ingen ordreanmoninger i øjeblikket, kig tilbage senere. :)
-    </div>
+<div class="jumbotron container float-right">
+    Der er ingen ordreanmoninger i øjeblikket, kig tilbage senere. :)
+</div>
 }
