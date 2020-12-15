@@ -15,7 +15,6 @@ namespace Yggdrasil.Pages.Orders
         private readonly ShoppingCartService _cartService;
         private readonly IOrderRepository _orderRepository;
         private readonly LoginService _login;
-        public List<OrderItem> Wares { get; set; }
 
         public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log)
         {
