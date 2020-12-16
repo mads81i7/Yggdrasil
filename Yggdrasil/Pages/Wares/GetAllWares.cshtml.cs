@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using System.Xml.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -28,7 +26,6 @@ namespace Yggdrasil.Pages.Wares
             IsAdmin = false;
             WaresFilter = catalog.AllWares();
         }
-
         public List<Ware> Wares { get; private set; }
         public List<OrderItem> CartList { get; private set; }
         public User LoggedInUser { get; set; }
@@ -36,7 +33,7 @@ namespace Yggdrasil.Pages.Wares
         [BindProperty]
         public Ware ware { get; set; }
         [BindProperty(SupportsGet = true)]
-        public string SearchString { get; set; }
+        public string SearchTerm { get; set; }
 
         public IActionResult OnGet()
         {
@@ -56,7 +53,6 @@ namespace Yggdrasil.Pages.Wares
 
         }
 
-
         public IActionResult WareType()
         {
             return Page();
@@ -64,6 +60,7 @@ namespace Yggdrasil.Pages.Wares
 
 
         public List<Ware> WaresFilter { get; set; }
+
 
         public IActionResult OnPostSearch()
         {
@@ -119,14 +116,12 @@ namespace Yggdrasil.Pages.Wares
                         }
                     }
                     break;
-                case Models.WareType.All:
+                default:
                     WaresFilter = catalog.AllWares();
                     break;
             }
             return Page();
         }
-
-
         public IActionResult OnPostAdd(int Id)
         {
             if (ModelState.IsValid)
@@ -140,4 +135,3 @@ namespace Yggdrasil.Pages.Wares
         }
     }
 }
-
