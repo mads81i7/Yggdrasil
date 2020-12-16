@@ -116,7 +116,8 @@ namespace Yggdrasil.Pages.Wares
                         }
                     }
                     break;
-                default:
+                case Models.WareType.All:
+                    WaresFilter.Clear();
                     WaresFilter = catalog.AllWares();
                     break;
             }
