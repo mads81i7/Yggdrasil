@@ -11,16 +11,23 @@ namespace Yggdrasil.Pages.Orders
     {
         public readonly ShoppingCartService ItemsInCart;
         private IWareCatalog repo;
-        
-        public Ware ware { get; set; }
-        
-        public List<OrderItem> OItems { get; set; }
+        public readonly IOfferRepository OfferRepository;
 
-        public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo)
+        [BindProperty]
+        public Offer Offer { get; set; }
+        public Ware ware { get; set; }
+        public int Code { get; set; }
+
+        public List<OrderItem> OItems { get; set; }
+        public List<Offer> Offers { get; set; }
+
+        public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo, IOfferRepository offerRepo)
         {
             ItemsInCart = shoppingService;
             repo = wareRepo;
             OItems = new List<OrderItem>();
+            OfferRepository = offerRepo;
+
         }
         public IActionResult OnGet(/*int? id*/)
         {
@@ -36,6 +43,24 @@ namespace Yggdrasil.Pages.Orders
         {
             ItemsInCart.DeleteWare(id);
             OItems = ItemsInCart.GetOrderedWares();
+            return Page();
+        }
+
+        public IActionResult OnPostDiscount()
+        {
+            List<Offer> offers = OfferRepository.AllOffers();
+
+            OItems = ItemsInCart.GetOrderedWares();
+            if (Offer.Code != 0)
+            {
+                foreach (var o in offers)
+                {
+                    if (o.Code == Offer.Code)
+                        Code = o.Code;
+
+                }
+            }
+
             return Page();
         }
     }

@@ -10,5 +10,6 @@ namespace Yggdrasil.Models
         public double Discount { get; set; }
         public int Code { get; set; }
         public string Detail { get; set; }
+        public DateTime ExpiryDate { get; set; }
     }
 }

@@ -1,0 +1,33 @@
+﻿@page
+@model Yggdrasil.Pages.Admin.Offers.OfferIndexModel
+@{
+    ViewData["Title"] = "Rabatkoder";
+}
+
+@*<h3>Rabatkoder</h3>
+
+<button class="btn button btn-dark" asp-page="Create">Lav ny rabatkode</button>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Kode</th>
+        <th>Discount</th>
+        <th>Detaljer</th>
+        <th>Udløbs dato</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model._offers)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Code</td>
+            <td>@item.Discount</td>
+            <td>@item.Detail</td>
+            <td>@item.ExpiryDate</td>
+        </tr>
+    }
+    </tbody>
+</table>*@

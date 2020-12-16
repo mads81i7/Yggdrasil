@@ -20,5 +20,6 @@ namespace Yggdrasil.Models
         public int Rating { get; set; }
         public int CustomerID { get; set; }
         public int CourierID { get; set; }
+        //public double OfferUsed { get; set; }
     }
 }

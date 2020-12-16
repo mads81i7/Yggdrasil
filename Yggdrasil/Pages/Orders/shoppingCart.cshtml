@@ -1,4 +1,5 @@
 ﻿@page
+@using Yggdrasil.Models
 @model Yggdrasil.Pages.Orders.ShoppingCartModel
 
 @{
@@ -8,13 +9,13 @@
 <h1>Indkøbs Kurv</h1>
 <table class="table">
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Navn</th>
-            <th>Beskrivelse</th>
-            <th>Pris</th>
-            <th>Antal</th>
-        </tr>
+    <tr>
+        <th>Id</th>
+        <th>Navn</th>
+        <th>Beskrivelse</th>
+        <th>Pris</th>
+        <th>Antal</th>
+    </tr>
     </thead>
     @if (Model.OItems.Count != 0)
     {
@@ -41,6 +42,23 @@
         </tbody>
     }
 </table>
-<h2>Total : @Model.ItemsInCart.CalculateTotalPrice() kr.</h2>
+
+<form method="post">
+    <div class="form-group form-inline">
+        <label for="rbt">Rabatkode</label>
+        <input asp-for="Offer.Code" class="form-control" id="rbt">
+        <button class="btn button btn-dark" asp-page-handler="Discount">Brug</button>
+    </div>
+</form>
+@if (Model.Offer != null)
+{
+    @if (Model.Offer.Discount != 0)
+    {
+        <p style="color: #2462e5"><strong>Rabatkode accepteret</strong></p>
+    }
+}
+@*<p>Der kan bruges eventuel rabatkode på checkout siden.</p>*@
+
+<h2>Total : @Model.ItemsInCart.CalculateTotalPrice(Model.Code) kr.</h2>
 <a asp-page="/Wares/GetAllWares" class="button btn btn-dark btn-group-lg pull-right">Continue Shopping</a>
 <a asp-page="/Orders/CheckOut" class="button btn btn-dark btn-group-lg pull-right">Check Out</a>

@@ -28,6 +28,7 @@ namespace Yggdrasil
             services.AddTransient<IWareCatalog, JsonWareRepository>();
             services.AddTransient<IOrderRepository, JsonOrderRepository>();
             services.AddTransient<IUserRepository, JsonUserRepository>();
+            services.AddTransient<IOfferRepository, JsonOfferRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

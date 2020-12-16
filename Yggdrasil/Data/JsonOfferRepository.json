@@ -1,0 +1,14 @@
+[
+  {
+    "Discount": 0,
+    "Code": 0,
+    "Detail": "Default",
+    "ExpiryDate": "2050-12-30T00:00:00"
+  },
+  {
+    "Discount": 0.1,
+    "Code": 1234,
+    "Detail": "Test kode med 10 %",
+    "ExpiryDate": "2020-12-30T00:00:00"
+  }
+]
