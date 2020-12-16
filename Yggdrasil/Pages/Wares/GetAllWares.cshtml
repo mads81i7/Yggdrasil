@@ -14,17 +14,14 @@
     </p>
 }
 
-<h2>
     <form method="post">
     <select asp-for="ware.Type" asp-items="Html.GetEnumSelectList<WareType>()">
-        <option value="">All</option>
     </select>
     <button asp-page-handler="Search" class="button btn btn-dark btn-group-lg pull-right">
-            Search
+            Filter
         </button>
     </form>
 
-</h2>
 
 <table class="table">
     <thead>
@@ -63,7 +60,7 @@
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Description</td>
-            <td>@item.Price kr.</td>
+            <td>@($"{item.Price:C}")</td>
             <td>@item.Type</td>
             <td>
                 @if (item.IsOrganic == true)

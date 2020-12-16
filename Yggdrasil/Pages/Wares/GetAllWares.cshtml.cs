@@ -32,6 +32,8 @@ namespace Yggdrasil.Pages.Wares
         public bool IsAdmin { get; set; }   
         [BindProperty]
         public Ware ware { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
 
         public IActionResult OnGet()
         {
@@ -114,7 +116,8 @@ namespace Yggdrasil.Pages.Wares
                         }
                     }
                     break;
-                default:
+                case Models.WareType.All:
+                    WaresFilter.Clear();
                     WaresFilter = catalog.AllWares();
                     break;
             }
@@ -126,7 +129,6 @@ namespace Yggdrasil.Pages.Wares
             {
                 ware = catalog.GetWare(Id);
                 ItemsInCart.AddWare(ware);
-                CartList = ItemsInCart.GetOrderedWares();
                 Wares = catalog.AllWares();
             }
             return Page();

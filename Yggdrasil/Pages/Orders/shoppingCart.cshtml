@@ -26,7 +26,7 @@
                     <td>@item.Ware.Id</td>
                     <td>@item.Ware.Name</td>
                     <td>@item.Ware.Description</td>
-                    <td>@item.Ware.Price</td>
+                    <td>@($"{item.Ware.Price:C}")</td>
                     <td>@item.Amount</td>
                     <td>
                         <form method="post">
@@ -41,6 +41,9 @@
         </tbody>
     }
 </table>
-<h2>Total : @Model.ItemsInCart.CalculateTotalPrice() kr.</h2>
+<h2>Total : @($"{Model.ItemsInCart.CalculateTotalPrice():C}")</h2>
 <a asp-page="/Wares/GetAllWares" class="button btn btn-dark btn-group-lg pull-right">Continue Shopping</a>
-<a asp-page="/Orders/CheckOut" class="button btn btn-dark btn-group-lg pull-right">Check Out</a>
+@if (Model.ItemsInCart.GetOrderedWares().Count != 0)
+{
+    <a asp-page="/Orders/CheckOut" class="button btn btn-dark btn-group-lg pull-right">Check Out</a>
+}

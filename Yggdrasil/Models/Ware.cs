@@ -1,6 +1,6 @@
 ﻿namespace Yggdrasil.Models
 {
-    public enum WareType {Dairy, Canned, Fresh, Dry, Drink}
+    public enum WareType {Dairy, Canned, Fresh, Dry, Drink, All} //"All" should never be used, it is purely for sorting purposes
     public class Ware
     {
         public int Id { get; set; }
