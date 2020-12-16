@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 using Yggdrasil.Services;
 
@@ -25,18 +24,14 @@ namespace Yggdrasil.Pages.Orders
         public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo, IOfferRepository offerRepo, DiscountService discountService)
         {
             ItemsInCart = shoppingService;
-            repo = wareRepo;
             OItems = new List<OrderItem>();
             OfferRepository = offerRepo;
             discount = discountService;
 
         }
-        public IActionResult OnGet(/*int? id*/)
+
+        public IActionResult OnGet()
         {
-            //if (id == null)
-            //    return Page();
-            //Ware ware = repo.GetWare((int)id);
-            //itemsInCart.AddWare(ware);
             OItems = ItemsInCart.GetOrderedWares();
             return Page();
         }

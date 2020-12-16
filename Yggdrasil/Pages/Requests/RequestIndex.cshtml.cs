@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
@@ -15,6 +11,7 @@ namespace Yggdrasil.Pages.Requests
         private readonly IOrderRepository _orderRepository;
         private readonly LoginService _loginService;
         public List<Order> Orders;
+        public bool EmptyRequestList;
 
         [BindProperty(SupportsGet = true)]
         public string Criteria { get; set; }
@@ -24,8 +21,8 @@ namespace Yggdrasil.Pages.Requests
             _orderRepository = orderRepository;
             _loginService = loginService;
             Orders = _orderRepository.AllOrders();
-        }
 
+            EmptyRequestList = true;
         public void OnGet()
         {
             Orders = _orderRepository.FilterOrders(Criteria);

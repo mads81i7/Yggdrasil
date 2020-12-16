@@ -73,5 +73,35 @@
     "PostalCode": 2600,
     "City": "Glostrup",
     "PhoneNo": "10101010"
+  },
+  {
+    "ID": 6,
+    "UserType": 2,
+    "FullName": "Georg Hansen",
+    "EmailAddress": "georg@hansen.com",
+    "BirthDate": "1935-04-12T00:00:00",
+    "Password": "password",
+    "Password2": null,
+    "PasswordCheck": null,
+    "AddressLine1": "Hansenvej 33",
+    "AddressLine2": "1. th",
+    "PostalCode": 3030,
+    "City": "Helsingør",
+    "PhoneNo": "40506070"
+  },
+  {
+    "ID": 7,
+    "UserType": 1,
+    "FullName": "Jytte Poulsen",
+    "EmailAddress": "jytte@ersej.dk",
+    "BirthDate": "1965-01-30T00:00:00",
+    "Password": "jytteersej",
+    "Password2": null,
+    "PasswordCheck": null,
+    "AddressLine1": "Jyttegade 40",
+    "AddressLine2": null,
+    "PostalCode": 5050,
+    "City": "Vordingborg",
+    "PhoneNo": "27364512"
   }
 ]

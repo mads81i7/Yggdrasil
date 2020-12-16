@@ -1,5 +1,7 @@
 ﻿@page
+@using Yggdrasil.Interfaces
 @model Yggdrasil.Pages.Users.DeliveriesModel
+@inject IUserRepository UserRepository
 
 @{
     ViewData["Title"] = "Leveringer";
@@ -7,81 +9,127 @@
 
 <h3>Aktive leveringer</h3>
 
-<table class="table table-striped" style="white-space: nowrap">
-    <thead>
-        <tr>
-            <th>
-                Alternativ adresse
-            </th>
-            <th>
-                Kommentar
-            </th>
-            <th>
-                Tidsønske
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Orders)
-        {
-            @if (item.CourierID == Model.User.ID && !item.Done)
+@foreach (var item in Model.Orders)
+{
+    @if (item.CourierID == Model.User.ID && !item.Done)
+    {
+        Model.EmptyActiveList = false;
+        break;
+    }
+}
+
+@if (!Model.EmptyActiveList)
+{
+    <table class="table table-striped" style="white-space: nowrap">
+        <thead>
+            <tr>
+                <th>
+                    Adresse
+                </th>
+                <th>
+                    Total pris
+                </th>
+                <th>
+                    Kommentar
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
             {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AltAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTimeWish)
-            </td>
-        </tr>
+                @if (item.CourierID == Model.User.ID && !item.Done)
+                {
+                    <tr>
+                        <td>
+                            @UserRepository.GetUser(item.CustomerID).AddressLine1
+                        </td>
+                        <td>
+                            @($"{item.TotalPrice:C}")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                        <td>
+                            <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
+                        </td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="jumbotron container float-right">
+        Du har ingen aktive leveringer i øjeblikket.
+    </div>
+}
 
 <h3>Afsluttede leveringer</h3>
 
-<table class="table table-striped" style="white-space: nowrap">
-    <thead>
-        <tr>
-            <th>
-                Alternativ adresse
-            </th>
-            <th>
-                Kommentar
-            </th>
-            <th>
-                Tidsønske
-            </th>
-            <th>
-                Bedømmelse
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Orders)
-        {
-            @if (item.CourierID == Model.User.ID && item.Done)
+@foreach (var item in Model.Orders)
+{
+    @if (item.CourierID == Model.User.ID && item.Done)
+    {
+        Model.EmptyCompletedList = false;
+        break;
+    }
+}
+
+@if (!Model.EmptyCompletedList)
+{
+    <table class="table table-striped" style="white-space: nowrap">
+        <thead>
+            <tr>
+                <th>
+                    Total pris
+                </th>
+                <th>
+                    Kommentar
+                </th>
+                <th>
+                    Bedømmelse
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Orders)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.AltAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Comment)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateTimeWish)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Rating)
-                    </td>
-                </tr>
+                @if (item.CourierID == Model.User.ID && item.Done)
+                {
+                    <tr>
+                        <td>
+                            @($"{item.TotalPrice:C}")
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Rating)
+                        </td>
+                        <td>
+                            <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
+                        </td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="jumbotron container float-right">
+        Du har ingen afsluttede leveringer endnu.
+    </div>
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

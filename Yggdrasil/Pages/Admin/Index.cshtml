@@ -3,7 +3,7 @@
 @model Yggdrasil.Pages.Admin.IndexModel
 
 @{
-    ViewData["Title"] = "Brugere";
+    ViewData["Title"] = "Aministrator";
 }
 
 
@@ -30,7 +30,7 @@
             Model.AmountOfCustomers++;
         }
     }
-    <h6><br /> Antal af forskellelige brugere</h6>
+    <h6><br/> Antal af forskellige brugere</h6>
     <p>Admin : @Model.AmountOfAdmins || Bud : @Model.AmountOfCouriers || Kunde : @Model.AmountOfCustomers</p>
     <table class="table table-striped" style="white-space: nowrap">
         <thead>

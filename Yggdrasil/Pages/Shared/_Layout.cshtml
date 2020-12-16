@@ -39,8 +39,10 @@
             }
         }
     </div>
-    <br />
-    <a asp-page="/Index"><img src="/Images/yggdrasil.png" class="mx-auto d-block" style="max-height: 150px" alt="Yggdrasil" /></a>
+<br />
+<div style="padding-left:29%">
+    <a asp-page="/Index"><img src="/Images/yggdrasil.png" style="max-height: 150px" alt="Yggdrasil" /></a>
+</div>
     <br />
     <header>
         <nav class="navbar navbar-default navbar-expand-sm navbar-expand-sm navbar-dark bg-dark border-bottom box-shadow mb-3" role="navigation">
@@ -55,11 +57,20 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-page="/Index">Hjem</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-page="/Requests/RequestIndex">Bestillinger</a>
-                        </li>
                         @if (LoginService.GetLoggedInUser() != null)
                         {
+                            if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin || LoginService.GetLoggedInUser().UserType == UserTypes.Courier)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-page="/Requests/RequestIndex">Bestillinger</a>
+                                </li>
+                            }
+                            if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin || LoginService.GetLoggedInUser().UserType == UserTypes.Customer)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" asp-page="/Wares/GetAllWares">Bestil varer</a>
+                                </li>
+                            }
                             if (LoginService.GetLoggedInUser().UserType == UserTypes.Admin)
                             {
                                 <li class="nav-item">
@@ -67,9 +78,12 @@
                                 </li>
                             }
                         }
-                        <li class="nav-item">
-                            <a class="button btn float-left text-light" asp-page="/Wares/GetAllWares">Bestil</a>
-                        </li>
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-page="/Wares/GetAllWares">Bestil varer</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             <ul class="nav navbar-nav navbar-collapse collapse">
@@ -104,7 +118,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - Yggdrasil - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2020 - Yggdrasil - <a asp-area="" asp-page="/Privacy">Privatlivspolitik</a>
         </div>
     </footer>
 

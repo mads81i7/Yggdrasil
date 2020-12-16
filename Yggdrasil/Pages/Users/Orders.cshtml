@@ -7,17 +7,27 @@
 
 <h3>Aktive ordrer</h3>
 
+@foreach (var item in Model.Orders)
+{
+    @if (item.CustomerID == Model.User.ID && !item.Done)
+    {
+        Model.EmptyActiveList = false;
+        break;
+    }
+}
+
+@if (!Model.EmptyActiveList)
+{
     <table class="table table-striped" style="white-space: nowrap">
         <thead>
             <tr>
                 <th>
-                    Alternativ adresse
+                </th>
+                <th>
+                    Total pris
                 </th>
                 <th>
                     Kommentar
-                </th>
-                <th>
-                    Tidsønske
                 </th>
                 <th>
                     Bedømmelse
@@ -29,48 +39,73 @@
             {
                 @if (item.CustomerID == Model.User.ID && !item.Done)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.AltAddress)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Comment)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateTimeWish)
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                @Html.DisplayNameFor(modelItem => item.Rating)<br />
-                                
-                                <form method="post">
-                                    @for (var i = 1; i <= 5; i++)
-                                    {
-                                        <input type="radio" asp-for="Rating" value="@i" />@i
-                                    }
-                                    <input type="submit" value="Modtaget varer" asp-route-id="@item.Id" class="btn btn-primary" />
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
+            <tr>
+                <td>
+                    <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
+                </td>
+                <td>
+                    @($"{item.TotalPrice:C}")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                @if (item.CourierID != 0)
+                {
+                    <td>
+                        <div class="form-group">
+                            <form method="post">
+                                @for (var i = 1; i <= 5; i++)
+                                {
+                                    @i
+                                    <input type="radio" asp-for="Rating" value="@i" />@:&nbsp;
+                                }
+                                &nbsp; &nbsp; <input type="submit" value="Modtaget varer" asp-route-id="@item.Id" class="btn btn-primary" />
+                            </form>
+                        </div>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Venter på at et bud accepterer ordren.
+                    </td>
+                }
+            </tr>
                 }
             }
         </tbody>
     </table>
+}
+else
+{
+    <div class="jumbotron container float-right">
+        Du har ingen aktive ordrer i øjeblikket.
+    </div>
+}
 
-    <h3>Afsluttede ordrer</h3>
+<h3>Afsluttede ordrer</h3>
 
+@foreach (var item in Model.Orders)
+{
+    if (item.CustomerID == Model.User.ID && item.Done)
+    {
+        Model.EmptyCompletedList = false;
+        break;
+    }
+}
+
+@if (!Model.EmptyCompletedList)
+{
     <table class="table table-striped" style="white-space: nowrap">
         <thead>
             <tr>
                 <th>
-                    Alternativ adresse
+                </th>
+                <th>
+                    Total pris
                 </th>
                 <th>
                     Kommentar
-                </th>
-                <th>
-                    Tidsønske
                 </th>
                 <th>
                     Bedømmelse
@@ -84,13 +119,13 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.AltAddress)
+                            <a asp-page="/Orders/OrderDetails" asp-route-id="@item.Id">Ordredetaljer</a>
+                        </td>
+                        <td>
+                            @($"{item.TotalPrice:C}")
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Comment)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateTimeWish)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Rating)
@@ -100,3 +135,18 @@
             }
         </tbody>
     </table>
+}
+else
+{
+    <div class="jumbotron container float-right">
+        Du har ingen afsluttede ordrer endnu.
+    </div>
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

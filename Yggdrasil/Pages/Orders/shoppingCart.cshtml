@@ -3,10 +3,10 @@
 @model Yggdrasil.Pages.Orders.ShoppingCartModel
 
 @{
-    ViewData["Title"] = "indkøbskurv";
+    ViewData["Title"] = "Indkøbskurv";
 }
 
-<h1>Indkøbs Kurv</h1>
+<h1>Indkøbskurv</h1>
 <table class="table">
     <thead>
         <tr>
@@ -27,7 +27,7 @@
                     <td>@item.Ware.Id</td>
                     <td>@item.Ware.Name</td>
                     <td>@item.Ware.Description</td>
-                    <td>@item.Ware.Price</td>
+                    <td>@($"{item.Ware.Price:C}")</td>
                     <td>@item.Amount</td>
                     <td>
                         <form method="post">
@@ -68,4 +68,7 @@ else
     <h2>Total : @Model.ItemsInCart.CalculateTotalPrice(null) kr.</h2>
 }
 <a asp-page="/Wares/GetAllWares" class="button btn btn-dark btn-group-lg pull-right">Continue Shopping</a>
-<a asp-page="/Orders/CheckOut" class="button btn btn-dark btn-group-lg pull-right">Check Out</a>
+@if (Model.ItemsInCart.GetOrderedWares().Count != 0)
+{
+    <a asp-page="/Orders/CheckOut" class="button btn btn-dark btn-group-lg pull-right">Check Out</a>
+}

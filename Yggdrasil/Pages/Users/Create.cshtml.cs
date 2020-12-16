@@ -9,7 +9,7 @@ namespace Yggdrasil.Pages.Users
     public class CreateModel : PageModel
     {
         public DateTime EarliestDate = new DateTime(1900, 1, 1);
-        public DateTime LatestDate = new DateTime(2002, 12, 12);
+        public DateTime LatestDate = DateTime.Today.AddYears(-18);
 
         public string BirthDateMessage = "";
 
@@ -37,7 +37,7 @@ namespace Yggdrasil.Pages.Users
             {
                 User.Password2 = null;
                 _repository.AddUser(User);
-                return RedirectToPage("/Index");
+                return RedirectToPage("./Login");
             }
 
             BirthDateMessage = "Fødselsdatoen er ugyldig";
