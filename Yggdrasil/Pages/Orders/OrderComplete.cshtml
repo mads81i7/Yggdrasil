@@ -23,11 +23,11 @@
                 <td>@item.Ware.Id</td>
                 <td>@item.Ware.Name</td>
                 <td>@item.Ware.Description</td>
-                <td>@item.Ware.Price</td>
+                <td>@($"{item.Ware.Price:C}")</td>
                 <td>@item.Amount</td>
             </tr>
 
         }
         </tbody>
 </table>
-<h2>Total : @Model.Order.TotalPrice kr.</h2>
+<h2>Total : @($"{Model.Order.TotalPrice:C}")</h2>
