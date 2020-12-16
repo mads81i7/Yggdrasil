@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
@@ -23,17 +24,12 @@ namespace Yggdrasil.Pages.Requests
             Orders = _orderRepository.AllOrders();
 
             EmptyRequestList = true;
+        }
+
         public void OnGet()
         {
             Orders = _orderRepository.FilterOrders(Criteria);
         }
 
-        public IActionResult OnPostAccept(int id)
-        {
-            Orders[id].CourierID = _loginService.GetLoggedInUser().ID;
-            _orderRepository.EditOrder(id, Orders[id]);
-
-            return Page();
-        }
     }
 }

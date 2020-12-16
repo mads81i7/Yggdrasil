@@ -346,8 +346,6 @@
     "CourierID": 0
   },
   {
-    "DateTimeWish": "2020-12-16T13:15:00",
-    "AltAddress": null,
     "Id": 3,
     "OrderedWares": [
       {
@@ -384,6 +382,45 @@
     "Done": false,
     "Rating": 0,
     "CustomerID": 2,
+    "CourierID": 0
+  },
+  {
+    "Id": 6,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 4,
+          "Name": "Rugbrød",
+          "Price": 18.0,
+          "Description": "10 skiver, 500g, Kohberg",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "rugbroed.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 7,
+          "Name": "Vindruer",
+          "Price": 18.0,
+          "Description": "Vindruer \nProduceret i Italien",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "vindruer.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      }
+    ],
+    "TotalPrice": 30.780000000000005,
+    "Comment": "test efter merge",
+    "Done": false,
+    "Rating": 0,
+    "CustomerID": 8,
     "CourierID": 0
   }
 ]
