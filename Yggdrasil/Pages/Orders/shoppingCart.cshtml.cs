@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 using Yggdrasil.Services;
 
@@ -18,11 +17,13 @@ namespace Yggdrasil.Pages.Orders
             ItemsInCart = shoppingService;
             OItems = new List<OrderItem>();
         }
+
         public IActionResult OnGet()
         {
             OItems = ItemsInCart.GetOrderedWares();
             return Page();
         }
+
         public IActionResult OnPostRemove(int id)
         {
             ItemsInCart.DeleteWare(id);
