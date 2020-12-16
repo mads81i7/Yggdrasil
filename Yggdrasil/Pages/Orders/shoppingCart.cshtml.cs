@@ -12,6 +12,7 @@ namespace Yggdrasil.Pages.Orders
         public readonly ShoppingCartService ItemsInCart;
         private IWareCatalog repo;
         public readonly IOfferRepository OfferRepository;
+        public DiscountService discount;
 
         [BindProperty]
         public Offer Offer { get; set; }
@@ -21,12 +22,13 @@ namespace Yggdrasil.Pages.Orders
         public List<OrderItem> OItems { get; set; }
         public List<Offer> Offers { get; set; }
 
-        public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo, IOfferRepository offerRepo)
+        public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo, IOfferRepository offerRepo, DiscountService discountService)
         {
             ItemsInCart = shoppingService;
             repo = wareRepo;
             OItems = new List<OrderItem>();
             OfferRepository = offerRepo;
+            discount = discountService;
 
         }
         public IActionResult OnGet(/*int? id*/)
@@ -56,7 +58,7 @@ namespace Yggdrasil.Pages.Orders
                 foreach (var o in offers)
                 {
                     if (o.Code == Offer.Code)
-                        Code = o.Code;
+                        discount.UseOffer(o);
 
                 }
             }

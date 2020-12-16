@@ -13,6 +13,8 @@ namespace Yggdrasil.Services
         private List<OrderItem> _waresInCart;
         public readonly IOfferRepository OfferRepository;
 
+        //public Offer Offer { get; set; }
+
         public ShoppingCartService(IOfferRepository offerRepo)
         {
             _waresInCart = new List<OrderItem>();
@@ -105,6 +107,10 @@ namespace Yggdrasil.Services
                             totalPrice = totalPrice *(1- o.Discount);
                         }
                     }
+                }
+                else
+                {
+                    code = 0;
                 }
             }
 

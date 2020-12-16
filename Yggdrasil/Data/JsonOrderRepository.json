@@ -116,5 +116,46 @@
     "Rating": 0,
     "CustomerID": 3,
     "CourierID": 0
+  },
+  {
+    "DateTimeWish": "2020-12-16T13:15:00",
+    "AltAddress": null,
+    "Id": 3,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 2,
+          "Name": "Mango",
+          "Price": 20.0,
+          "Description": "Dette er en Mango",
+          "Type": 2,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "Mango.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      },
+      {
+        "Ware": {
+          "Id": 3,
+          "Name": "Mælk",
+          "Price": 8.5,
+          "Description": "Dette er mælk",
+          "Type": 0,
+          "IsVegan": false,
+          "IsOrganic": true,
+          "ImageName": "maelk.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 1
+      }
+    ],
+    "TotalPrice": 23.85,
+    "Comment": "test af rabat",
+    "Done": false,
+    "Rating": 0,
+    "CustomerID": 2,
+    "CourierID": 0
   }
 ]

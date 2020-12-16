@@ -15,18 +15,20 @@ namespace Yggdrasil.Pages.Orders
         //public Offer Offer { get; set; }
         public int Code { get; set; }
 
+        private DiscountService discount;
         private readonly ShoppingCartService _cartService;
         private readonly IOrderRepository _orderRepository;
         private readonly LoginService _login;
         //public readonly IOfferRepository OfferRepository;
         public List<OrderItem> Wares { get; set; }
 
-        public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log/*, IOfferRepository offerRepo*/)
+        public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log/*, IOfferRepository offerRepo*/, DiscountService discountService)
         {
             _cartService = itemsInCart;
             _orderRepository = repo;
             _login = log;
             //OfferRepository = offerRepo;
+            discount = discountService;
         }
 
         public IActionResult OnGet()
@@ -55,7 +57,7 @@ namespace Yggdrasil.Pages.Orders
         public IActionResult OnPostCheckout()
         {
             Order.OrderedWares = _cartService.GetOrderedWares();
-            Order.TotalPrice = _cartService.CalculateTotalPrice(Code);
+            Order.TotalPrice = _cartService.CalculateTotalPrice(discount.UsedOffer().Code);
             Order.CustomerID = _login.GetLoggedInUser().ID;
             _orderRepository.AddOrder(Order);
             _cartService.GetOrderedWares().Clear();
