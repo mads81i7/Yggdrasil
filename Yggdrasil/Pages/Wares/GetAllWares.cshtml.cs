@@ -32,6 +32,8 @@ namespace Yggdrasil.Pages.Wares
         public bool IsAdmin { get; set; }   
         [BindProperty]
         public Ware ware { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchTerm { get; set; }
 
         public IActionResult OnGet()
         {
