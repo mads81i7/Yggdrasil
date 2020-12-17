@@ -422,5 +422,30 @@
     "Rating": 0,
     "CustomerID": 8,
     "CourierID": 0
+  },
+  {
+    "Id": 7,
+    "OrderedWares": [
+      {
+        "Ware": {
+          "Id": 0,
+          "Name": "Vand",
+          "Price": 6.0,
+          "Description": "50cl, Kildevand, Aqua'Dor",
+          "Type": 4,
+          "IsVegan": true,
+          "IsOrganic": true,
+          "ImageName": "Vand.jpg",
+          "AmountSold": 0
+        },
+        "Amount": 4
+      }
+    ],
+    "TotalPrice": 24.0,
+    "Comment": null,
+    "Done": false,
+    "Rating": 0,
+    "CustomerID": 1,
+    "CourierID": 0
   }
 ]
