@@ -11,16 +11,24 @@ namespace Yggdrasil.Pages.Orders
     {
         [BindProperty]
         public Order Order { get; set; }
+        //[BindProperty]
+        //public Offer Offer { get; set; }
+        public int Code { get; set; }
 
+        private DiscountService discount;
         private readonly ShoppingCartService _cartService;
         private readonly IOrderRepository _orderRepository;
         private readonly LoginService _login;
+        //public readonly IOfferRepository OfferRepository;
+        public List<OrderItem> Wares { get; set; }
 
-        public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log)
+        public CheckOutModel(IOrderRepository repo, ShoppingCartService itemsInCart, LoginService log/*, IOfferRepository offerRepo*/, DiscountService discountService)
         {
             _cartService = itemsInCart;
             _orderRepository = repo;
             _login = log;
+            //OfferRepository = offerRepo;
+            discount = discountService;
         }
 
         public IActionResult OnGet()
@@ -30,11 +38,26 @@ namespace Yggdrasil.Pages.Orders
 
             return Page();
         }
+        //public void OnPostDiscount()
+        //{
+        //    List<Offer> offers = OfferRepository.AllOffers();
 
-        public IActionResult OnPost()
+        //    if (Offer.Code != 0)
+        //    {
+        //        foreach (var o in offers)
+        //        {
+        //            if (o.Code == Offer.Code)
+        //                Code = o.Code;
+
+        //        }
+        //    }
+
+        //}
+
+        public IActionResult OnPostCheckout()
         {
             Order.OrderedWares = _cartService.GetOrderedWares();
-            Order.TotalPrice = _cartService.CalculateTotalPrice();
+            Order.TotalPrice = _cartService.CalculateTotalPrice(discount.UsedOffer().Code);
             Order.CustomerID = _login.GetLoggedInUser().ID;
             _orderRepository.AddOrder(Order);
             _cartService.GetOrderedWares().Clear();

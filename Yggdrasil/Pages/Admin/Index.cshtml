@@ -1,13 +1,20 @@
 ﻿@page
 @using Yggdrasil.Models
-@model Yggdrasil.Pages.Users.IndexModel
+@model Yggdrasil.Pages.Admin.IndexModel
 
 @{
     ViewData["Title"] = "Aministrator";
 }
 
-<button class="accordion">Brugere</button>
-<div class="panel">
+
+<div class="tab">
+    <button class="tablinks" onclick="openPage(event, 'Brugere')" id="defaultOpen">Brugere</button>
+    <button class="tablinks" onclick="openPage(event, 'Vare')">Vare Statistik</button>
+    <button class="tablinks" onclick="openPage(event, 'Rabat')">Rabatkoder</button>
+</div>
+
+<div id="Brugere" class="tabcontent">
+    <h3>Brugere</h3>
     @foreach (var item in Model.Users)
     {
         if (item.UserType == UserTypes.Admin && item.EmailAddress != null)
@@ -27,100 +34,131 @@
     <p>Admin : @Model.AmountOfAdmins || Bud : @Model.AmountOfCouriers || Kunde : @Model.AmountOfCustomers</p>
     <table class="table table-striped" style="white-space: nowrap">
         <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Users[0].UserType)
-            </th>
-            <th>
-                Navn
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Users[0].EmailAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Users[0].Password)
-            </th>
-            <th></th>
-        </tr>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Users[0].UserType)
+                </th>
+                <th>
+                    Navn
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Users[0].EmailAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Users[0].Password)
+                </th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
 
-        @foreach (var item in Model.Users)
-        {
-            @if (item.EmailAddress != null)
+            @foreach (var item in Model.Users)
             {
-                <tr>
-                    <td>
-                        @{
-                            if (item.UserType == UserTypes.Admin)
-                            {
-                                <p>Admin</p>
+                @if (item.EmailAddress != null)
+                {
+                    <tr>
+                        <td>
+                            @{
+                                if (item.UserType == UserTypes.Admin)
+                                {
+                                    <p>Admin</p>
+                                }
+                                else if (item.UserType == UserTypes.Courier)
+                                {
+                                    <p>Bud</p>
+                                }
+                                else if (item.UserType == UserTypes.Customer)
+                                {
+                                    <p>Kunde</p>
+                                }
                             }
-                            else if (item.UserType == UserTypes.Courier)
-                            {
-                                <p>Bud</p>
-                            }
-                            else if (item.UserType == UserTypes.Customer)
-                            {
-                                <p>Kunde</p>
-                            }
-                        }
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FullName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EmailAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Password)
-                    </td>
-                    <td>
-                        <a asp-page="/Users/Details" asp-route-id="@item.ID">Detaljer</a> |
-                        <a asp-page="/Users/Edit" asp-route-id="@item.ID">Redigér</a> |
-                        <a asp-page="/Users/Delete" asp-route-id="@item.ID">Slet</a>
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td>
+                            <a asp-page="/Users/Details" asp-route-id="@item.ID">Detaljer</a> |
+                            <a asp-page="/Users/Edit" asp-route-id="@item.ID">Redigér</a> |
+                            <a asp-page="/Users/Delete" asp-route-id="@item.ID">Slet</a>
+                        </td>
+                    </tr>
+                }
             }
-        }
         </tbody>
     </table>
 </div>
 
-<button class="accordion">Varestatistik</button>
-<div class="panel">
+<div id="Vare" class="tabcontent">
+    <h3>Vare Statistik</h3>
     @foreach (Order o in Model.Orders)
     {
         if (o.OrderedWares != null)
         {
             foreach (OrderItem oi in o.OrderedWares)
             {
-                Model.Wares[oi.Ware.Id].AmountSold = Model.Wares[oi.Ware.Id].AmountSold +  1 * oi.Amount;
-            } 
+                Model.Wares[oi.Ware.Id].AmountSold = Model.Wares[oi.Ware.Id].AmountSold + 1 * oi.Amount;
+            }
         }
-        
+
     }
 
-    <h4><br/>Antal solgt</h4>
+    <h4><br />Antal solgt</h4>
     @foreach (Ware oi in Model.Wares)
     {
         <p>@oi.Name : @oi.AmountSold</p>
     }
 </div>
 
-<script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+<div id="Rabat" class="tabcontent">
+    <h3>Rabatkoder</h3>
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
+    <button class="btn button btn-dark" asp-page="./Offers/Create">Lav ny rabatkode</button>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Kode</th>
+            <th>Discount</th>
+            <th>Detaljer</th>
+            <th>Udløbs dato</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Offers)
+        {
+            <tr>
+                <td>@item.Code</td>
+                <td>@item.Discount</td>
+                <td>@item.Detail</td>
+                <td>@item.ExpiryDate</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+    <script>
+        function openPage(evt, pageName) {
+            var i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
             }
-        });
-    }
-</script>
+
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(pageName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        document.getElementById("defaultOpen").click();
+    </script>

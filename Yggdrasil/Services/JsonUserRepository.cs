@@ -8,12 +8,12 @@ namespace Yggdrasil.Services
     public class JsonUserRepository : IUserRepository
     {
         string JsonFileName = @"Data\JsonUserRepository.json";
-        private readonly IOrderRepository _orderRepository;
+        //private readonly IOrderRepository _orderRepository;
 
-        public JsonUserRepository(IOrderRepository repository)
-        {
-            _orderRepository = repository;
-        }
+        //public JsonUserRepository(IOrderRepository repository)
+        //{
+        //    _orderRepository = repository;
+        //}
 
         public List<User> GetAllUsers()
         {
@@ -67,24 +67,24 @@ namespace Yggdrasil.Services
             return new User();
         }
 
-        public double GetRatingForUser(User user)
-        {
-            int cummulativeRatings = 0;
-            int noOfRatings = 0;
+        //public double GetRatingForUser(User user)
+        //{
+        //    int cummulativeRatings = 0;
+        //    int noOfRatings = 0;
 
-            foreach (Order order in _orderRepository.AllOrders())
-            {
-                if (order.CourierID == user.ID)
-                {
-                    cummulativeRatings += order.Rating;
-                    noOfRatings++;
-                }
-            }
+        //    foreach (Order order in _orderRepository.AllOrders())
+        //    {
+        //        if (order.CourierID == user.ID)
+        //        {
+        //            cummulativeRatings += order.Rating;
+        //            noOfRatings++;
+        //        }
+        //    }
 
-            if (noOfRatings > 0)
-                return (double) cummulativeRatings / (double) noOfRatings;
+        //    if (noOfRatings > 0)
+        //        return (double) cummulativeRatings / (double) noOfRatings;
 
-            return 0.0;
-        }
+        //    return 0.0;
+        //}
     }
 }

@@ -21,5 +21,10 @@ namespace Yggdrasil
             string output = Newtonsoft.Json.JsonConvert.SerializeObject(orders, Newtonsoft.Json.Formatting.Indented);
             File.WriteAllText(jsonFileName, output);
         }
+        public static void WriteToJsonOffer(List<Offer> offers, string jsonFileName)
+        {
+            string output = Newtonsoft.Json.JsonConvert.SerializeObject(offers, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(jsonFileName, output);
+        }
     }
 }

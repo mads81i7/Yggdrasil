@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Yggdrasil.Interfaces;
 using Yggdrasil.Models;
 
 namespace Yggdrasil.Services
@@ -10,10 +11,14 @@ namespace Yggdrasil.Services
     public class ShoppingCartService
     {
         private List<OrderItem> _waresInCart;
+        public readonly IOfferRepository OfferRepository;
 
-        public ShoppingCartService()
+        //public Offer Offer { get; set; }
+
+        public ShoppingCartService(IOfferRepository offerRepo)
         {
             _waresInCart = new List<OrderItem>();
+            OfferRepository = offerRepo;
         }
 
         //public void AddWare(Ware ware)
@@ -76,12 +81,37 @@ namespace Yggdrasil.Services
             }
         }
 
-        public double CalculateTotalPrice()
+        //public double CalculateTotalPrice()
+        //{
+        //    double totalPrice = 0;
+        //    foreach (OrderItem w in _waresInCart)
+        //    {
+        //        totalPrice = totalPrice + w.Ware.Price * w.Amount;
+        //    }
+
+        //    return totalPrice;
+        //}
+        public double CalculateTotalPrice(int? code)
         {
+            List<Offer> offers = OfferRepository.AllOffers();
             double totalPrice = 0;
             foreach (OrderItem w in _waresInCart)
             {
                 totalPrice = totalPrice + w.Ware.Price * w.Amount;
+                if (code != null)
+                {
+                    foreach (var o in offers)
+                    {
+                        if (o.Code == code)
+                        {
+                            totalPrice = totalPrice *(1- o.Discount);
+                        }
+                    }
+                }
+                else
+                {
+                    code = 0;
+                }
             }
 
             return totalPrice;
