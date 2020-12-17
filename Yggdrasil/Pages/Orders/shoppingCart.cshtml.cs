@@ -16,8 +16,10 @@ namespace Yggdrasil.Pages.Orders
 
         [BindProperty]
         public Offer Offer { get; set; }
-        public Ware ware { get; set; }
         public int Code { get; set; }
+
+        public bool View;
+        public bool Wrong;
 
         public List<OrderItem> OItems { get; set; }
         public List<Offer> Offers { get; set; }
@@ -44,6 +46,13 @@ namespace Yggdrasil.Pages.Orders
             return Page();
         }
 
+        public IActionResult OnPostRCode()
+        {
+            discount.RemoveOffer();
+            OItems = ItemsInCart.GetOrderedWares();
+            return Page();
+        }
+
         public IActionResult OnPostDiscount()
         {
             List<Offer> offers = OfferRepository.AllOffers();
@@ -54,7 +63,16 @@ namespace Yggdrasil.Pages.Orders
                 foreach (var o in offers)
                 {
                     if (o.Code == Offer.Code)
+                    {
                         discount.UseOffer(o);
+                        View = true;
+                        Wrong = false;
+                    }
+                    else
+                    {
+                        View = false;
+                        Wrong = true;
+                    }
 
                 }
             }

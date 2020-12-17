@@ -45,19 +45,22 @@
 
 <form method="post">
     <div class="form-group form-inline">
-        <label for="rbt">Rabatkode</label>
-        <input asp-for="Offer.Code" class="form-control" id="rbt">
+        <label for="rbt">Rabatkode: &nbsp;</label>
+        <input asp-for="Offer.Code" class="form-control" id="rbt">&nbsp;
         <button class="btn button btn-dark" asp-page-handler="Discount">Brug</button>
     </div>
-</form>
-@if (Model.Offer != null)
-{
-    @if (Model.Offer.Discount != 0)
+    @if (Model.View)
     {
         <p style="color: #2462e5"><strong>Rabatkode accepteret</strong></p>
+        <a style="color: red; font-size: 0.8em" asp-page-handler="RCode">Fjern kode</a>
     }
+</form>
+@if (Model.Wrong)
+{
+    <p style="color: #2462e5"><strong>Rabatkode ikke korrekt</strong></p>
 }
-@*<p>Der kan bruges eventuel rabatkode på checkout siden.</p>*@
+
+
 
 @if (Model.discount.UsedOffer() != null)
 {
