@@ -181,8 +181,8 @@
     ],
     "TotalPrice": 73.0,
     "Comment": null,
-    "Done": false,
-    "Rating": 0,
+    "Done": true,
+    "Rating": 4,
     "CustomerID": 1,
     "CourierID": 1
   },
@@ -343,7 +343,7 @@
     "Done": false,
     "Rating": 0,
     "CustomerID": 3,
-    "CourierID": 0
+    "CourierID": 1
   },
   {
     "Id": 3,
