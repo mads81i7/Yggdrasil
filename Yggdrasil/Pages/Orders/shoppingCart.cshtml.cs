@@ -10,7 +10,6 @@ namespace Yggdrasil.Pages.Orders
     public class ShoppingCartModel : PageModel
     {
         public readonly ShoppingCartService ItemsInCart;
-        private IWareCatalog repo;
         public readonly IOfferRepository OfferRepository;
         public DiscountService discount;
 
@@ -24,13 +23,12 @@ namespace Yggdrasil.Pages.Orders
         public List<OrderItem> OItems { get; set; }
         public List<Offer> Offers { get; set; }
 
-        public ShoppingCartModel(ShoppingCartService shoppingService, IWareCatalog wareRepo, IOfferRepository offerRepo, DiscountService discountService)
+        public ShoppingCartModel(ShoppingCartService shoppingService, IOfferRepository offerRepo, DiscountService discountService)
         {
             ItemsInCart = shoppingService;
             OItems = new List<OrderItem>();
             OfferRepository = offerRepo;
             discount = discountService;
-
         }
 
         public IActionResult OnGet()

@@ -64,11 +64,11 @@
 
 @if (Model.discount.UsedOffer() != null)
 {
-    <h2>Total : @Model.ItemsInCart.CalculateTotalPrice(Model.discount.UsedOffer().Code) kr.</h2>
+    <h2>Total: @($"{Model.ItemsInCart.CalculateTotalPrice(Model.discount.UsedOffer().Code):C}")</h2>
 }
 else
 {
-    <h2>Total : @Model.ItemsInCart.CalculateTotalPrice(null) kr.</h2>
+    <h2>Total: @($"{Model.ItemsInCart.CalculateTotalPrice(null):C}")</h2>
 }
 <a asp-page="/Wares/GetAllWares" class="button btn btn-dark btn-group-lg pull-right">Continue Shopping</a>
 @if (Model.ItemsInCart.GetOrderedWares().Count != 0)

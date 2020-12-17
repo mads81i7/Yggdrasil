@@ -15,8 +15,14 @@
 }
 
     <form method="post">
-    <select asp-for="ware.Type" asp-items="Html.GetEnumSelectList<WareType>()">
-    </select>
+        <select asp-for="ware.Type" asp-items="Html.GetEnumSelectList<WareType>()">
+        </select>
+        <div class="input-group">
+            <input class="form-control" asp-for="SearchTerm"/>
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">SearchTerm</button>
+            </div>
+        </div>
     <button asp-page-handler="Search" class="button btn btn-dark btn-group-lg pull-right">
             Filter
         </button>

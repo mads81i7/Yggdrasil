@@ -57,7 +57,16 @@ namespace Yggdrasil.Pages.Orders
         public IActionResult OnPostCheckout()
         {
             Order.OrderedWares = _cartService.GetOrderedWares();
-            Order.TotalPrice = _cartService.CalculateTotalPrice(discount.UsedOffer().Code);
+
+            if (discount.UsedOffer() != null)
+            {
+                Order.TotalPrice = _cartService.CalculateTotalPrice(discount.UsedOffer().Code);
+            }
+            else
+            {
+                Order.TotalPrice = _cartService.CalculateTotalPrice(null);
+            }
+            
             Order.CustomerID = _login.GetLoggedInUser().ID;
             _orderRepository.AddOrder(Order);
             _cartService.GetOrderedWares().Clear();

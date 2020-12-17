@@ -17,7 +17,6 @@ namespace UnitTestYggdrasil
         public void TestRemoveUser()
         {
             // Arrange
-            _userRepository.
 
             // Act
 
@@ -29,7 +28,6 @@ namespace UnitTestYggdrasil
         public void TestEditUser()
         {
             // Arrange
-            _userRepository.
 
             // Act
 

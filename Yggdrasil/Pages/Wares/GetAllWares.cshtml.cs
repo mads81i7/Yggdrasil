@@ -29,11 +29,39 @@ namespace Yggdrasil.Pages.Wares
         public List<Ware> Wares { get; private set; }
         public List<OrderItem> CartList { get; private set; }
         public User LoggedInUser { get; set; }
-        public bool IsAdmin { get; set; }   
+        public bool IsAdmin { get; set; }
         [BindProperty]
         public Ware ware { get; set; }
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
+
+        public List<Ware> Search(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                return WaresFilter;
+            }
+
+            return FilteredWares(searchTerm);
+        }
+
+        private List<Ware> FilteredWares(string searchTerm)
+        {
+            string lowerTerm = searchTerm.ToLower();
+            //WaresFilter.Where(e => e.Name.ToLower().Contains(searchTerm))
+            if (!string.IsNullOrWhiteSpace(lowerTerm))
+            {
+                foreach (Ware w in catalog.AllWares())
+                {
+                    if (w.Name.ToLower().Contains(lowerTerm) && !WaresFilter.Contains(w))
+                    {
+                        WaresFilter.Add(w);
+                    }
+                }
+            }
+
+            return WaresFilter;
+        }
 
         public IActionResult OnGet()
         {
@@ -72,7 +100,7 @@ namespace Yggdrasil.Pages.Wares
                     {
                         if (w.Type == Models.WareType.Drink)
                         {
-                            WaresFilter.Add(w);
+                            Search(SearchTerm);
                         }
                     }
                     break;
@@ -80,9 +108,16 @@ namespace Yggdrasil.Pages.Wares
                     WaresFilter.Clear();
                     foreach (Ware w in catalog.AllWares())
                     {
-                        if (w.Type == Models.WareType.Fresh)
+                        if (!WaresFilter.Contains(w))
                         {
-                            WaresFilter.Add(w);
+                            if (w.Type == Models.WareType.Fresh)
+                            {
+                                Search(SearchTerm);
+                            }
+                        }
+                        else
+                        {
+                            break;
                         }
                     }
                     break;
@@ -92,7 +127,9 @@ namespace Yggdrasil.Pages.Wares
                     {
                         if (w.Type == Models.WareType.Canned)
                         {
-                            WaresFilter.Add(w);
+                            Search(SearchTerm);
+                            if (!WaresFilter.Contains(w))
+                                WaresFilter.Add(w);
                         }
                     }
                     break;
@@ -102,7 +139,9 @@ namespace Yggdrasil.Pages.Wares
                     {
                         if (w.Type == Models.WareType.Dairy)
                         {
-                            WaresFilter.Add(w);
+                            Search(SearchTerm);
+                            if (!WaresFilter.Contains(w))
+                                WaresFilter.Add(w);
                         }
                     }
                     break;
@@ -112,13 +151,25 @@ namespace Yggdrasil.Pages.Wares
                     {
                         if (w.Type == Models.WareType.Dry)
                         {
-                            WaresFilter.Add(w);
+                            Search(SearchTerm);
+                            if (!WaresFilter.Contains(w))
+                                WaresFilter.Add(w);
                         }
                     }
                     break;
                 case Models.WareType.All:
                     WaresFilter.Clear();
-                    WaresFilter = catalog.AllWares();
+                    if (SearchTerm == null)
+                        WaresFilter = catalog.AllWares();
+                    else
+                    {
+                        foreach (Ware w in catalog.AllWares())
+                            if (!string.IsNullOrWhiteSpace(SearchTerm) && !WaresFilter.Contains(w))
+                            {
+                                WaresFilter.Add(w);
+                            }
+                    }
+
                     break;
             }
             return Page();
